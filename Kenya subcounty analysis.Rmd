@@ -1,0 +1,1130 @@
+---
+title: "Greater Nairobi Analysis"
+output: html_document
+date: "2023-02-10"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#Load libraries
+
+library(tidyverse)
+library(here)
+library(viridis)
+library(sf)
+library(ggpp)
+library(raster)
+library(rasterVis)
+library(readxl)
+library(xml2)
+library("RColorBrewer")
+```
+
+```{r}
+## Read kenya subnational data
+
+path <- "G:\\Shared drives\\DATA_WDL\\Mpro_2.0\\01_Data\\R_2022_12_29\\2023_01_23_2017ppp\\01_inputs\\population\\World pop\\Kenya"
+
+kenya_f0 <-  raster(paste0(path, "\\ken_f_0_2020_constrained_UNadj.tif"))
+kenya_f1 <-  raster(paste0(path, "\\ken_f_1_2020_constrained_UNadj.tif"))
+kenya_f5 <-  raster(paste0(path, "\\ken_f_5_2020_constrained_UNadj.tif"))
+kenya_f10 <- raster(paste0(path, "\\ken_f_10_2020_constrained_UNadj.tif"))
+kenya_f15 <- raster(paste0(path, "\\ken_f_15_2020_constrained_UNadj.tif"))
+kenya_f20 <- raster(paste0(path, "\\ken_f_20_2020_constrained_UNadj.tif"))
+kenya_f25 <- raster(paste0(path, "\\ken_f_25_2020_constrained_UNadj.tif"))
+kenya_f30 <- raster(paste0(path, "\\ken_f_30_2020_constrained_UNadj.tif"))
+kenya_f35 <- raster(paste0(path, "\\ken_f_35_2020_constrained_UNadj.tif"))
+kenya_f40 <- raster(paste0(path, "\\ken_f_40_2020_constrained_UNadj.tif"))
+kenya_f45 <- raster(paste0(path, "\\ken_f_45_2020_constrained_UNadj.tif"))
+kenya_f50 <- raster(paste0(path, "\\ken_f_50_2020_constrained_UNadj.tif"))
+kenya_f55 <- raster(paste0(path, "\\ken_f_55_2020_constrained_UNadj.tif"))
+kenya_f60 <- raster(paste0(path, "\\ken_f_60_2020_constrained_UNadj.tif"))
+kenya_f65 <- raster(paste0(path, "\\ken_f_65_2020_constrained_UNadj.tif"))
+kenya_f70 <- raster(paste0(path, "\\ken_f_70_2020_constrained_UNadj.tif"))
+kenya_f75 <- raster(paste0(path, "\\ken_f_75_2020_constrained_UNadj.tif"))
+kenya_f80 <- raster(paste0(path, "\\ken_f_80_2020_constrained_UNadj.tif"))
+kenya_m0 <-  raster(paste0(path, "\\ken_m_0_2020_constrained_UNadj.tif"))
+kenya_m1 <-  raster(paste0(path, "\\ken_m_1_2020_constrained_UNadj.tif"))
+kenya_m5 <-  raster(paste0(path, "\\ken_m_5_2020_constrained_UNadj.tif"))
+kenya_m10 <- raster(paste0(path, "\\ken_m_10_2020_constrained_UNadj.tif"))
+kenya_m15 <- raster(paste0(path, "\\ken_m_15_2020_constrained_UNadj.tif"))
+kenya_m20 <- raster(paste0(path, "\\ken_m_20_2020_constrained_UNadj.tif"))
+kenya_m25 <- raster(paste0(path, "\\ken_m_25_2020_constrained_UNadj.tif"))
+kenya_m30 <- raster(paste0(path, "\\ken_m_30_2020_constrained_UNadj.tif"))
+kenya_m35 <- raster(paste0(path, "\\ken_m_35_2020_constrained_UNadj.tif"))
+kenya_m40 <- raster(paste0(path, "\\ken_m_40_2020_constrained_UNadj.tif"))
+kenya_m45 <- raster(paste0(path, "\\ken_m_45_2020_constrained_UNadj.tif"))
+kenya_m50 <- raster(paste0(path, "\\ken_m_50_2020_constrained_UNadj.tif"))
+kenya_m55 <- raster(paste0(path, "\\ken_m_55_2020_constrained_UNadj.tif"))
+kenya_m60 <- raster(paste0(path, "\\ken_m_60_2020_constrained_UNadj.tif"))
+kenya_m65 <- raster(paste0(path, "\\ken_m_65_2020_constrained_UNadj.tif"))
+kenya_m70 <- raster(paste0(path, "\\ken_m_70_2020_constrained_UNadj.tif"))
+kenya_m75 <- raster(paste0(path, "\\ken_m_75_2020_constrained_UNadj.tif"))
+kenya_m80 <- raster(paste0(path, "\\ken_m_80_2020_constrained_UNadj.tif"))
+
+```
+
+
+```{r}
+##Read Kenya shape file
+
+shape_kenya <- read_sf(here::here("Kenya subnational/ke_subcounty.shp"))
+
+```
+
+
+```{r}
+
+shape_nairobi <- read_sf(here::here("Greater Nairobi/greated_nairobi.shp"))
+
+```
+
+
+```{r}
+shape_kenya %>% 
+    filter(county == "Kajiado")
+```
+
+
+```{r}
+##Extract values from raster file using shape file
+
+
+library(exactextractr)
+
+#No of females(<1) 2020
+shape_kenya$pop_f0 = exact_extract(kenya_f0, shape_kenya, 'sum')
+
+#No of females(1-4) 2020
+shape_kenya$pop_f1 = exact_extract(kenya_f1, shape_kenya, 'sum')
+
+#No of females(5-9) 2020
+shape_kenya$pop_f5 = exact_extract(kenya_f5, shape_kenya, 'sum')
+
+#No of females(10-14) 2020
+shape_kenya$pop_f10 = exact_extract(kenya_f10, shape_kenya, 'sum')
+
+#No of females(15-19) 2020
+shape_kenya$pop_f15 = exact_extract(kenya_f15, shape_kenya, 'sum')
+
+#No of females(20-24) 2020
+shape_kenya$pop_f20 = exact_extract(kenya_f20, shape_kenya, 'sum')
+
+#No of females(25-29) 2020
+shape_kenya$pop_f25 = exact_extract(kenya_f25, shape_kenya, 'sum')
+
+#No of females(30-34) 2020
+shape_kenya$pop_f30 = exact_extract(kenya_f30, shape_kenya, 'sum')
+
+#No of females(35-39) 2020
+shape_kenya$pop_f35 = exact_extract(kenya_f35, shape_kenya, 'sum')
+
+#No of females(40-44) 2020
+shape_kenya$pop_f40 = exact_extract(kenya_f40, shape_kenya, 'sum')
+
+#No of females(45-49) 2020
+shape_kenya$pop_f45 = exact_extract(kenya_f45, shape_kenya, 'sum')
+
+#No of females(50-54) 2020
+shape_kenya$pop_f50 = exact_extract(kenya_f50, shape_kenya, 'sum')
+
+#No of females(55-59) 2020
+shape_kenya$pop_f55 = exact_extract(kenya_f55, shape_kenya, 'sum')
+
+#No of females(60-64) 2020
+shape_kenya$pop_f60 = exact_extract(kenya_f60, shape_kenya, 'sum')
+
+#No of females(65-69) 2020
+shape_kenya$pop_f65 = exact_extract(kenya_f65, shape_kenya, 'sum')
+
+
+#No of females(70-74) 2020
+shape_kenya$pop_f70 = exact_extract(kenya_f70, shape_kenya, 'sum')
+
+#No of females(75-79) 2020
+shape_kenya$pop_f75 = exact_extract(kenya_f75, shape_kenya, 'sum')
+
+#No of females(80+) 2020
+shape_kenya$pop_f80 = exact_extract(kenya_f80, shape_kenya, 'sum')
+
+#No of males(<1) 2020
+shape_kenya$pop_m0 = exact_extract(kenya_m0, shape_kenya, 'sum')
+
+#No of males(1-4) 2020
+shape_kenya$pop_m1 = exact_extract(kenya_m1, shape_kenya, 'sum')
+
+#No of males(5-9) 2020
+shape_kenya$pop_m5 = exact_extract(kenya_m5, shape_kenya, 'sum')
+
+#No of males(10-14) 2020
+shape_kenya$pop_m10 = exact_extract(kenya_m10, shape_kenya, 'sum')
+
+#No of males(15-19) 2020
+shape_kenya$pop_m15 = exact_extract(kenya_m15, shape_kenya, 'sum')
+
+#No of males(20-24) 2020
+shape_kenya$pop_m20 = exact_extract(kenya_m20, shape_kenya, 'sum')
+
+#No of males(25-29) 2020
+shape_kenya$pop_m25 = exact_extract(kenya_m25, shape_kenya, 'sum')
+
+#No of males(30-34) 2020
+shape_kenya$pop_m30 = exact_extract(kenya_m30, shape_kenya, 'sum')
+
+#No of females(35-39) 2020
+shape_kenya$pop_m35 = exact_extract(kenya_m35, shape_kenya, 'sum')
+
+#No of males(40-44) 2020
+shape_kenya$pop_m40 = exact_extract(kenya_m40, shape_kenya, 'sum')
+
+#No of males(45-49) 2020
+shape_kenya$pop_m45 = exact_extract(kenya_m45, shape_kenya, 'sum')
+
+#No of females(50-54) 2020
+shape_kenya$pop_m50 = exact_extract(kenya_m50, shape_kenya, 'sum')
+
+#No of males(55-59) 2020
+shape_kenya$pop_m55 = exact_extract(kenya_m55, shape_kenya, 'sum')
+
+#No of males(60-64) 2020
+shape_kenya$pop_m60 = exact_extract(kenya_m60, shape_kenya, 'sum')
+
+#No of males(65-69) 2020
+shape_kenya$pop_m65 = exact_extract(kenya_m65, shape_kenya, 'sum')
+
+
+#No of males(70-74) 2020
+shape_kenya$pop_m70 = exact_extract(kenya_m70, shape_kenya, 'sum')
+
+#No of males(75-79) 2020
+shape_kenya$pop_m75 = exact_extract(kenya_m75, shape_kenya, 'sum')
+
+#No of males(80+) 2020
+shape_kenya$pop_m80 = exact_extract(kenya_m80, shape_kenya, 'sum')
+
+```
+
+
+```{r}
+shape_kenya %>% 
+    filter(county == "Kajiado")
+
+
+```
+
+```{r}
+shape_kenya %>% 
+    st_write("Worldpop_final.csv")
+    
+```
+
+
+# Rescaling Kimabu county with 2019 census
+```{r}
+
+##Scale 2020 data using Kenya census
+shape1 <- shape_kenya %>%
+  filter(county == "Kiambu" & subcounty == "Juja Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . * 2.1691),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . * 2.0850))
+
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape2 <- shape_kenya %>%
+  filter(county == "Kiambu" & subcounty == "Kikuyu Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . * 1.3827),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . * 1.3621))
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape3 <- shape_kenya %>%
+  filter(county == "Kiambu" & subcounty == "Lari Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  0.9661),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  1.0222))
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape4 <- shape_kenya %>%
+  filter(county == "Kiambu" & subcounty == "Gatundu North Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  0.9296),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  1.0058))
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape5 <- shape_kenya %>%
+  filter(county == "Kiambu" & subcounty == "Gatundu South Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  0.9101),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  0.9894))
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape6 <- shape_kenya %>%
+  filter(county == "Kiambu" & subcounty == "Ruiru Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  1.5446),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  1.4437))
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape7 <- shape_kenya %>%
+  filter(county == "Kiambu" & subcounty == "Kiambaa Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  1.4980),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  1.4598))
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape8 <- shape_kenya %>%
+  filter(county == "Kiambu" & subcounty == "Kiambu Town Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  1.1985),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  1.1097))
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape9 <- shape_kenya %>%
+  filter(county == "Kiambu" & subcounty == "Thika Town Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . * 1.5437),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . * 1.4707))
+```
+
+
+```{r}
+shape10 <- shape_kenya %>%
+  filter(county == "Kiambu" & subcounty == "Kabete Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . * 1.2366),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . * 1.2387))
+```
+
+
+```{r}
+shape11 <- shape_kenya %>%
+  filter(county == "Kiambu" & subcounty == "Limuru Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  1.0547),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  1.0835))
+```
+
+```{r}
+shape12 <- shape_kenya %>%
+  filter(county == "Kiambu" & subcounty == "Githunguri Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  0.9675),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  1.0088))
+```
+
+
+
+# Rescaling Nairobi county with 2019 census
+
+```{r}
+
+##Scale 2020 data using Kenya census
+shape13 <- shape_kenya %>%
+  filter(county == "Nairobi" & subcounty == "Kibra  Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  0.65602),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  0.60840))
+
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape14 <- shape_kenya %>%
+  filter(county == "Nairobi" & subcounty == "Roysambu  Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *   1.61191),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *   1.39722))
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape15 <- shape_kenya %>%
+  filter(county == "Nairobi" & subcounty == "Ruaraka  Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  1.61191),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  1.39722))
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape16 <- shape_kenya %>%
+  filter(county == "Nairobi" & subcounty == "Kasarani  Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  1.61191),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  1.39722))
+```
+
+
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape17 <- shape_kenya %>%
+  filter(county == "Nairobi" & subcounty == "Dagoretti South Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  0.89731),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  0.82360))
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape18 <- shape_kenya %>%
+  filter(county == "Nairobi" & subcounty == "Dagoretti North Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  0.89731),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  0.82360))
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape19 <- shape_kenya %>%
+  filter(county == "Nairobi" & subcounty == "Embakasi South Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . * 0.86641),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . * 0.78481))
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape20 <- shape_kenya %>%
+  filter(county == "Nairobi" & subcounty == "Embakasi Central Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  0.86641),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  0.78481))
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape21 <- shape_kenya %>%
+  filter(county == "Nairobi" & subcounty == "Embakasi East Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  0.86641),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  0.78481))
+```
+
+```{r}
+##Scale 2020 data using Kenya census
+shape22 <- shape_kenya %>%
+  filter(county == "Nairobi" & subcounty == "Embakasi North Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  0.86641),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  0.78481))
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape23 <- shape_kenya %>%
+  filter(county == "Nairobi" & subcounty == "Embakasi West Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  0.86641),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  0.78481))
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape24 <- shape_kenya %>%
+  filter(county == "Nairobi" & subcounty == "Makadara  Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . * 0.70962),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . * 0.66846))
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape25 <- shape_kenya %>%
+  filter(county == "Nairobi" & subcounty == "Mathare  Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  0.77765),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  0.74547))
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape26 <- shape_kenya %>%
+  filter(county == "Nairobi" & subcounty == "Langata  Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . * 0.89101),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . * 0.77106))
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape27 <- shape_kenya %>%
+  filter(county == "Nairobi" & subcounty == "Kamukunji  Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  1.13623),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  1.06249))
+```
+
+
+```{r}
+shape28 <- shape_kenya %>%
+  filter(county == "Nairobi" & subcounty == "Westlands  Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  1.08194),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  1.01545))
+```
+
+
+```{r}
+shape29 <- shape_kenya %>%
+  filter(county == "Nairobi" & subcounty == "Starehe  Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *   0.90013),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *   0.88055))
+```
+
+
+
+# Rescaling Machakos county with 2019 census
+
+```{r}
+
+##Scale 2020 data using Kenya census
+shape30 <- shape_kenya %>%
+  filter(county == "Machakos" & subcounty == "Yatta Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  0.9561),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  0.99726))
+
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape31 <- shape_kenya %>%
+  filter(county == "Machakos" & subcounty == "Kathiani Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *   0.9233),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *   0.84740))
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape32 <- shape_kenya %>%
+  filter(county == "Machakos" & subcounty == "Matungulu Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  1.0533),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  1.07951))
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape33 <- shape_kenya %>%
+  filter(county == "Machakos" & subcounty == "Mwala Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  0.8870),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  0.93758))
+```
+
+
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape34 <- shape_kenya %>%
+  filter(county == "Machakos" & subcounty == "Athi River Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  1.8561),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  1.83507))
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape35 <- shape_kenya %>%
+  filter(county == "Machakos" & subcounty == "Masinga Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  0.9439),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  0.98423))
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape36 <- shape_kenya %>%
+  filter(county == "Machakos" & subcounty == "Kangundo Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . * 0.8775),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . * 0.88068))
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape37 <- shape_kenya %>%
+  filter(county == "Machakos" & subcounty == "Kalama Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  0.8350),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  0.77050))
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape38 <- shape_kenya %>%
+  filter(county == "Machakos" & subcounty == "Machakos Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  1.0547),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  1.00812))
+```
+
+# Rescaling Kajiado county with 2019 census
+
+```{r}
+##Scale 2020 data using Kenya census
+shape39 <- shape_kenya %>%
+  filter(county == "Kajiado" & subcounty == "Loitokitok Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  1.03963),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  0.99995))
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape40 <- shape_kenya %>%
+  filter(county == "Kajiado" & subcounty == "Kajiado East Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  1.48521),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  1.52661))
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape41 <- shape_kenya %>%
+  filter(county == "Kajiado" & subcounty == "Kajiado Central Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  1.22925),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  1.11534))
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape42 <- shape_kenya %>%
+  filter(county == "Kajiado" & subcounty == "Kajiado West Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  1.23501),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  1.17713))
+```
+
+
+```{r}
+##Scale 2020 data using Kenya census
+shape43 <- shape_kenya %>%
+  filter(county == "Kajiado" & subcounty == "Kajiado North Sub County") %>%
+  mutate(across(matches("^pop_f[0-9]{1,2}$"), ~ . *  1.22925),
+         across(matches("^pop_m[0-9]{1,2}$"), ~ . *  1.11534))
+```
+
+```{r}
+shape_all <- bind_rows(shape1,shape2,shape3,shape4,shape5,shape6,shape7,shape8,shape9,shape10,shape11,shape12,shape13,shape14,shape15,shape16,shape17,shape18,shape19,shape20,shape21,shape22,shape23,shape24,shape25,shape26,shape27,shape28,shape29,shape30,shape31,shape32,shape33,shape34,shape35,shape36,shape37,shape38,shape39,shape40,shape41,shape42,shape43)
+
+```
+
+```{r}
+shape_all %>% 
+    st_write("Worldpop_finaladj.csv")
+```
+
+```{r}
+#Read in data again
+
+shape_all <- read_csv("C:\\Users\\Mabel Karani\\Documents\\gitrepo\\Fertility-rates-India\\Worldpop_finaladj.csv")
+
+```
+
+
+
+```{r}
+#Scale to 2022 using KNBS numbers(Kiambu county)
+
+shape_kiambu2022 <- shape_all %>% 
+    filter(county == "Kiambu") %>% 
+    mutate(pop_f02022 = pop_f0*1.0031,
+           pop_f12022 = pop_f1*1.0031,
+           pop_f52022 = pop_f5*1.0275,
+           pop_f102022 = pop_f10*1.0375,
+           pop_f152022 = pop_f15*1.0512,
+           pop_f202022 = pop_f20*0.9453,
+           pop_f252022 = pop_f25*1.0295,
+           pop_f302022 = pop_f30*1.1224,
+           pop_f352022 = pop_f35*1.0608,
+           pop_f402022 = pop_f40*1.0550,
+           pop_f452022 = pop_f45*1.1527,
+           pop_f502022 = pop_f50*1.1272,
+           pop_f552022 = pop_f55*1.1087,
+           pop_f602022 = pop_f60*1.2018,
+           pop_f652022 = pop_f65*1.1016,
+           pop_f702022 = pop_f70*0.9628,
+           pop_f752022 = pop_f75*1.1226,
+           pop_f802022 = pop_f80*1.0004,
+           pop_m02022  = pop_m0*1.0071,
+           pop_m12022  = pop_m1*1.0071,
+           pop_m52022  = pop_m5*1.0207,
+           pop_m102022 = pop_m10*1.0398,
+           pop_m152022 = pop_m15*1.0359,
+           pop_m202022 = pop_m20*0.9345,
+           pop_m252022 = pop_m25*1.0256,
+           pop_m302022 = pop_m30*1.1299,
+           pop_m352022 = pop_m35*1.1018,
+           pop_m402022 = pop_m40*1.0508,
+           pop_m452022 = pop_m45*1.1609,
+           pop_m502022 = pop_m50*1.1114,
+           pop_m552022 = pop_m55*1.0809,
+           pop_m602022 = pop_m60*1.1366,
+           pop_m652022 = pop_m65*1.0490,
+           pop_m702022 = pop_m70*0.9089,
+           pop_m752022 = pop_m75*0.9592,
+           pop_m802022 = pop_m80*0.9853
+           )
+
+```
+
+
+```{r}
+#Scale to 2030 using KNBS numbers(Kiambu county)
+
+shape_kiambu2030 <- shape_kiambu2022 %>% 
+    mutate(pop_f02030  = pop_f02022*1.0099,
+           pop_f12030  = pop_f12022*1.0099,
+           pop_f52030  = pop_f52022*1.0481,
+           pop_f102030 = pop_f102022*1.1272,
+           pop_f152030 = pop_f152022*1.1738,
+           pop_f202030 = pop_f202022*1.0304,
+           pop_f252030 = pop_f252022*0.9014,
+           pop_f302030 = pop_f302022*1.2497,
+           pop_f352030 = pop_f352022*1.4190,
+           pop_f402030 = pop_f402022*1.2434,
+           pop_f452030 = pop_f452022*1.3649,
+           pop_f502030 = pop_f502022*1.6172,
+           pop_f552030 = pop_f552022*1.5142,
+           pop_f602030 = pop_f602022*1.5944,
+           pop_f652030 = pop_f652022*1.7109,
+           pop_f702030 = pop_f702022*1.1816,
+           pop_f752030 = pop_f752022*1.0552,
+           pop_f802030 = pop_f802022*1.1984,
+           pop_m02030  = pop_m02022*1.0164,
+           pop_m12030  = pop_m12022*1.0164,
+           pop_m52030  = pop_m52022*1.0489,
+           pop_m102030 = pop_m102022*1.1124,
+           pop_m152030 = pop_m152022*1.1573,
+           pop_m202030 = pop_m202022*0.9757,
+           pop_m252030 = pop_m252022*0.8694,
+           pop_m302030 = pop_m302022*1.2494,
+           pop_m352030 = pop_m352022*1.5108,
+           pop_m402030 = pop_m402022*1.3487,
+           pop_m452030 = pop_m452022*1.3644,
+           pop_m502030 = pop_m502022*1.6170,
+           pop_m552030 = pop_m552022*1.4319,
+           pop_m602030 = pop_m602022*1.4289,
+           pop_m652030 = pop_m652022*1.4539,
+           pop_m702030 = pop_m702022*0.9766,
+           pop_m752030 = pop_m752022*0.7498,
+           pop_m802030 = pop_m802022*0.9708
+           )
+```
+
+
+```{r}
+#Scale to 2022 using KNBS numbers(Nairobi county)
+
+shape_nrb2022 <- shape_all %>% 
+    filter(county == "Nairobi") %>% 
+    mutate(pop_f02022 = pop_f0*0.9838,
+           pop_f12022 = pop_f1*0.9838,
+           pop_f52022 = pop_f5*1.0139,
+           pop_f102022 = pop_f10*1.0129,
+           pop_f152022 = pop_f15*1.0543,
+           pop_f202022 = pop_f20*0.9848,
+           pop_f252022 = pop_f25*0.9717,
+           pop_f302022 = pop_f30*1.0238,
+           pop_f352022 = pop_f35*1.0478,
+           pop_f402022 = pop_f40*1.0487,
+           pop_f452022 = pop_f45*1.0939,
+           pop_f502022 = pop_f50*1.0618,
+           pop_f552022 = pop_f55*1.5379,
+           pop_f602022 = pop_f60*1.1447,
+           pop_f652022 = pop_f65*1.3448,
+           pop_f702022 = pop_f70*1.1118,
+           pop_f752022 = pop_f75*1.3255,
+           pop_f802022 = pop_f80*1.0594,
+           pop_m02022  = pop_m0*0.9964,
+           pop_m12022  = pop_m1*0.9964,
+           pop_m52022  = pop_m5*1.0092,
+           pop_m102022 = pop_m10*1.0171,
+           pop_m152022 = pop_m15*1.0383,
+           pop_m202022 = pop_m20*0.9699,
+           pop_m252022 = pop_m25*0.9725,
+           pop_m302022 = pop_m30*1.0301,
+           pop_m352022 = pop_m35*1.0565,
+           pop_m402022 = pop_m40*1.0701,
+           pop_m452022 = pop_m45*1.1227,
+           pop_m502022 = pop_m50*1.1116,
+           pop_m552022 = pop_m55*1.5232,
+           pop_m602022 = pop_m60*1.1652,
+           pop_m652022 = pop_m65*1.3210,
+           pop_m702022 = pop_m70*1.0423,
+           pop_m752022 = pop_m75*1.2510,
+           pop_m802022 = pop_m80*1.000
+           )
+```
+
+
+
+```{r}
+#Scale to 2030 using KNBS numbers(Nairobi county)
+
+shape_nrb2030 <- shape_nrb2022 %>% 
+    mutate(pop_f02030  = pop_f02022*0.9455,
+           pop_f12030  = pop_f12022*0.9455,
+           pop_f52030  = pop_f52022*0.9791,
+           pop_f102030 = pop_f102022*1.0549,
+           pop_f152030 = pop_f152022*1.1125,
+           pop_f202030 = pop_f202022*1.1104,
+           pop_f252030 = pop_f252022*0.9212,
+           pop_f302030 = pop_f302022*0.9632,
+           pop_f352030 = pop_f352022*1.1342,
+           pop_f402030 = pop_f402022*1.2005,
+           pop_f452030 = pop_f452022*1.2697,
+           pop_f502030 = pop_f502022*1.3464,
+           pop_f552030 = pop_f552022*1.7689,
+           pop_f602030 = pop_f602022*2.8030,
+           pop_f652030 = pop_f652022*1.8889,
+           pop_f702030 = pop_f702022*2.1515,
+           pop_f752030 = pop_f752022*1.7574,
+           pop_f802030 = pop_f802022*1.6606,
+           pop_m02030  = pop_m02022*0.9643,
+           pop_m12030  = pop_m12022*0.9643,
+           pop_m52030  = pop_m52022*1.0051,
+           pop_m102030 = pop_m102022*1.0492,
+           pop_m152030 = pop_m152022*1.1011,
+           pop_m202030 = pop_m202022*1.0451,
+           pop_m252030 = pop_m252022*0.8860,
+           pop_m302030 = pop_m302022*0.9727,
+           pop_m352030 = pop_m352022*1.1623,
+           pop_m402030 = pop_m402022*1.2547,
+           pop_m452030 = pop_m452022*1.3689,
+           pop_m502030 = pop_m502022*1.5033,
+           pop_m552030 = pop_m552022*1.9415,
+           pop_m602030 = pop_m602022*2.8012,
+           pop_m652030 = pop_m652022*1.9348,
+           pop_m702030 = pop_m702022*1.9282,
+           pop_m752030 = pop_m752022*1.4560,
+           pop_m802030 = pop_m802022*1.3748
+           )
+```
+
+
+
+```{r}
+#Scale to 2022 using KNBS numbers(Machakos county)
+
+shape_mach2022 <- shape_all %>% 
+    filter(county == "Machakos") %>% 
+    mutate(pop_f02022 = pop_f0*0.9887,
+           pop_f12022 = pop_f1*0.9887,
+           pop_f52022 = pop_f5*1.0167,
+           pop_f102022 = pop_f10*1.0010,
+           pop_f152022 = pop_f15*1.0036,
+           pop_f202022 = pop_f20*1.0004,
+           pop_f252022 = pop_f25*1.0008,
+           pop_f302022 = pop_f30*1.0648,
+           pop_f352022 = pop_f35*1.0077,
+           pop_f402022 = pop_f40*1.0531,
+           pop_f452022 = pop_f45*1.0588,
+           pop_f502022 = pop_f50*1.0837,
+           pop_f552022 = pop_f55*1.1093,
+           pop_f602022 = pop_f60*1.0085,
+           pop_f652022 = pop_f65*1.0955,
+           pop_f702022 = pop_f70*1.0162,
+           pop_f752022 = pop_f75*1.1957,
+           pop_f802022 = pop_f80*0.9850,
+           pop_m02022  = pop_m0*0.9949,
+           pop_m12022  = pop_m1*0.9949,
+           pop_m52022  = pop_m5*1.0090,
+           pop_m102022 = pop_m10*1.0007,
+           pop_m152022 = pop_m15*1.0094,
+           pop_m202022 = pop_m20*1.0013,
+           pop_m252022 = pop_m25*1.0069,
+           pop_m302022 = pop_m30*1.0772,
+           pop_m352022 = pop_m35*1.0198,
+           pop_m402022 = pop_m40*1.0574,
+           pop_m452022 = pop_m45*1.0458,
+           pop_m502022 = pop_m50*1.0983,
+           pop_m552022 = pop_m55*1.0753,
+           pop_m602022 = pop_m60*0.9862,
+           pop_m652022 = pop_m65*1.0401,
+           pop_m702022 = pop_m70*0.9273,
+           pop_m752022 = pop_m75*1.0680,
+           pop_m802022 = pop_m80*0.9485
+           )
+```
+
+
+
+```{r}
+#Scale to 2030 using KNBS numbers(Machakos county)
+
+shape_mach2030 <- shape_mach2022 %>% 
+    mutate(pop_f02030  = pop_f02022*0.9433,
+           pop_f12030  = pop_f12022*0.9433,
+           pop_f52030  = pop_f52022*0.9957,
+           pop_f102030 = pop_f102022*1.0436,
+           pop_f152030 = pop_f152022*1.0078,
+           pop_f202030 = pop_f202022*1.0095,
+           pop_f252030 = pop_f252022*1.0026,
+           pop_f302030 = pop_f302022*1.0937,
+           pop_f352030 = pop_f352022*1.1756,
+           pop_f402030 = pop_f402022*1.0971,
+           pop_f452030 = pop_f452022*1.2274,
+           pop_f502030 = pop_f502022*1.2797,
+           pop_f552030 = pop_f552022*1.3893,
+           pop_f602030 = pop_f602022*1.2904,
+           pop_f652030 = pop_f652022*1.1510,
+           pop_f702030 = pop_f702022*1.2673,
+           pop_f752030 = pop_f752022*1.2948,
+           pop_f802030 = pop_f802022*1.1823,
+           pop_m02030  = pop_m02022*0.9525,
+           pop_m12030  = pop_m12022*0.9525,
+           pop_m52030  = pop_m52022*1.0003,
+           pop_m102030 = pop_m102022*1.0237,
+           pop_m152030 = pop_m152022*1.0160,
+           pop_m202030 = pop_m202022*1.0256,
+           pop_m252030 = pop_m252022*1.0140,
+           pop_m302030 = pop_m302022*1.1271,
+           pop_m352030 = pop_m352022*1.2286,
+           pop_m402030 = pop_m402022*1.1365,
+           pop_m452030 = pop_m452022*1.2201,
+           pop_m502030 = pop_m502022*1.2654,
+           pop_m552030 = pop_m552022*1.3840,
+           pop_m602030 = pop_m602022*1.1661,
+           pop_m652030 = pop_m652022*1.0277,
+           pop_m702030 = pop_m702022*0.9840,
+           pop_m752030 = pop_m752022*0.9127,
+           pop_m802030 = pop_m802022*0.8774
+           )
+```
+
+
+```{r}
+#Scale to 2022 using KNBS numbers(Kajiado county)
+
+shape_kaj2022 <- shape_all %>% 
+    filter(county == "Kajiado") %>% 
+    mutate(pop_f02022 = pop_f0*1.0090,
+           pop_f12022 = pop_f1*1.0090,
+           pop_f52022 = pop_f5*1.0204,
+           pop_f102022 = pop_f10*1.0202,
+           pop_f152022 = pop_f15*1.0462,
+           pop_f202022 = pop_f20*0.9954,
+           pop_f252022 = pop_f25*1.0535,
+           pop_f302022 = pop_f30*1.0816,
+           pop_f352022 = pop_f35*1.0989,
+           pop_f402022 = pop_f40*1.0900,
+           pop_f452022 = pop_f45*1.0891,
+           pop_f502022 = pop_f50*1.2809,
+           pop_f552022 = pop_f55*1.1585,
+           pop_f602022 = pop_f60*1.1298,
+           pop_f652022 = pop_f65*1.1663,
+           pop_f702022 = pop_f70*0.9591,
+           pop_f752022 = pop_f75*1.2427,
+           pop_f802022 = pop_f80*1.0348,
+           pop_m02022  = pop_m0*1.0287,
+           pop_m12022  = pop_m1*1.0287,
+           pop_m52022  = pop_m5*1.0132,
+           pop_m102022 = pop_m10*1.0126,
+           pop_m152022 = pop_m15*1.0495,
+           pop_m202022 = pop_m20*0.9925,
+           pop_m252022 = pop_m25*1.0259,
+           pop_m302022 = pop_m30*1.1281,
+           pop_m352022 = pop_m35*1.1027,
+           pop_m402022 = pop_m40*1.1052,
+           pop_m452022 = pop_m45*1.1168,
+           pop_m502022 = pop_m50*1.3034,
+           pop_m552022 = pop_m55*1.1577,
+           pop_m602022 = pop_m60*1.0712,
+           pop_m652022 = pop_m65*1.1304,
+           pop_m702022 = pop_m70*0.9151,
+           pop_m752022 = pop_m75*1.1690,
+           pop_m802022 = pop_m80*1.0018
+           )
+```
+
+
+
+```{r}
+#Scale to 2030 using KNBS numbers(Kajiado county)
+
+shape_kaj2030 <- shape_kaj2022 %>% 
+    mutate(pop_f02030  = pop_f02022*1.0190,
+           pop_f12030  = pop_f12022*1.0190,
+           pop_f52030  = pop_f52022*1.0532,
+           pop_f102030 = pop_f102022*1.0827,
+           pop_f152030 = pop_f152022*1.1202,
+           pop_f202030 = pop_f202022*1.1079,
+           pop_f252030 = pop_f252022*1.0662,
+           pop_f302030 = pop_f302022*1.2625,
+           pop_f352030 = pop_f352022*1.3674,
+           pop_f402030 = pop_f402022*1.4045,
+           pop_f452030 = pop_f452022*1.3771,
+           pop_f502030 = pop_f502022*1.6255,
+           pop_f552030 = pop_f552022*2.0568,
+           pop_f602030 = pop_f602022*1.6399,
+           pop_f652030 = pop_f652022*1.6061,
+           pop_f702030 = pop_f702022*1.3274,
+           pop_f752030 = pop_f752022*1.1633,
+           pop_f802030 = pop_f802022*1.4405,
+           pop_m02030  = pop_m02022*1.0478,
+           pop_m12030  = pop_m12022*1.0478,
+           pop_m52030  = pop_m52022*1.0930,
+           pop_m102030 = pop_m102022*1.0526,
+           pop_m152030 = pop_m152022*1.1046,
+           pop_m202030 = pop_m202022*1.1108,
+           pop_m252030 = pop_m252022*1.0203,
+           pop_m302030 = pop_m302022*1.2471,
+           pop_m352030 = pop_m352022*1.5062,
+           pop_m402030 = pop_m402022*1.4397,
+           pop_m452030 = pop_m452022*1.4636,
+           pop_m502030 = pop_m502022*1.7433,
+           pop_m552030 = pop_m552022*2.1277,
+           pop_m602030 = pop_m602022*1.5367,
+           pop_m652030 = pop_m652022*1.3927,
+           pop_m702030 = pop_m702022*1.1594,
+           pop_m752030 = pop_m752022*0.9779,
+           pop_m802030 = pop_m802022*1.1876
+           )
+```
+
+
+
+```{r}
+#Merge the two datasets(Kiambu and Nairobi subcounties)
+
+shape_finalken <- rbind(shape_kiambu2030, shape_nrb2030, shape_mach2030, shape_kaj2030)
+
+```
+
+
+
+```{r}
+#Get the total pop 15 years and older in 2022 and 2030
+
+shape_kenyatotal <- shape_finalken %>% 
+  mutate(Totpop_2020 = rowSums(across(pop_f0:pop_m80), na.rm = TRUE),
+         Totpop_2022 = rowSums(across(pop_f02022:pop_m802022), na.rm = TRUE),
+         Totpop_2030 = rowSums(across(pop_f02030:pop_m802030), na.rm = TRUE),
+         cons_class12 = Totpop_2022*0.3492445,
+         cons_class40 = Totpop_2022*0.0761172,
+         cons_class80 = Totpop_2022*0.015514346,
+         cons_class12_2030 = Totpop_2030*0.404520513,
+         cons_class40_2030 = Totpop_2030*0.1145784,
+         cons_class80_2030 = Totpop_2030*0.023035589,
+         pop2020_f = rowSums(across(pop_f0:pop_f80), na.rm = TRUE),
+         pop2020_m = rowSums(across(pop_m0:pop_m80), na.rm = TRUE),
+         pop2022_f = rowSums(across(pop_f152022:pop_f802022), na.rm = TRUE),
+         pop2022_m = rowSums(across(pop_m152022:pop_m802022), na.rm = TRUE),
+         pop2030_f = rowSums(across(pop_f152030:pop_f802030), na.rm = TRUE),
+         pop2030_m = rowSums(across(pop_m152030:pop_m802030), na.rm = TRUE))
+
+
+
+```
+
+
+
+
+
+```{r}
+#Apply loreal consumer shares(2022 and 2030) to subcounty data
+
+shape_fincons <- shape_kenyatotal %>% 
+    mutate(Females_2022_12USD = cons_class12*0.4577,
+           Males_2022_12USD = cons_class12*0.5136,
+           Females_2022_40USD = cons_class40*0.3484,
+           Males_2022_40USD = cons_class40*0.4017,
+           Females_2022_80USD = cons_class80*0.3484,
+           Males_2022_80USD = cons_class80*0.40167,
+           Females_2030_12USD = cons_class12_2030*0.4615,
+           Males_2030_12USD = cons_class12_2030*0.5138,
+           Females_2030_40USD = cons_class40_2030*0.3575,
+           Males_2030_40USD = cons_class40_2030*0.4083,
+           Females_2030_80USD = cons_class80_2030*0.3575,
+           Males_2030_80USD = cons_class80_2030*0.4083)
+
+```
+
+
+```{r}
+shape_kenplot <- shape_fincons %>% 
+    mutate(pop2022_12 = rowSums(across(Females_2022_12USD:Males_2022_12USD), na.rm = TRUE),
+           pop2022_40 = rowSums(across(Females_2022_40USD:Males_2022_80USD), na.rm = TRUE),
+           pop2030_12 = rowSums(across(Females_2030_12USD:Males_2030_12USD), na.rm = TRUE),
+           pop2030_40 = rowSums(across(Females_2030_40USD:Males_2030_80USD), na.rm = TRUE))
+    
+```
+
+
+```{r}
+shape_fincons %>% 
+    st_write("ken_cons_class.csv")
+```
+
+
+
+```{r}
+library(dplyr)
+
+shape_fincons %>% 
+    st_write(paste0(path, "\\greaternairobi_final.csv"))
+```
+##Map
+
+
+```{r}
+options(scipen=999, digits = 2)
+
+shape_kenplot %>% 
+    filter(subcounty %in% c("Kiambu Town Sub County","Thika Town Sub County", "Limuru Sub County", "Ruiru Sub County", "Kikuyu Sub County", "Githunguri Sub County", "Kajiado North Sub County", "Kajiado East Sub County", "Athi River Sub County", "Machakos Sub County", "Kangundo Sub County")) %>% 
+  ggplot() + 
+  geom_sf(mapping = aes(fill = pop2022_40), show.legend = TRUE) +
+  geom_sf_text(aes(label = str_remove(subcounty, " Sub County")), size = 2.5) + # remove " sub county" from subcounty names and adjust label size
+  coord_sf() +
+  theme(axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks = element_blank(),
+        rect = element_blank()) +
+  labs(fill = "Total $40+ population in 2022") +
+  scale_fill_viridis(option = "plasma", direction = -1) +
+  theme(plot.title = element_text(size = 15, face = "bold")) + # adjust plot subtitle size
+  ggtitle("$40+ population in 2022") 
+
+ggsave("kensubcounty_consumer class.png", width = 14, height = 12, dpi = 300, bg = "white" )
+
+
+
+```
+
+```{r}
+
+shape_kenplot %>% 
+    filter(subcounty %in% c("Kiambu Town Sub County","Thika Town Sub County", "Limuru Sub County", "Ruiru Sub County", "Kikuyu Sub County", "Githunguri Sub County", "Kajiado North Sub County", "Kajiado East Sub County", "Athi River Sub County", "Machakos Sub County", "Kangundo Sub County")) %>% 
+  ggplot() + 
+  geom_sf(mapping = aes(fill = pop2030_40), show.legend = TRUE) +
+  geom_sf_text(aes(label = str_remove(subcounty, " Sub County")), size = 2.5) + # remove " sub county" from subcounty names and adjust label size
+  coord_sf() +
+  theme(axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks = element_blank(),
+        rect = element_blank()) +
+  labs(fill = "Total $40+ population in 2030") +
+  scale_fill_viridis(option = "plasma", direction = -1) +
+  theme(plot.title = element_text(size = 15, face = "bold")) + # adjust plot subtitle size
+  ggtitle("$40+ population in 2030") 
+
+ggsave("kensubcounty_consumer2030 class.png", width = 14, height = 12, dpi = 300, bg = "white" )
+
+```
+

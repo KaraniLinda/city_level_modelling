@@ -1,0 +1,56 @@
+---
+title: "tz_cons_spending"
+output: html_document
+date: "2023-03-30"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+#Load libraries
+
+library(tidyverse)
+library(here)
+library(viridis)
+library(sf)
+library(ggpp)
+library(raster)
+library(rasterVis)
+library(readxl)
+library(xml2)
+library("RColorBrewer")
+```
+
+
+```{r}
+#Load tz population data
+
+tz_pop <- raster("tza_ppp_2020_UNadj_constrained.tif")
+shape_tz <- read_sf(here::here("tz_shape/tza_admbnda_adm2_20181019.shp"))
+
+```
+
+
+```{r}
+##Extract values from raster file using shape file
+
+
+library(exactextractr)
+
+shape_tz$pop_2020 <- exact_extract(tz_pop, shape_tz, 'sum')
+
+
+```
+```{r}
+#Total Dares salaam population 2020
+
+shape_tz %>% 
+    filter(ADM1_EN == "Dar-es-salaam") %>% 
+    summarise(tot = sum(pop_2020))
+
+```
+
+
