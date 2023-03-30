@@ -29,8 +29,7 @@ library("RColorBrewer")
 #Load tz population data
 
 tz_pop <- raster("tza_ppp_2020_UNadj_constrained.tif")
-shape_tz <- read_sf(here::here("tz_shape/tza_admbnda_adm2_20181019.shp"))
-
+shape_tz <- read_sf(here::here("tz_shape/tza_admbnda_adm3_20181019.shp")) 
 ```
 
 
@@ -42,8 +41,12 @@ library(exactextractr)
 
 shape_tz$pop_2020 <- exact_extract(tz_pop, shape_tz, 'sum')
 
+shape_tz %>% 
+    st_write("tz_pop_2020.csv")
 
 ```
+
+
 ```{r}
 #Total Dares salaam population 2020
 
@@ -53,4 +56,30 @@ shape_tz %>%
 
 ```
 
+
+```{r}
+#scale population to 2022 and 2030
+
+shape_tz <- shape_tz %>% 
+    mutate(pop_2022 = pop_2020* 1.020971,
+           pop_2030 = pop_2020* 1.4901893)
+```
+
+```{r}
+#Get consumer class breakdown
+
+shape_tz <- shape_tz %>% 
+    mutate(cons_class12 = pop_2022*0.155983045,
+           cons_class40 = pop_2022*0.012511521,
+           cons_class80 = pop_2022*0.003190343,
+           cons_class12_2030 = pop_2030*0.25865929,
+           cons_class40_2030 = pop_2030*0.020396116,
+           cons_class80_2030 = pop_2030*0.005052277)
+    
+
+```
+
+```{r}
+
+```
 
