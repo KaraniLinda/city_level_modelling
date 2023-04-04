@@ -1,5 +1,5 @@
 ---
-title: "tz_cons_spending"
+title: "subnational_cons_spending"
 output: html_document
 date: "2023-03-30"
 ---
@@ -26,11 +26,25 @@ library("RColorBrewer")
 
 
 ```{r}
-#Load tz population data
+
+path <- "G:\\Shared drives\\DATA_WDL\\Mpro_2.0\\01_Data\\R_2022_12_29\\2023_01_23_2017ppp\\01_inputs\\population\\World pop\\Ethiopia"
+
+
+
+#Load tz population data and shape file
+
 
 tz_pop <- raster("tza_ppp_2020_UNadj_constrained.tif")
 shape_tz <- read_sf(here::here("tz_shape/tza_admbnda_adm3_20181019.shp")) 
+
+#Load Ethiopia population data and shape file
+
+eth_pop <-  raster(paste0(path, "\\eth_ppp_2020_UNadj_constrained.tif"))
+shape_eth <- read_sf(here::here("eth_shape/Eth_Woreda_2013.shp")) 
+
 ```
+
+
 
 ## Greater Dar-es-salaam modelling
 ```{r}
@@ -102,4 +116,78 @@ shape_tz <- shape_tz %>%
 shape_tz %>% 
     st_write("fin_con_tz.csv")
 ```
+
+
+## Greater Addis consumer spending
+```{r}
+##Extract values from raster file using shape file
+
+
+library(exactextractr)
+
+shape_eth$pop_2020 <- exact_extract(eth_pop, shape_eth, 'sum')
+
+shape_eth %>% 
+    st_write("eth_pop_2020.csv")
+
+```
+
+
+```{r}
+#Total Addis Ababa population 2020
+
+shape_eth %>% 
+    filter(REGIONNAME == "Addis Ababa") %>% 
+    summarise(tot = sum(pop_2020))
+
+```
+
+
+```{r}
+#scale population to 2022 and 2030
+
+shape_eth <- shape_eth %>% 
+    mutate(pop_2022 = pop_2020* 1.326136514,
+           pop_2030 = pop_2020* 1.864508179)
+```
+
+
+
+```{r}
+#Get consumer class breakdown
+
+shape_eth <- shape_eth %>% 
+    mutate(cons_class12 = pop_2022*0.296895518,
+           cons_class40 = pop_2022*0.01448376,
+           cons_class80 = pop_2022*0.013873240,
+           cons_class12_2030 = pop_2030*0.606674807,
+           cons_class40_2030 = pop_2030*0.050651533,
+           cons_class80_2030 = pop_2030*0.011372521)
+    
+
+```
+
+```{r}
+#Get consumer class breakdown for 15 + year old
+
+shape_eth <- shape_eth %>% 
+     mutate(Females_2022_12USD = cons_class12*0.360033924,
+           Males_2022_12USD = cons_class12*0.384913863,
+           Females_2022_40USD = cons_class40*0.360026466,
+           Males_2022_40USD = cons_class40*0.384916272,
+           Females_2022_80USD = cons_class80*0.360052913,
+           Males_2022_80USD = cons_class80*0.384881517,
+           Females_2030_12USD = cons_class12_2030*0.368186253,
+           Males_2030_12USD = cons_class12_2030*0.387125694,
+           Females_2030_40USD = cons_class40_2030*0.368173541,
+           Males_2030_40USD = cons_class40_2030*0.387140555,
+           Females_2030_80USD = cons_class80_2030*0.368200755,
+           Males_2030_80USD = cons_class80_2030*0.387146673)
+
+```
+
+```{r}
+shape_tz %>% 
+    st_write("fin_con_tz.csv")
+````
 

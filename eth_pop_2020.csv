@@ -1,0 +1,700 @@
+OBJECTID,REGIONNAME,ZONENAME,WOREDANAME,REG_P_CODE,ZON_P_CODE,WOR_P_CODE,REG_Pcode,HRname,HRpcode,HRparent,DRMF_Name,pop_2020
+"1",Addis Ababa,Region 14,Nefas Silk,"14","1401","140102",ET14,Nefas Silk,ET140102,ET1401,,479262.65625
+"2",Addis Ababa,Region 14,Bole,"14","1401","140104",ET14,Bole,ET140104,ET1401,,458709
+"3",Addis Ababa,Region 14,Lideta,"14","1401","140105",ET14,Lideta,ET140105,ET1401,,300521.53125
+"4",Addis Ababa,Region 14,Kirkos,"14","1401","140106",ET14,Kirkos,ET140106,ET1401,,307812.25
+"5",Addis Ababa,Region 14,Yeka,"14","1401","140107",ET14,Yeka,ET140107,ET1401,,485744.875
+"6",Addis Ababa,Region 14,Addis Ketema,"14","1401","140108",ET14,Addis Ketema,ET140108,ET1401,,355207.1875
+"7",Addis Ababa,Region 14,Arada,"14","1401","140109",ET14,Arada,ET140109,ET1401,,291552.125
+"8",Addis Ababa,Region 14,Gulele,"14","1401","140110",ET14,Gulele,ET140110,ET1401,,360386.59375
+"9",Tigray,Central,Adwa,"01","0102","010204",ET01,Adwa,ET010204,ET0102,Adwa,213533.59375
+"10",Tigray,Central,Ahferom,"01","0102","010202",ET01,Ahferom,ET010202,ET0102,Ahferom,263692
+"11",Tigray,Southern,Alaje,"01","0104","010404",ET01,Alaje,ET010404,ET0104,,164590.125
+"12",Tigray,Southern,Alamata,"01","0104","010407",ET01,Alamata,ET010407,ET0104,Alamata,180806.984375
+"13",Tigray,North Western,Asgede Tsimbila,"01","0101","010105",ET01,Asgede Tsimbila,ET010105,ET0101,,206790.796875
+"14",Tigray,"Eastern
+",Atsbi Wenberta,"01","0103","010307",ET01,Atsbi Wenberta,ET010307,ET0103,Atsbi Wenberta,172027.015625
+"15",Tigray,Central,Degua Temben,"01","0102","010209",ET01,Degua Temben,ET010209,ET0102,,172201.125
+"16",Tigray,Southern,Enderta,"01","0104","010402",ET01,Enderta,ET010402,ET0104,Enderta,501604.9375
+"17",Tigray,"Eastern
+",Erob,"01","0103","010302",ET01,Erob,ET010302,ET0103,Erob,37801.73046875
+"18",Tigray,"Eastern
+",Ganta Afeshum,"01","0103","010304",ET01,Ganta Afeshum,ET010304,ET0103,Ganta Afeshum,221971.703125
+"19",Tigray,"Eastern
+",Gulomekeda,"01","0103","010301",ET01,Gulomekeda,ET010301,ET0103,Gulomekeda,125204.4296875
+"20",Tigray,"Eastern
+",Hawzen,"01","0103","010305",ET01,Hawzen,ET010305,ET0103,Hawzen,180176.609375
+"21",Tigray,Southern,Hintalo Wejirat,"01","0104","010403",ET01,Hintalo Wejirat,ET010403,ET0104,,234075.40625
+"22",Tigray,Western,Kafta Humera,"01","0105","010501",ET01,Kafta Humera,ET010501,ET0105,,171181.859375
+"23",Tigray,"Eastern
+",Kelete Awelallo,"01","0103","010306",ET01,Kelete Awelallo,ET010306,ET0103,Kelete Awelallo,197645.25
+"24",Tigray,Central,Kola Temben,"01","0102","010208",ET01,Kola Temben,ET010208,ET0102,Kola Temben,229192.65625
+"25",Tigray,North Western,Laelay Adiyabo,"01","0101","010102",ET01,Laelay Adiyabo,ET010102,ET0101,,172586.703125
+"26",Tigray,Central,Laelay Maychew,"01","0102","010205",ET01,Laelay Maychew,ET010205,ET0102,,178945.34375
+"27",Tigray,North Western,Medebay Zana,"01","0101","010103",ET01,Medebay Zana,ET010103,ET0101,Medebay Zana,190336.65625
+"28",Tigray,Central,Mereb Leke,"01","0102","010201",ET01,Mereb Leke,ET010201,ET0102,,162938.203125
+"29",Tigray,Central,Naeder Adet,"01","0102","010207",ET01,Naeder Adet,ET010207,ET0102,Naeder Adet,159624.453125
+"30",Tigray,Southern,Ofla,"01","0104","010408",ET01,Ofla,ET010408,ET0104,Ofla,219450.25
+"31",Tigray,"Eastern
+",Saesie Tsaedaemba,"01","0103","010303",ET01,Saesie Tsaedaemba,ET010303,ET0103,Saesie Tsaedaemba,211870.875
+"32",Tigray,Southern,Saharti Samre,"01","0104","010401",ET01,Saharti Samre,ET010401,ET0104,Saharti Samre,189869.125
+"33",Tigray,North Western,Tahtay Adiyabo,"01","0101","010101",ET01,Tahtay Adiyabo,ET010101,ET0101,Tahtay Adiyabo,162496.75
+"34",Tigray,North Western,Tahtay Koraro,"01","0101","010104",ET01,Tahtay Koraro,ET010104,ET0101,Tahtay Koraro,177803.71875
+"35",Tigray,Central,Tahtay Maychew,"01","0102","010206",ET01,Tahtay Maychew,ET010206,ET0102,,151234.78125
+"36",Tigray,Central,Tanqua Abergele,"01","0102","010210",ET01,Tanqua Abergele,ET010210,ET0102,Tanqua Abergele,143104.65625
+"37",Tigray,Western,Tsegede,"01","0105","010503",ET01,Tsegede,ET010503,ET0105,,158209.109375
+"38",Tigray,North Western,Tselemti,"01","0101","010106",ET01,Tselemti,ET010106,ET0101,Tselemti,210923.421875
+"39",Tigray,Western,Welkait,"01","0105","010502",ET01,Welkait,ET010502,ET0105,,210968.125
+"40",Tigray,Central,Werei Leke,"01","0102","010203",ET01,Werei Leke,ET010203,ET0102,,222892.65625
+"41",Tigray,Southern,Endamehoni,"01","0104","010405",ET01,Endamehoni,ET010405,ET0104,Endamehoni,163858.6875
+"42",Tigray,Southern,Raya Azebo,"01","0104","010406",ET01,Raya Azebo,ET010406,ET0104,Raya Azebo,206373.5625
+"43",Somali,Siti,Ayisha,"05","0501","050101",ET05,Ayisha,ET050101,ET0501,,89147.6171875
+"44",Somali,Siti,Erer,"05","0501","050104",ET05,Erer,ET050104,ET0501,Erer,121101.75
+"45",Somali,Siti,Afdem,"05","0501","050106",ET05,Afdem,ET050106,ET0501,Afdem,175468.28125
+"46",Somali,Siti,Shinile,"05","0501","050103",ET05,Shinile,ET050103,ET0501,Shinile,160273.796875
+"47",Dire Dawa,Dire Dawa,Dire Dawa/Town,"15","1501","150101",ET15,Dire Dawa/Town,ET150101,ET1501,,26243.61328125
+"48",Somali,Fafan,Aw-bare,"05","0502","050205",ET05,Aw-bare,ET050205,ET0502,,521429.4375
+"49",Somali,Siti,Dembel,"05","0501","050102",ET05,Dembel,ET050102,ET0501,Dembel,128107.3671875
+"50",Somali,Siti,Miesso,"05","0501","050107",ET05,Miesso,ET050107,ET0501,Miesso,178314.3125
+"51",Somali,Fafan,Jijiga,"05","0502","050204",ET05,Jijiga,ET050204,ET0502,,433121.6875
+"52",Dire Dawa,Dire Dawa,Dire Dawa,"15","1501","150102",ET15,Dire Dawa,ET150102,ET1501,Dire Dawa,493645.40625
+"53",Somali,Fafan,Kebribeyah,"05","0502","050206",ET05,Kebribeyah,ET050206,ET0502,,259554.8125
+"54",Somali,Fafan,Hareshen,"05","0502","050207",ET05,Hareshen,ET050207,ET0502,,120736.9296875
+"55",Hareri,Hareri,Harar,"13","1301","130101",ET13,Harar,ET130101,ET1301,Harari,285557.71875
+"56",Somali,Fafan,Gursum,"05","0502","050202",ET05,Gursum,ET050202,ET0502,Gursum,43225.18359375
+"57",Somali,Nogob,Dihun,"05","0504","050406",ET05,Dihun,ET050406,ET0504,Dihun,38981.765625
+"58",Somali,Doolo,Geladin,"05","0507","050703",ET05,Geladin,ET050703,ET0507,,151705.28125
+"59",Somali,Fafan,Babile,"05","0502","050201",ET05,Babile,ET050201,ET0502,Babile,120159.5234375
+"60",Somali,Jarar,Degehabur,"05","0503","050302",ET05,Degehabur,ET050302,ET0503,Degehabur,181413.09375
+"61",Somali,Jarar,Gashamo,"05","0503","050304",ET05,Gashamo,ET050304,ET0503,Gashamo,144889.640625
+"62",Somali,Jarar,Degehamedo,"05","0503","050301",ET05,Degehamedo,ET050301,ET0503,,91093.8828125
+"63",Somali,Doolo,Danot,"05","0507","050701",ET05,Danot,ET050701,ET0507,Danot,69783.6328125
+"64",Somali,Nogob,Fik,"05","0504","050402",ET05,Fik,ET050402,ET0504,,202772.59375
+"65",Somali,Doolo,Boh,"05","0507","050702",ET05,Boh,ET050702,ET0507,,144620.703125
+"66",Somali,Nogob,Hamero,"05","0504","050404",ET05,Hamero,ET050404,ET0504,Hamero,94654.9375
+"67",Somali,Nogob,Segeg,"05","0504","050405",ET05,Segeg,ET050405,ET0504,Segeg,37768.07421875
+"68",Somali,Nogob,Gerbo,"05","0504","050403",ET05,Gerbo,ET050403,ET0504,Gerbo,70649.1484375
+"69",Somali,Korahe,Shekosh,"05","0505","050501",ET05,Shekosh,ET050501,ET0505,,75834.8203125
+"70",Somali,Doolo,Warder,"05","0507","050704",ET05,Warder,ET050704,ET0507,Warder,90533.7734375
+"71",Somali,Korahe,Kebridehar,"05","0505","050502",ET05,Kebridehar,ET050502,ET0505,,212840.65625
+"72",Somali,Korahe,Shilabo,"05","0505","050503",ET05,Shilabo,ET050503,ET0505,Shilabo,89977.4609375
+"73",Somali,Afder,Goro Baqaqsa,"05","0508","050803",ET05,Goro Baqaqsa,ET050803,ET0508,,80044.2109375
+"74",Somali,Afder,Serer/Elkere,"05","0508","050804",ET05,Serer/Elkere,ET050804,ET0508,,90628.1953125
+"75",Somali,Korahe,Debeweyin,"05","0505","050504",ET05,Debeweyin,ET050504,ET0505,,108837.0546875
+"76",Somali,Shabelle,Gode,"05","0506","050604",ET05,Gode,ET050604,ET0506,Gode,170848.71875
+"77",Somali,Shabelle,Kelafo,"05","0506","050605",ET05,Kelafo,ET050605,ET0506,Kelafo,120879.9375
+"78",Somali,Shabelle,Mustahil,"05","0506","050606",ET05,Mustahil,ET050606,ET0506,Mustahil,76613.65625
+"79",Somali,Afder,Bare,"05","0508","050807",ET05,Bare,ET050807,ET0508,,146859.375
+"80",Somali,Afder,Chereti/Weyib,"05","0508","050802",ET05,Chereti/Weyib,ET050802,ET0508,,147206.671875
+"81",Somali,Shabelle,Ferfer,"05","0506","050607",ET05,Ferfer,ET050607,ET0506,Ferfer,60872.10546875
+"82",Somali,Afder,Afder,"05","0508","050806",ET05,Afder,ET050806,ET0508,,123208.09375
+"83",Somali,Afder,Dolobay,"05","0508","050808",ET05,Dolobay,ET050808,ET0508,Dolobay,130076.453125
+"84",Somali,Liben,Moyale,"05","0509","050903",ET05,Moyale,ET050903,ET0509,Moyale,396968.21875
+"85",Somali,Liben,Dolo Odo,"05","0509","050902",ET05,Dolo Odo,ET050902,ET0509,Dolo Odo,165500.796875
+"86",Somali,Nogob,Lagahida,"05","0504","050407",ET05,Lagahida,ET050407,ET0504,,27171.482421875
+"87",Somali,Nogob,Meyumuluka,"05","0504","050408",ET05,Meyumuluka,ET050408,ET0504,,18509.83984375
+"88",Somali,Nogob,Selahad,"05","0504","050401",ET05,Selahad,ET050401,ET0504,,53077.1796875
+"89",Somali,Afder,Guradamole,"05","0508","050801",ET05,Guradamole,ET050801,ET0508,Guradamole,31075.875
+"90",Somali,Afder,West Imi,"05","0508","050805",ET05,West Imi,ET050805,ET0508,,77023.71875
+"91",Somali,Shabelle,Adadle,"05","0506","050602",ET05,Adadle,ET050602,ET0506,Adadle,130263.4375
+"92",Somali,Liben,Hudet,"05","0509","050904",ET05,Hudet,ET050904,ET0509,Hudet,67233.2109375
+"93",Somali,Liben,Filtu,"05","0509","050901",ET05,Filtu,ET050901,ET0509,Filtu,204794.75
+"94",Somali,Shabelle,East Imi,"05","0506","050601",ET05,East Imi,ET050601,ET0506,,125314.8125
+"95",Somali,Shabelle,Denan,"05","0506","050603",ET05,Denan,ET050603,ET0506,,37484.4375
+"96",Somali,Jarar,Gunagado,"05","0503","050305",ET05,Gunagado,ET050305,ET0503,Gunagado,176124.78125
+"97",Somali,Jarar,Aware,"05","0503","050303",ET05,Aware,ET050303,ET0503,Aware,149573.84375
+"98",Gambela,Nuer,Wantawo,"12","1201","120104",ET12,Wantawo,ET120104,ET1201,Wantawa,43874.421875
+"99",Gambela,Nuer,Akobo,"12","1201","120101",ET12,Akobo,ET120101,ET1201,Akobo,48889.953125
+"100",Gambela,Nuer,Jikawo,"12","1201","120103",ET12,Jikawo,ET120103,ET1201,Jikawo,74529.5234375
+"101",Gambela,Nuer,Lare,"12","1201","120102",ET12,Lare,ET120102,ET1201,Lare,65492.04296875
+"102",Gambela,Agnuak,Gambella Wild Life Reserve,"12","1202","120200",ET12,Gambella Wild Life Reserve,ET120200,ET1202,,70.0940399169922
+"103",Gambela,Agnuak,Itang,"12","1202","120207",ET12,Etang,ET120207,ET1202,Itang,74679.28125
+"104",Gambela,Agnuak,Gambela Zuria,"12","1202","120202",ET12,Gambela Zuria,ET120202,ET1202,Gambella Zuria,103798.3828125
+"105",Gambela,Agnuak,Jore,"12","1202","120204",ET12,Jore,ET120204,ET1202,Jor,19560.890625
+"106",Gambela,Agnuak,Abobo,"12","1202","120201",ET12,Abobo,ET120201,ET1202,Abobo,32939.3125
+"107",Gambela,Agnuak,Gog,"12","1202","120203",ET12,Goge,ET120203,ET1202,Gog,35225.0703125
+"108",Gambela,Majang,Mengesh,"12","1203","120308",ET12,Mengesh,ET120308,ET1203,Mengesh,43126.00390625
+"109",Gambela,Majang,Godere,"12","1203","120301",ET12,Godere,ET120301,ET1203,Godere,81467.3828125
+"110",Gambela,Agnuak,Dima,"12","1202","120205",ET12,Dima,ET120205,ET1202,Dimma,16773.3203125
+"111",Beneshangul Gumu,Metekel,Guba,"06","0602","060202",ET06,Guba,ET060202,ET0602,,24050.7578125
+"112",Beneshangul Gumu,Metekel,Pawe Special,"06","0602","060206",ET06,Pawe Special,ET060206,ET0602,Pawe,72456.765625
+"113",Beneshangul Gumu,Metekel,Dangura,"06","0602","060201",ET06,Dangura,ET060201,ET0602,,78598.75
+"114",Beneshangul Gumu,Metekel,Mandura,"06","0602","060204",ET06,Mandura,ET060204,ET0602,,66159.0234375
+"115",Beneshangul Gumu,Metekel,Dibat,"06","0602","060205",ET06,Dibat,ET060205,ET0602,,107523.03125
+"116",Beneshangul Gumu,Metekel,Bulen,"06","0602","060207",ET06,Bulen,ET060207,ET0602,,73466.3203125
+"117",Beneshangul Gumu,Kemashi,Yaso,"06","0604","060401",ET06,Yaso,ET060401,ET0604,,20565.326171875
+"118",Beneshangul Gumu,Metekel,Wenbera,"06","0602","060203",ET06,Wenbera,ET060203,ET0602,,96786.53125
+"119",Beneshangul Gumu,Kemashi,Bio Jiganifado,"06","0604","060405",ET06,Bio Jiganifado,ET060405,ET0604,,47694.86328125
+"120",Beneshangul Gumu,Kemashi,Kamashi,"06","0604","060403",ET06,Kamashi,ET060403,ET0604,,28772.193359375
+"121",Beneshangul Gumu,Kemashi,Agalometi,"06","0604","060404",ET06,Agalometi,ET060404,ET0604,,36451.97265625
+"122",Beneshangul Gumu,Kemashi,Bio Jiganifado,"06","0604","060405",ET06,Bio Jiganifado,ET060405,ET0604,,892.949768066406
+"123",Beneshangul Gumu,Kemashi,Sirba Abay,"06","0604","060402",ET06,Sirba Abay,ET060402,ET0604,,28821.609375
+"124",Beneshangul Gumu,Asosa,Bilidigilu,"06","0603","060306",ET06,Bilidigilu,ET060306,ET0603,,87915.765625
+"125",Beneshangul Gumu,Asosa,Sherkole,"06","0603","060304",ET06,Sherkole,ET060304,ET0603,,39745.54296875
+"126",Beneshangul Gumu,Asosa,Menge,"06","0603","060301",ET06,Menge,ET060301,ET0603,,64670.640625
+"127",Beneshangul Gumu,Asosa,Homosha,"06","0603","060307",ET06,Homosha,ET060307,ET0603,,35136.17578125
+"128",Beneshangul Gumu,Asosa,Kurmuk,"06","0603","060302",ET06,Kurmuk,ET060302,ET0603,,26919.923828125
+"129",Beneshangul Gumu,Asosa,Assosa,"06","0603","060303",ET06,Assosa,ET060303,ET0603,,168010.4375
+"130",Beneshangul Gumu,Asosa,Maokomo Special,"06","0603","060308",ET06,Maokomo Special,ET060308,ET0603,Mao Komo,80992.625
+"131",Beneshangul Gumu,Asosa,Bambasi,"06","0603","060305",ET06,Bambasi,ET060305,ET0603,Bambasi,78418.046875
+"132",Amhara,West Gojam,Debub Achefer,"03","0307","030713",ET03,Debub Achefer,ET030713,ET0307,,196102.71875
+"133",Amhara,South Wollo,Albuko,"03","0304","030408",ET03,Albuko,ET030408,ET0304,,111006.140625
+"134",Amhara,North Gonder,Alfa,"03","0301","030115",ET03,Alfa,ET030115,ET0301,,244838.578125
+"135",Amhara,South Wollo,Ambasel,"03","0304","030404",ET03,Ambasel,ET030404,ET0304,Ambasel,175775.765625
+"136",Amhara,East Gojam,Aneded,"03","0306","030617",ET03,Aneded,ET030617,ET0306,,130190.1875
+"137",Amhara,North Shewa(R3),Angolelana Tera,"03","0305","030513",ET03,Angolelana Tera,ET030513,ET0305,,118624.8984375
+"138",Amhara,Awi/Agew,Ankasha,"03","0309","030903",ET03,Ankasha,ET030903,ET0309,,287142.84375
+"139",Amhara,North Shewa(R3),Ankober,"03","0305","030515",ET03,Ankober,ET030515,ET0305,Ankober,110345.4140625
+"140",Amhara,North Shewa(R3),Antsokiya,"03","0305","030507",ET03,Antsokiya,ET030507,ET0305,Anstokia Gemza,113439.109375
+"141",Amhara,Special Woreda,Argoba,"03","0312","031201",ET03,Argoba,ET031201,ET0312,Argoba,49398.34765625
+"142",Amhara,North Shewa(R3),Assagirt,"03","0305","030514",ET03,Assagirt,ET030514,ET0305,,68769.2578125
+"143",Amhara,East Gojam,Awabel,"03","0306","030612",ET03,Awabel,ET030612,ET0306,,175236.28125
+"144",Amhara,West Gojam,Bahirdar Zuria,"03","0307","030702",ET03,Bahirdar Zuria,ET030702,ET0307,,254228.671875
+"145",Amhara,Awi/Agew,Banja,"03","0309","030902",ET03,Banja,ET030902,ET0309,,160157.265625
+"146",Amhara,East Gojam,Baso Liben,"03","0306","030611",ET03,Baso Liben,ET030611,ET0306,,199108.34375
+"147",Amhara,Oromia,Bati,"03","0310","031002",ET03,Bati,ET031002,ET0310,Bati,153937.34375
+"148",Amhara,North Shewa(R3),Berehet,"03","0305","030517",ET03,Berehet,ET030517,ET0305,,50192.75390625
+"149",Amhara,North Gonder,Beyeda,"03","0301","030102",ET03,Beyeda,ET030102,ET0301,Beyeda,139804.796875
+"150",Amhara,East Gojam,Bibugn,"03","0306","030601",ET03,Bibugn,ET030601,ET0306,Bibugn,117417.421875
+"151",Amhara,North Wollo,Bugna,"03","0303","030301",ET03,Bugna,ET030301,ET0303,Bugna,108473.328125
+"152",Amhara,West Gojam,Bure,"03","0307","030710",ET03,Bure,ET030710,ET0307,,205339.015625
+"153",Amhara,Oromia,Dewa Cheffa,"03","0310","031001",ET03,Dewa Cheffa,ET031001,ET0310,Dewa Harewa,219424.625
+"154",Amhara,North Gonder,Chilga,"03","0301","030112",ET03,Chilga,ET030112,ET0301,,318395.3125
+"155",Amhara,North Gonder,Dabat,"03","0301","030105",ET03,Dabat,ET030105,ET0301,,209425.96875
+"156",Amhara,Awi/Agew,Dangila,"03","0309","030901",ET03,Dangila,ET030901,ET0309,,227840.953125
+"157",Amhara,North Wollo,Dawunt,"03","0303","030311",ET03,Dawunt,ET030311,ET0303,,93638.4609375
+"158",Amhara,North Gonder,Debark,"03","0301","030104",ET03,Debark,ET030104,ET0301,,228131.796875
+"159",Amhara,East Gojam,Debay Telatgen,"03","0306","030607",ET03,Debay Telatgen,ET030607,ET0306,,183249.828125
+"160",Amhara,East Gojam,Debre Elias,"03","0306","030608",ET03,Debre Elias,ET030608,ET0306,,118771.890625
+"161",Amhara,South Wollo,Debresina,"03","0304","030412",ET03,Debresina,ET030412,ET0304,,227968.578125
+"162",Amhara,West Gojam,Dega Damot,"03","0307","030707",ET03,Dega Damot,ET030707,ET0307,,218980.15625
+"163",Amhara,Wag Himra,Dehana,"03","0308","030803",ET03,Dehana,ET030803,ET0308,Dehana,157700
+"164",Amhara,East Gojam,Dejen,"03","0306","030613",ET03,Dejen,ET030613,ET0306,,147217.546875
+"165",Amhara,North Wollo,Delanta,"03","0303","030306",ET03,Delanta,ET030306,ET0303,Delanta,183145.75
+"166",Amhara,West Gojam,Dembecha,"03","0307","030708",ET03,Dembecha,ET030708,ET0307,,186211.234375
+"167",Amhara,North Gonder,Dembia,"03","0301","030111",ET03,Dembia,ET030111,ET0301,,388443.25
+"168",Amhara,South Gonder,Dera,"03","0302","030209",ET03,Dera,ET030209,ET0302,,354786.59375
+"169",Amhara,South Wollo,Dessie Zuria,"03","0304","030409",ET03,Dessie Zuria,ET030409,ET0304,Dessie Zuria,447959.625
+"170",Amhara,South Gonder,East Esite,"03","0302","030208",ET03,East Esite,ET030208,ET0302,,173615.5
+"171",Amhara,North Gonder,East Belesa,"03","0301","030117",ET03,East Belesa,ET030117,ET0301,E/Belessa,204732.578125
+"172",Amhara,South Gonder,Ebenat,"03","0302","030201",ET03,Ebenat,ET030201,ET0302,Ebinat,314918.59375
+"173",Amhara,North Shewa(R3),Eferatana Gidem,"03","0305","030508",ET03,Eferatana Gidem,ET030508,ET0305,Ephrata,160383.484375
+"174",Amhara,East Gojam,Enarj Enawga,"03","0306","030605",ET03,Enarj Enawga,ET030605,ET0306,,240226.03125
+"175",Amhara,East Gojam,Enbise Sar Midir,"03","0306","030604",ET03,Enbise Sar Midir,ET030604,ET0306,Enbse Sar Midir,191021.21875
+"176",Amhara,East Gojam,Enemay,"03","0306","030606",ET03,Enemay,ET030606,ET0306,,237104.28125
+"177",Amhara,Awi/Agew,Fagta Lakoma,"03","0309","030905",ET03,Fagta Lakoma,ET030905,ET0309,,181640.03125
+"178",Amhara,South Gonder,Farta,"03","0302","030204",ET03,Farta,ET030204,ET0302,,412507.0625
+"179",Amhara,South Gonder,Fogera,"03","0302","030203",ET03,Fogera,ET030203,ET0302,,328002.8125
+"180",Amhara,Wag Himra,Gaz Gibla,"03","0308","030804",ET03,Gaz Gibla,ET030804,ET0308,Gazgibla,101587.8671875
+"181",Amhara,North Shewa(R3),Menz Gera Midir,"03","0305","030505",ET03,Menz Gera Midir,ET030505,ET0305,,172739.3125
+"182",Amhara,North Wollo,Gidan,"03","0303","030303",ET03,Gidan,ET030303,ET0303,Gidan,227662.875
+"183",Amhara,North Shewa(R3),Gishe Rabel,"03","0305","030506",ET03,Gishe Rabel,ET030506,ET0305,Gishe Rabel,88494.3671875
+"184",Amhara,East Gojam,Goncha Siso Enese,"03","0306","030603",ET03,Goncha Siso Enese,ET030603,ET0306,,214275.890625
+"185",Amhara,North Gonder,Gonder Zuria,"03","0301","030110",ET03,Gonder Zuria,ET030110,ET0301,,571971.0625
+"186",Amhara,East Gojam,Gonje,"03","0306","030618",ET03,Gonje,ET030618,ET0306,,151111.109375
+"187",Amhara,Awi/Agew,Guagusa Shikudad,"03","0309","030907",ET03,Guagusa Shikudad,ET030907,ET0309,,120321.4140625
+"188",Amhara,Awi/Agew,Guangua,"03","0309","030904",ET03,Guangua,ET030904,ET0309,,321252
+"189",Amhara,North Wollo,Guba Lafto,"03","0303","030307",ET03,Guba Lafto,ET030307,ET0303,,268343.21875
+"190",Amhara,East Gojam,Guzamn,"03","0306","030610",ET03,Guzamn,ET030610,ET0306,,280486.40625
+"191",Amhara,North Wollo,Habru,"03","0303","030308",ET03,Habru,ET030308,ET0303,Habru,274826.09375
+"192",Amhara,North Shewa(R3),Hagere Mariam,"03","0305","030516",ET03,Hagere Mariam,ET030516,ET0305,,79835.4765625
+"193",Amhara,East Gojam,Hulet Ej Enese,"03","0306","030602",ET03,Hulet Ej Enese,ET030602,ET0306,Hule eji Enbse,395409.0625
+"194",Amhara,West Gojam,Jabi Tehnan,"03","0307","030709",ET03,Jabi Tehnan,ET030709,ET0307,,294340.40625
+"195",Amhara,South Wollo,Jama,"03","0304","030414",ET03,Jama,ET030414,ET0304,,182585
+"196",Amhara,North Gonder,Janamora,"03","0301","030103",ET03,Janamora,ET030103,ET0301,Janamora,240225.265625
+"197",Amhara,Awi/Agew,Jawi,"03","0309","030906",ET03,Jawi,ET030906,ET0309,,113859.015625
+"198",Amhara,Oromia,Jille Timuga,"03","0310","031003",ET03,Jille Timuga,ET031003,ET0310,Jile Timuga,102652.5703125
+"199",Amhara,South Wollo,Kalu,"03","0304","030407",ET03,Kalu,ET030407,ET0304,Kalu,384548.40625
+"200",Amhara,South Wollo,Kelela,"03","0304","030413",ET03,Kelela,ET030413,ET0304,Kelela,196464.1875
+"201",Amhara,North Shewa(R3),Kewet,"03","0305","030512",ET03,Kewet,ET030512,ET0305,,169595.890625
+"202",Amhara,North Shewa(R3),Menz Keya Gabriel,"03","0305","030521",ET03,Menz Keya Gabriel,ET030521,ET0305,,66541.625
+"203",Amhara,South Wollo,Kutaber,"03","0304","030403",ET03,Kutaber,ET030403,ET0304,Kutaber,138182.546875
+"204",Amhara,North Wollo,Lasta,"03","0303","030310",ET03,Lasta,ET030310,ET0303,,169378.1875
+"205",Amhara,North Gonder,Lay Armacho,"03","0301","030108",ET03,Lay Armacho,ET030108,ET0301,,225877.515625
+"206",Amhara,South Gonder,Lay Gayint,"03","0302","030205",ET03,Lay Gayint,ET030205,ET0302,,295696.40625
+"207",Amhara,South Wollo,Legambo,"03","0304","030410",ET03,Legambo,ET030410,ET0304,Legambo,235760.40625
+"208",Amhara,South Wollo,Legehida,"03","0304","030420",ET03,Legehida,ET030420,ET0304,Legehida,96407.234375
+"209",Amhara,South Gonder,Libo Kemkem,"03","0302","030202",ET03,Libo Kemkem,ET030202,ET0302,L/Kemkem,283774.125
+"210",Amhara,West Gojam,Mecha,"03","0307","030704",ET03,Mecha,ET030704,ET0307,,418919.75
+"211",Amhara,South Wollo,Mehal Sayint,"03","0304","030419",ET03,Mehal Sayint,ET030419,ET0304,,105463.234375
+"212",Amhara,South Wollo,Mekdela,"03","0304","030401",ET03,Mekdela,ET030401,ET0304,Mekdela,205045.546875
+"213",Amhara,North Wollo,Meket,"03","0303","030304",ET03,Meket,ET030304,ET0303,Meket,324021.75
+"214",Amhara,North Shewa(R3),Menz Lalo Midir,"03","0305","030522",ET03,Menz Lalo Midir,ET030522,ET0305,,25045.046875
+"215",Amhara,North Shewa(R3),Menz Mama Midir,"03","0305","030509",ET03,Menz Mama Midir,ET030509,ET0305,,122395.9296875
+"216",Amhara,North Shewa(R3),Merahbete,"03","0305","030502",ET03,Merahbete,ET030502,ET0305,,181648.421875
+"217",Amhara,North Gonder,Metema,"03","0301","030113",ET03,Metema,ET030113,ET0301,,155832.0625
+"218",Amhara,East Gojam,Michakel,"03","0306","030609",ET03,Michakel,ET030609,ET0306,,169280
+"219",Amhara,North Shewa(R3),Mimo Weremo,"03","0305","030501",ET03,Mimo Weremo,ET030501,ET0305,,134459.890625
+"220",Amhara,North Shewa(R3),Minjar Shenkora,"03","0305","030518",ET03,Minjar Shenkora,ET030518,ET0305,,184574.40625
+"221",Amhara,North Gonder,Mirab Armacho,"03","0301","030106",ET03,Mirab Armacho,ET030106,ET0301,,45972.4921875
+"222",Amhara,North Shewa(R3),Mojan Wedera,"03","0305","030511",ET03,Mojan Wedera,ET030511,ET0305,,99801.203125
+"223",Amhara,North Shewa(R3),Moretna Jiru,"03","0305","030504",ET03,Moretna Jiru,ET030504,ET0305,,133068.640625
+"224",Amhara,North Gonder,Quara,"03","0301","030114",ET03,Quara,ET030114,ET0301,,135944.625
+"225",Amhara,West Gojam,Quarit,"03","0307","030706",ET03,Quarit,ET030706,ET0307,,165659.578125
+"226",Amhara,Wag Himra,Sahla,"03","0308","030806",ET03,Sahla,ET030806,ET0308,Sahala,33979.125
+"227",Amhara,South Wollo,Sayint,"03","0304","030411",ET03,Sayint,ET030411,ET0304,Sayint,207801.21875
+"228",Amhara,West Gojam,Sekela,"03","0307","030705",ET03,Sekela,ET030705,ET0307,Sekela,198859.546875
+"229",Amhara,West Gojam,Semen Achefer,"03","0307","030701",ET03,Semen Achefer,ET030701,ET0307,,267877.78125
+"230",Amhara,East Gojam,Senan,"03","0306","030616",ET03,Senan,ET030616,ET0306,,142385.921875
+"231",Amhara,East Gojam,Shebel Bereta,"03","0306","030614",ET03,Shebel Bereta,ET030614,ET0306,,148911.390625
+"232",Amhara,South Gonder,Simada,"03","0302","030207",ET03,Simada,ET030207,ET0302,Simada,328088.1875
+"233",Amhara,North Shewa(R3),Siya Debirna Wayu,"03","0305","030523",ET03,Siya Debirna Wayu,ET030523,ET0305,,86984.125
+"234",Amhara,North Gonder,Tach Armacho,"03","0301","030120",ET03,Tach Armacho,ET030120,ET0301,,128037.6171875
+"235",Amhara,South Gonder,Tach Gayint,"03","0302","030206",ET03,Tach Gayint,ET030206,ET0302,Tach Gayint,146192.28125
+"236",Amhara,North Gonder,Takusa,"03","0301","030121",ET03,Takusa,ET030121,ET0301,,184481.625
+"237",Amhara,North Shewa(R3),Tarema Ber,"03","0305","030510",ET03,Tarema Ber,ET030510,ET0305,Tarmaber,121745.7421875
+"238",Amhara,South Wollo,Tenta,"03","0304","030402",ET03,Tenta,ET030402,ET0304,Tenta,238212.015625
+"239",Amhara,South Wollo,Thehulederie,"03","0304","030405",ET03,Thehulederie,ET030405,ET0304,,168233.75
+"240",Amhara,South Gonder,West Esite,"03","0302","030211",ET03,West Esite,ET030211,ET0302,,301982.875
+"241",Amhara,North Wollo,Wadla,"03","0303","030305",ET03,Wadla,ET030305,ET0303,Wadla,185019.328125
+"242",Amhara,South Wollo,Wegde,"03","0304","030416",ET03,Wegde,ET030416,ET0304,,194315.71875
+"243",Amhara,North Gonder,Wegera,"03","0301","030109",ET03,Wegera,ET030109,ET0301,Wogera,316023.1875
+"244",Amhara,West Gojam,Wemberma,"03","0307","030711",ET03,Wemberma,ET030711,ET0307,,145438.25
+"245",Amhara,South Wollo,Were Ilu,"03","0304","030415",ET03,Were Ilu,ET030415,ET0304,,156243.03125
+"246",Amhara,North Gonder,West Belesa,"03","0301","030116",ET03,West Belesa,ET030116,ET0301,West Belesa,140614.90625
+"247",Amhara,South Wollo,Worebabu,"03","0304","030406",ET03,Worebabu,ET030406,ET0304,,143927.421875
+"248",Amhara,West Gojam,Yilmana Densa,"03","0307","030703",ET03,Yilmana Densa,ET030703,ET0307,,307810.90625
+"249",Amhara,Wag Himra,Ziquala,"03","0308","030801",ET03,Ziquala,ET030801,ET0308,Ziqual,63390.5234375
+"250",Amhara,North Gonder,Tsegede,"03","0301","030107",ET03,Tsegede,ET030107,ET0301,,106189.296875
+"251",Amhara,North Gonder,Addi Arekay,"03","0301","030101",ET03,Addi Arekay,ET030101,ET0301,,134173.109375
+"252",Amhara,North Gonder,Tselemt,"03","0301","030119",ET03,Tselemt,ET030119,ET0301,Tselemt,82345.7265625
+"253",Amhara,Wag Himra,Abergele,"03","0308","030805",ET03,Abergele,ET030805,ET0308,Abergele,62207.06640625
+"254",Amhara,Wag Himra,Sekota,"03","0308","030802",ET03,Sekota,ET030802,ET0308,,193112.796875
+"255",Amhara,North Wollo,Kobo,"03","0303","030302",ET03,Kobo,ET030302,ET0303,Kobo,317178.4375
+"256",Amhara,Oromia,Artuma Fursi,"03","0310","031004",ET03,Artuma Fursi,ET031004,ET0310,Artuma Fursi,118154.46875
+"257",Amhara,Oromia,Dewa Harewa,"03","0310","031005",ET03,Dewa Harewa,ET031005,ET0310,Dewa Harewa,58950.60546875
+"258",Afar,Zone 2,Afdera,"02","0202","020207",ET02,Afdera,ET020207,ET0202,Afdera,30706.302734375
+"259",Afar,Zone 2,Erebti,"02","0202","020201",ET02,Erebti,ET020201,ET0202,Erebti,51655.1796875
+"260",Afar,Zone 1,Elidar,"02","0201","020102",ET02,Elidar,ET020102,ET0201,Eliddar,75907.609375
+"261",Afar,Zone 4,Teru,"02","0204","020403",ET02,Teru,ET020403,ET0204,Terue,100443.4609375
+"262",Afar,Zone 1,Dubti,"02","0201","020101",ET02,Dubti,ET020101,ET0201,Dubti,97038.9609375
+"263",Afar,Zone 4,Awra,"02","0204","020401",ET02,Awra,ET020401,ET0204,Awra,51547.84765625
+"264",Afar,Zone 1,Aysaita,"02","0201","020103",ET02,Aysaita,ET020103,ET0201,Asaita,75477.234375
+"265",Afar,Zone 1,Afambo,"02","0201","020104",ET02,Afambo,ET020104,ET0201,Afambo,35399.953125
+"266",Afar,Zone 3,Gewane,"02","0203","020303",ET02,Gewane,ET020303,ET0203,Gewane,46913.27734375
+"267",Afar,Zone 3,Bure Mudaytu,"02","0203","020305",ET02,Bure Mudaytu,ET020305,ET0203,Boremudaitu,46509.8125
+"268",Afar,Zone 3,Amibara,"02","0203","020301",ET02,Amibara,ET020301,ET0203,Amibara,92745.90625
+"269",Afar,Zone 3,Argoba Special,"02","0203","020306",ET02,Argoba Special,ET020306,ET0203,Argoba sp,31799.443359375
+"270",Afar,Zone 3,Dulecha,"02","0203","020304",ET02,Dulecha,ET020304,ET0203,Dulecha,30916.689453125
+"271",Afar,Zone 3,Awash Fentale,"02","0203","020302",ET02,Awash Fentale,ET020302,ET0203,Awash Fentale,45526.42578125
+"272",Afar,Zone 2,Dalul,"02","0202","020206",ET02,Dalul,ET020206,ET0202,Dalole,116876.609375
+"273",Afar,Zone 2,Koneba,"02","0202","020202",ET02,Koneba,ET020202,ET0202,Kuneba,80533.078125
+"274",Afar,Zone 2,Berahile,"02","0202","020205",ET02,Berahile,ET020205,ET0202,Berehale,116097.21875
+"275",Afar,Zone 2,Ab Ala,"02","0202","020203",ET02,Ab Ala,ET020203,ET0202,Abaala,56533.609375
+"276",Afar,Zone 2,Megale,"02","0202","020204",ET02,Megale,ET020204,ET0202,Megale,41390.39453125
+"277",Afar,Zone 4,Yalo,"02","0204","020404",ET02,Yalo,ET020404,ET0204,Yallo,70266.6484375
+"278",Afar,Zone 4,Gulina,"02","0204","020405",ET02,Gulina,ET020405,ET0204,Golina,74088.2421875
+"279",Afar,Zone 4,Ewa,"02","0204","020402",ET02,Ewa,ET020402,ET0204,Ewa,70073.328125
+"280",Afar,Zone 1,Chifra,"02","0201","020106",ET02,Chifra,ET020106,ET0201,Chifra,134908.4375
+"281",Afar,Zone 1,Mile,"02","0201","020105",ET02,Mile,ET020105,ET0201,Mille,86143.8828125
+"282",Afar,Zone 5,Telalak,"02","0205","020501",ET02,Telalak,ET020501,ET0205,Telalk,56027.4453125
+"283",Afar,Zone 5,Dalfagi,"02","0205","020504",ET02,Dalfagi,ET020504,ET0205,Dalifage,53698.00390625
+"284",Afar,Zone 5,Dewe,"02","0205","020503",ET02,Dewe,ET020503,ET0205,Dewe,63016.71875
+"285",Afar,Zone 5,Simurobi Gele'alo,"02","0205","020502",ET02,Simurobi Gele'alo,ET020502,ET0205,Semurobi,47428.19921875
+"286",Afar,Zone 5,Hadelela,"02","0205","020505",ET02,Hadelela,ET020505,ET0205,Hadelela,52763.42578125
+"287",Oromia,North Shewa(R4),Dera,"04","0406","040602",ET04,Dera,ET040602,ET0406,,294781.15625
+"288",Oromia,East Wellega,Ibantu,"04","0402","040202",ET04,Ibantu,ET040202,ET0402,,58604.796875
+"289",Oromia,North Shewa(R4),Wara Jarso,"04","0406","040601",ET04,Wara Jarso,ET040601,ET0406,Wara Jarso,229564.578125
+"290",Oromia,North Shewa(R4),Hidabu Abote,"04","0406","040603",ET04,Hidabu Abote,ET040603,ET0406,,134520.125
+"291",Oromia,East Wellega,Limu,"04","0402","040201",ET04,Limu,ET040201,ET0402,,118396.6796875
+"292",Oromia,Horo Guduru,Guduru,"04","0419","041903",ET04,Guduru,ET041903,ET0419,Guduru,159906.125
+"293",Oromia,North Shewa(R4),Degem,"04","0406","040605",ET04,Degem,ET040605,ET0406,Degem,160952.375
+"294",Oromia,Horo Guduru,Abay Chomen,"04","0419","041905",ET04,Abay Chomen,ET041905,ET0419,,78586.15625
+"295",Oromia,North Shewa(R4),Gerar Jarso,"04","0406","040606",ET04,Gerar Jarso,ET040606,ET0406,,154198.671875
+"296",Oromia,West Shewa,Ginde Beret,"04","0405","040501",ET04,Ginde Beret,ET040501,ET0405,,170836.671875
+"297",Oromia,North Shewa(R4),Kuyu,"04","0406","040604",ET04,Kuyu,ET040604,ET0406,Kuyu,198580.171875
+"298",Oromia,Horo Guduru,Horo,"04","0419","041901",ET04,Horo,ET041901,ET0419,,146294.171875
+"299",Oromia,Horo Guduru,Abe Dongoro,"04","0419","041910",ET04,Abe Dongoro,ET041910,ET0419,,109341.515625
+"300",Oromia,North Shewa(R4),Wuchale,"04","0406","040608",ET04,Wuchale,ET040608,ET0406,,158639.65625
+"301",Oromia,North Shewa(R4),Yaya Gulele,"04","0406","040614",ET04,Yaya Gulele,ET040614,ET0406,,89869.4375
+"302",Oromia,East Harerge,Jarso,"04","0410","041002",ET04,Jarso,ET041002,ET0410,Jarso,187690.640625
+"303",Oromia,West Shewa,Meta Robi,"04","0405","040514",ET04,Meta Robi,ET040514,ET0405,Meta Robi,228301.21875
+"304",Oromia,West Wellega,Begi,"04","0401","040116",ET04,Begi,ET040116,ET0401,,196088.078125
+"305",Oromia,East Harerge,Kombolcha,"04","0410","041001",ET04,Kombolcha,ET041001,ET0410,Kombolcha,226764.828125
+"306",Oromia,West Shewa,Adda Berga,"04","0405","040513",ET04,Adda Berga,ET040513,ET0405,,195436.046875
+"307",Oromia,West Wellega,Babo,"04","0401","040111",ET04,Babo,ET040111,ET0401,,99088.8046875
+"308",Oromia,East Wellega,Bila Seyo,"04","0402","040207",ET04,Bila Seyo,ET040207,ET0402,,88651.390625
+"309",Oromia,East Harerge,Meta,"04","0410","041009",ET04,Meta,ET041009,ET0410,Meta,408705.0625
+"310",Oromia,East Harerge,Haro Maya,"04","0410","041006",ET04,Haro Maya,ET041006,ET0410,,442948.1875
+"311",Oromia,East Wellega,Sasiga,"04","0402","040211",ET04,Sasiga,ET040211,ET0402,Sasiga,131798.390625
+"312",Oromia,East Harerge,Goro Gutu,"04","0410","041010",ET04,Goro Gutu,ET041010,ET0410,Goro Gutu,230607.96875
+"313",Oromia,East Wellega,Guto Gida,"04","0402","040213",ET04,Guto Gida,ET040213,ET0402,,268907.03125
+"314",Oromia,East Harerge,Gursum,"04","0410","041003",ET04,Gursum,ET041003,ET0410,Gursum,245906.140625
+"315",Oromia,East Harerge,Kersa,"04","0410","041008",ET04,Kersa,ET041008,ET0410,Kersa,277237.0625
+"316",Oromia,West Shewa,Jeldu,"04","0405","040502",ET04,Jeldu,ET040502,ET0405,,329516.15625
+"317",Oromia,West Harerge,Doba,"04","0409","040902",ET04,Doba,ET040902,ET0409,Doba,216559.640625
+"318",Oromia,West Harerge,Mieso,"04","0409","040901",ET04,Mieso,ET040901,ET0409,,212347.8125
+"319",Oromia,East Harerge,Deder,"04","0410","041011",ET04,Deder,ET041011,ET0410,Deder,397984.4375
+"320",Oromia,West Shewa,Cheliya,"04","0405","040505",ET04,Cheliya,ET040505,ET0405,,256874.625
+"321",Oromia,Kelem Wellega,Gawo Kebe,"04","0418","041804",ET04,Gawo Kebe,ET041804,ET0418,,107985.2734375
+"322",Oromia,East Harerge,Babile,"04","0410","041004",ET04,Babile,ET041004,ET0410,Babile,154997.1875
+"323",Oromia,West Shewa,Ambo Zuria,"04","0405","040503",ET04,Ambo Zuria,ET040503,ET0405,,253580.34375
+"324",Oromia,Horo Guduru,Jimma Rare,"04","0419","041907",ET04,Jimma Rare,ET041907,ET0419,,90303.2890625
+"325",Oromia,East Harerge,Kurfa Chele,"04","0410","041007",ET04,Kurfa Chele,ET041007,ET0410,,94357.734375
+"326",Oromia,West Harerge,Tulo,"04","0409","040903",ET04,Tulo,ET040903,ET0409,Tulo,240936.40625
+"327",Oromia,East Harerge,Bedeno,"04","0410","041013",ET04,Bedeno,ET041013,ET0410,Bedeno,389612.3125
+"328",Oromia,West Shewa,Dendi,"04","0405","040510",ET04,Dendi,ET040510,ET0405,,272372.09375
+"329",Oromia,West Shewa,Ejere (Addis Alem),"04","0405","040511",ET04,Ejere (Addis Alem),ET040511,ET0405,,141900.578125
+"330",Oromia,East Harerge,Girawa,"04","0410","041016",ET04,Girawa,ET041016,ET0410,,391285.84375
+"331",Oromia,West Shewa,Bako Tibe,"04","0405","040506",ET04,Bako Tibe,ET040506,ET0405,,200436.03125
+"332",Oromia,East Harerge,Malka Balo,"04","0410","041012",ET04,Malka Balo,ET041012,ET0410,,289160
+"333",Oromia,Bale,Ginir,"04","0411","041108",ET04,Ginir,ET041108,ET0411,,227534.25
+"334",Oromia,West Arsi,Adaba,"04","0417","041710",ET04,Adaba,ET041710,ET0417,Adaba,225322.078125
+"335",Oromia,West Arsi,Shashemene Zuria,"04","0417","041712",ET04,Shashemene Zuria,ET041712,ET0417,,564804.0625
+"336",Oromia,West Arsi,Kofele,"04","0417","041704",ET04,Kofele,ET041704,ET0417,,289952.125
+"337",Oromia,West Arsi,Gedeb Asasa,"04","0417","041706",ET04,Gedeb Asasa,ET041706,ET0417,,303901.03125
+"338",Oromia,Bale,Sinana,"04","0411","041109",ET04,Sinana,ET041109,ET0411,,265178.09375
+"339",Oromia,East Harerge,Golo Oda,"04","0410","041017",ET04,Golo Oda,ET041017,ET0410,,172369.875
+"340",Oromia,Bale,Rayitu,"04","0411","041117",ET04,Rayitu,ET041117,ET0411,,53936.22265625
+"341",Oromia,East Harerge,Fedis,"04","0410","041005",ET04,Fedis,ET041005,ET0410,,184246.40625
+"342",Oromia,West Harerge,Gemechis,"04","0409","040912",ET04,Gemechis,ET040912,ET0409,Gemechis,298647.5625
+"343",Oromia,West Harerge,Mesela,"04","0409","040904",ET04,Mesela,ET040904,ET0409,,248707.640625
+"344",Oromia,East Shewa,Fentale,"04","0407","040701",ET04,Fentale,ET040701,ET0407,Fentale,132506.40625
+"345",Oromia,West Wellega,Haru,"04","0401","040114",ET04,Haru,ET040114,ET0401,Haru,109020.28125
+"346",Oromia,West Harerge,Anchar,"04","0409","040906",ET04,Anchar,ET040906,ET0409,Anchar,132937.765625
+"347",Oromia,West Wellega,Yubdo,"04","0401","040112",ET04,Yubdo,ET040112,ET0401,,63196.1484375
+"348",Oromia,East Wellega,Wama Hagalo,"04","0402","040216",ET04,Wama Hagalo,ET040216,ET0402,,80487.984375
+"349",Oromia,Horo Guduru,Jarte Jardega,"04","0419","041908",ET04,Jarte Jardega,ET041908,ET0419,,79571.71875
+"350",Oromia,West Harerge,Kuni,"04","0409","040911",ET04,Kuni,ET040911,ET0409,,288531.59375
+"351",Oromia,West Wellega,Nole Kaba,"04","0401","040115",ET04,Nole Kaba,ET040115,ET0401,,97701.6171875
+"352",Oromia,South West Shewa,Ilu,"04","0413","041305",ET04,Ilu,ET041305,ET0413,,101026.171875
+"353",Oromia,West Shewa,Tikur Enchini,"04","0405","040509",ET04,Tikur Enchini,ET040509,ET0405,,116930.6953125
+"354",Oromia,East Shewa,Ada'a,"04","0407","040706",ET04,Ada'a,ET040706,ET0407,,374848.4375
+"355",Oromia,South West Shewa,Dawo,"04","0413","041304",ET04,Dawo,ET041304,ET0413,,135110.078125
+"356",Oromia,West Shewa,Dano,"04","0405","040507",ET04,Dano,ET040507,ET0405,,158869.359375
+"357",Oromia,East Wellega,Jimma Arjo,"04","0402","040214",ET04,Jimma Arjo,ET040214,ET0402,,140965.5625
+"358",Oromia,Ilubabor,Meko,"04","0403","040318",ET04,Meko,ET040318,ET0403,,35222.875
+"359",Oromia,West Harerge,Habro,"04","0409","040908",ET04,Habro,ET040908,ET0409,,311932.46875
+"360",Oromia,West Shewa,Nono,"04","0405","040508",ET04,Nono,ET040508,ET0405,,137399.4375
+"361",Oromia,Jimma,Limu Seka,"04","0404","040401",ET04,Limu Seka,ET040401,ET0404,,308293.8125
+"362",Oromia,Arsi,Merti,"04","0408","040801",ET04,Merti,ET040801,ET0408,,146775.53125
+"363",Oromia,Kelem Wellega,Hawa Galan,"04","0418","041801",ET04,Hawa Galan,ET041801,ET0418,,156299.34375
+"364",Oromia,East Wellega,Nunu Kumba,"04","0402","040215",ET04,Nunu Kumba,ET040215,ET0402,,105127.0859375
+"365",Oromia,East Shewa,Boset,"04","0407","040702",ET04,Boset,ET040702,ET0407,Boset,229574.203125
+"366",Oromia,East Shewa,Lome,"04","0407","040704",ET04,Lome,ET040704,ET0407,,190147.390625
+"367",Oromia,West Harerge,Boke,"04","0409","040910",ET04,Boke,ET040910,ET0409,Boke,246120.15625
+"368",Oromia,South West Shewa,Wenchi,"04","0413","041302",ET04,Wenchi,ET041302,ET0413,,152242.484375
+"369",Oromia,South West Shewa,Tole,"04","0413","041308",ET04,Tole,ET041308,ET0413,,102138.328125
+"370",Oromia,Ilubabor,Darimu,"04","0403","040301",ET04,Darimu,ET040301,ET0403,,237455.96875
+"371",Oromia,South West Shewa,Ameya,"04","0413","041301",ET04,Ameya,ET041301,ET0413,,198930.09375
+"372",Oromia,South West Shewa,Becho,"04","0413","041309",ET04,Becho,ET041309,ET0413,,121026.828125
+"373",Oromia,East Shewa,Adama,"04","0407","040703",ET04,Adama,ET040703,ET0407,Adama,610890.5
+"374",Oromia,South West Shewa,Waliso,"04","0413","041303",ET04,Waliso,ET041303,ET0413,,286062.78125
+"375",Oromia,Ilubabor,Alge Sachi,"04","0403","040302",ET04,Alge Sachi,ET040302,ET0403,,125323.71875
+"376",Oromia,Arsi,Aseko,"04","0408","040802",ET04,Aseko,ET040802,ET0408,,136542.03125
+"377",Oromia,Arsi,Gololcha Arsi,"04","0408","040803",ET04,Gololcha Arsi,ET040803,ET0408,,280055.90625
+"378",Oromia,Jimma,Chora,"04","0404","040415",ET04,Chora,ET040415,ET0404,,149053.8125
+"379",Oromia,Arsi,Jeju,"04","0408","040804",ET04,Jeju,ET040804,ET0408,,202890.15625
+"380",Oromia,South West Shewa,Seden Sodo,"04","0413","041310",ET04,Seden Sodo,ET041310,ET0413,,111337.5546875
+"381",Oromia,Ilubabor,Chora,"04","0403","040303",ET04,Chora,ET040303,ET0403,,164581.96875
+"382",Oromia,Arsi,Sire,"04","0408","040820",ET04,Sire,ET040820,ET0408,Sire,120021.7109375
+"383",Oromia,Ilubabor,Metu Zuria,"04","0403","040310",ET04,Metu Zuria,ET040310,ET0403,,147481.953125
+"384",Oromia,Ilubabor,Yayu,"04","0403","040309",ET04,Yayu,ET040309,ET0403,,85341.71875
+"385",Oromia,East Shewa,Dugda,"04","0407","040707",ET04,Dugda,ET040707,ET0407,,236305.015625
+"386",Oromia,Arsi,Chole,"04","0408","040809",ET04,Chole,ET040809,ET0408,,145445.125
+"387",Oromia,Arsi,Ziway Dugda,"04","0408","040806",ET04,Ziway Dugda,ET040806,ET0408,,196806.953125
+"388",Oromia,Ilubabor,Didu,"04","0403","040317",ET04,Didu,ET040317,ET0403,,53614.5703125
+"389",Oromia,Arsi,Sude,"04","0408","040808",ET04,Sude,ET040808,ET0408,Sude,240167.84375
+"390",Oromia,Jimma,Setema,"04","0404","040413",ET04,Setema,ET040413,ET0404,,167184.34375
+"391",Oromia,Arsi,Hitosa,"04","0408","040807",ET04,Hitosa,ET040807,ET0408,,201469.671875
+"392",Oromia,Ilubabor,Dedesa,"04","0403","040308",ET04,Dedesa,ET040308,ET0403,,138410.484375
+"393",Oromia,Jimma,Sigmo,"04","0404","040412",ET04,Sigmo,ET040412,ET0404,,150570.125
+"394",Oromia,Jimma,Tiro Afeta,"04","0404","040404",ET04,Tiro Afeta,ET040404,ET0404,,213228.390625
+"395",Oromia,Bale,Lege Hida,"04","0411","041107",ET04,Lege Hida,ET041107,ET0411,,101749.3828125
+"396",Oromia,Arsi,Amigna,"04","0408","040810",ET04,Amigna,ET040810,ET0408,Amigna,118679.1953125
+"397",Oromia,Jimma,Goma,"04","0404","040407",ET04,Goma,ET040407,ET0404,,387795
+"398",Oromia,East Shewa,Adami Tulu Jido Kombolcha,"04","0407","040708",ET04,Adami Tulu Jido Kombolcha,ET040708,ET0407,,301247.40625
+"399",Oromia,Arsi,Tiyo,"04","0408","040816",ET04,Tiyo,ET040816,ET0408,,251213.828125
+"400",Oromia,Jimma,Kersa,"04","0404","040405",ET04,Kersa,ET040405,ET0404,Kersa,465245.3125
+"401",Oromia,Jimma,Sekoru,"04","0404","040403",ET04,Sekoru,ET040403,ET0404,,221123.953125
+"402",Oromia,Arsi,Robe,"04","0408","040812",ET04,Robe,ET040812,ET0408,,269601.90625
+"403",Oromia,Jimma,Gera,"04","0404","040408",ET04,Gera,ET040408,ET0404,,182792.171875
+"404",Oromia,Jimma,Mena,"04","0404","040406",ET04,Mena,ET040406,ET0404,,238067.109375
+"405",Oromia,Arsi,Seru,"04","0408","040811",ET04,Seru,ET040811,ET0408,Seru,77522.78125
+"406",Oromia,Arsi,Degeluna Tijo,"04","0408","040815",ET04,Degeluna Tijo,ET040815,ET0408,,228030.640625
+"407",Oromia,Bale,Gololcha Bale,"04","0411","041105",ET04,Gololcha Bale,ET041105,ET0411,,163385.828125
+"408",Oromia,Jimma,Omo Nada,"04","0404","040411",ET04,Omo Nada,ET040411,ET0404,,403107.375
+"409",Oromia,Arsi,Munessa,"04","0408","040817",ET04,Munessa,ET040817,ET0408,,271301.71875
+"410",Oromia,Jimma,Shebe Sambo,"04","0404","040414",ET04,Shebe Sambo,ET040414,ET0404,,184846.78125
+"411",Oromia,Bale,Seweyna,"04","0411","041118",ET04,Seweyna,ET041118,ET0411,,107410.484375
+"412",Oromia,Arsi,Shirka,"04","0408","040814",ET04,Shirka,ET040814,ET0408,,267202.65625
+"413",Oromia,West Arsi,Arsi Negele,"04","0417","041703",ET04,Arsi Negele,ET041703,ET0417,,422296.3125
+"414",Oromia,Jimma,Dedo,"04","0404","040410",ET04,Dedo,ET040410,ET0404,,471026.875
+"415",Oromia,Arsi,Limu Bilbilo,"04","0408","040818",ET04,Limu Bilbilo,ET040818,ET0408,,293970.90625
+"416",Oromia,West Arsi,Shalla,"04","0417","041702",ET04,Shalla,ET041702,ET0417,,242309.3125
+"417",Oromia,Bale,Agarfa,"04","0411","041104",ET04,Agarfa,ET041104,ET0411,,165421.0625
+"418",Oromia,Bale,Dawe Kachen,"04","0411","041121",ET04,Dawe Kachen,ET041121,ET0411,,120338.90625
+"419",Oromia,West Arsi,Dodola,"04","0417","041707",ET04,Dodola,ET041707,ET0417,Dodola,316000.875
+"420",Oromia,Bale,Goba,"04","0411","041110",ET04,Goba,ET041110,ET0411,,118819.7421875
+"421",Oromia,West Arsi,Kokosa,"04","0417","041708",ET04,Kokosa,ET041708,ET0417,,235322.046875
+"422",Oromia,Bale,Berbere,"04","0411","041114",ET04,Berbere,ET041114,ET0411,,147365.859375
+"423",Oromia,Bale,Gura Damole,"04","0411","041115",ET04,Gura Damole,ET041115,ET0411,,47511.0234375
+"424",Oromia,West Arsi,Nenesebo (Wereka),"04","0417","041709",ET04,Nenesebo (Wereka),ET041709,ET0417,,185094.5625
+"425",Oromia,Bale,Mena,"04","0411","041112",ET04,Mena,ET041112,ET0411,,145584.578125
+"426",Oromia,Borena,Gelana,"04","0412","041217",ET04,Gelana,ET041217,ET0412,Gelana,122282.3125
+"427",Oromia,Guji,Uraga,"04","0414","041401",ET04,Uraga,ET041401,ET0414,,285538.53125
+"428",Oromia,Bale,Meda Welabu,"04","0411","041113",ET04,Meda Welabu,ET041113,ET0411,,165583.234375
+"429",Oromia,Guji,Adola,"04","0414","041403",ET04,Adola,ET041403,ET0414,,216757.296875
+"430",Oromia,Borena,Teltele,"04","0412","041212",ET04,Teltele,ET041212,ET0412,,115289.21875
+"431",Oromia,Borena,Moyale,"04","0412","041210",ET04,Moyale,ET041210,ET0412,Moyale,51966.91015625
+"432",Oromia,Ilubabor,Borecha,"04","0403","040307",ET04,Borecha,ET040307,ET0403,,119479.2734375
+"433",Oromia,Kelem Wellega,Lalo Kile,"04","0418","041811",ET04,Lalo Kile,ET041811,ET0418,,83713.3046875
+"434",Oromia,West Wellega,Jarso,"04","0401","040108",ET04,Jarso,ET040108,ET0401,Jarso,78647.140625
+"435",Oromia,Kelem Wellega,Jimma Horo,"04","0418","041810",ET04,Jimma Horo,ET041810,ET0418,,74415.1484375
+"436",Oromia,Kelem Wellega,Yama Logi Welel,"04","0418","041802",ET04,Yama Logi Welel,ET041802,ET0418,,83137.3671875
+"437",Oromia,Kelem Wellega,Dale Wabera,"04","0418","041803",ET04,Dale Wabera,ET041803,ET0418,,168181.6875
+"438",Oromia,Kelem Wellega,Dale Sadi,"04","0418","041808",ET04,Dale Sadi,ET041808,ET0418,,120490.3046875
+"439",Oromia,West Wellega,Boji Chekorsa,"04","0401","040110",ET04,Boji Chekorsa,ET040110,ET0401,,79578.84375
+"440",Oromia,West Wellega,Gaji,"04","0401","040113",ET04,Gaji,ET040113,ET0401,,97762.5
+"441",Oromia,West Wellega,Sayo Nole,"04","0401","040118",ET04,Sayo Nole,ET040118,ET0401,,123585.546875
+"442",Oromia,Ilubabor,Dega,"04","0403","040304",ET04,Dega,ET040304,ET0403,,63713.25390625
+"443",Oromia,Ilubabor,Bilo Nopha,"04","0403","040315",ET04,Bilo Nopha,ET040315,ET0403,,46656.05859375
+"444",Oromia,Ilubabor,Halu (Huka),"04","0403","040319",ET04,Halu (Huka),ET040319,ET0403,,27496.544921875
+"445",Oromia,Ilubabor,Ale,"04","0403","040311",ET04,Ale,ET040311,ET0403,,105088.1328125
+"446",Oromia,Ilubabor,Hurumu,"04","0403","040316",ET04,Hurumu,ET040316,ET0403,,69561.109375
+"447",Oromia,Ilubabor,Becho,"04","0403","040314",ET04,Becho,ET040314,ET0403,,40557.66796875
+"448",Oromia,Ilubabor,Gechi,"04","0403","040306",ET04,Gechi,ET040306,ET0403,,114805.125
+"449",Oromia,Ilubabor,Badele Zuria,"04","0403","040322",ET04,Badele Zuria,ET040322,ET0403,,157865.375
+"450",Oromia,Ilubabor,Dorani,"04","0403","040324",ET04,Dorani,ET040324,ET0403,,59881.24609375
+"451",Oromia,East Wellega,Boneya Boshe,"04","0402","040205",ET04,Boneya Boshe,ET040205,ET0402,,77462.6796875
+"452",Oromia,East Wellega,Gobu Seyo,"04","0402","040208",ET04,Gobu Seyo,ET040208,ET0402,,66622.046875
+"453",Oromia,East Wellega,Leka Dulecha,"04","0402","040212",ET04,Leka Dulecha,ET040212,ET0402,,117373.7109375
+"454",Oromia,East Wellega,Sibu Sire,"04","0402","040209",ET04,Sibu Sire,ET040209,ET0402,,166546.0625
+"455",Oromia,East Wellega,Wayu Tuka,"04","0402","040206",ET04,Wayu Tuka,ET040206,ET0402,,101397.5625
+"456",Oromia,Horo Guduru,Amuru,"04","0419","041909",ET04,Amuru,ET041909,ET0419,,85335.109375
+"457",Oromia,Horo Guduru,Jimma Genete,"04","0419","041906",ET04,Jimma Genete,ET041906,ET0419,,103978.4609375
+"458",Oromia,Horo Guduru,Ababo,"04","0419","041904",ET04,Ababo,ET041904,ET0419,,72682.609375
+"459",Oromia,Jimma,Gumay,"04","0404","040416",ET04,Gumay,ET040416,ET0404,,98359.796875
+"460",Oromia,Jimma,Seka Chekorsa,"04","0404","040409",ET04,Seka Chekorsa,ET040409,ET0404,,337035.90625
+"461",Oromia,Jimma,Limu Kosa,"04","0404","040402",ET04,Limu Kosa,ET040402,ET0404,,262544.5625
+"462",Oromia,West Shewa,Abuna G/Beret,"04","0405","040516",ET04,Abuna G/Beret,ET040516,ET0405,,176942.171875
+"463",Oromia,West Shewa,Ifata,"04","0405","040519",ET04,Ifata,ET040519,ET0405,,93248.1640625
+"464",Oromia,West Shewa,Toke Kutaye,"04","0405","040517",ET04,Toke Kutaye,ET040517,ET0405,,194455.4375
+"465",Oromia,West Shewa,Mida Kegn,"04","0405","040504",ET04,Mida Kegn,ET040504,ET0405,,128130.0546875
+"466",Oromia,West Shewa,Jibat,"04","0405","040518",ET04,Jibat,ET040518,ET0405,,117145.0703125
+"467",Oromia,South West Shewa,Goro,"04","0413","041312",ET04,Goro,ET041312,ET0413,Goro,82112.90625
+"468",Oromia,South West Shewa,Kersana Malima,"04","0413","041307",ET04,Kersana Malima,ET041307,ET0413,,67154.65625
+"469",Oromia,North Shewa(R4),Debre Libanos,"04","0406","040607",ET04,Debre Libanos,ET040607,ET0406,,73397.96875
+"470",Oromia,North Shewa(R4),Mulo,"04","0406","040616",ET04,Mulo,ET040616,ET0406,,57372.59765625
+"471",Oromia,North Shewa(R4),Aleltu,"04","0406","040617",ET04,Aleltu,ET040617,ET0406,,86780.84375
+"472",Oromia,North Shewa(R4),Jida,"04","0406","040615",ET04,Jida,ET040615,ET0406,,87260.3359375
+"473",Oromia,East Shewa,Bora,"04","0407","040710",ET04,Bora,ET040710,ET0407,Bora,94939.0859375
+"474",Oromia,East Shewa,Liben Chukala,"04","0407","040711",ET04,Liben Chukala,ET040711,ET0407,,125601.359375
+"475",Oromia,Arsi,Dodota,"04","0408","040805",ET04,Dodota,ET040805,ET0408,,104510.7578125
+"476",Oromia,Arsi,Lude Hitosa,"04","0408","040821",ET04,Lude Hitosa,ET040821,ET0408,,174972.203125
+"477",Oromia,Arsi,Tena,"04","0408","040813",ET04,Tena,ET040813,ET0408,,107801.640625
+"478",Oromia,Arsi,Diksis,"04","0408","040822",ET04,Diksis,ET040822,ET0408,Diksis,117601.7109375
+"479",Oromia,Arsi,Inkolo Wabe,"04","0408","040824",ET04,Inkolo Wabe,ET040824,ET0408,,94876.515625
+"480",Oromia,Arsi,Guna,"04","0408","040819",ET04,Guna,ET040819,ET0408,,124276.09375
+"481",Oromia,Arsi,Bele Gesgar,"04","0408","040823",ET04,Bele Gesgar,ET040823,ET0408,,120456.921875
+"482",Oromia,West Arsi,Siraro,"04","0417","041701",ET04,Siraro,ET041701,ET0417,Siraro,237290.140625
+"483",Oromia,West Arsi,Kore,"04","0417","041705",ET04,Kore,ET041705,ET0417,,168422.671875
+"484",Oromia,West Harerge,Goba Koricha,"04","0409","040907",ET04,Goba Koricha,ET040907,ET0409,,197993.984375
+"485",Oromia,West Harerge,Chiro Zuria,"04","0409","040913",ET04,Chiro Zuria,ET040913,ET0409,,330780.6875
+"486",Oromia,East Harerge,Midega Tola,"04","0410","041014",ET04,Midega Tola,ET041014,ET0410,,122537.078125
+"487",Oromia,East Harerge,Meyu,"04","0410","041018",ET04,Meyu,ET041018,ET0410,,73673.5546875
+"488",Oromia,East Harerge,Chinaksen,"04","0410","041015",ET04,Chinaksen,ET041015,ET0410,,143651.546875
+"489",Oromia,Bale,Gasera,"04","0411","041106",ET04,Gasera,ET041106,ET0411,,126586.4453125
+"490",Oromia,Bale,Dinsho,"04","0411","041122",ET04,Dinsho,ET041122,ET0411,,64334.63671875
+"491",Oromia,Bale,Harena Buluk,"04","0411","041111",ET04,Harena Buluk,ET041111,ET0411,,132741.75
+"492",Oromia,Bale,Goro,"04","0411","041116",ET04,Goro,ET041116,ET0411,Goro,135162.6875
+"493",Oromia,Guji,Afele Kola (Dima),"04","0414","041408",ET04,Afele Kola (Dima),ET041408,ET0414,,93542.4609375
+"494",Oromia,Guji,Kercha,"04","0414","041406",ET04,Kercha,ET041406,ET0414,,367435.90625
+"495",Oromia,Guji,Girja (Harenfema),"04","0414","041410",ET04,Girja (Harenfema),ET041410,ET0414,,80515.0703125
+"496",Oromia,Guji,Wadera,"04","0414","041404",ET04,Wadera,ET041404,ET0414,,82115.3203125
+"497",Oromia,Borena,Abaya,"04","0412","041213",ET04,Abaya,ET041213,ET0412,Abaya,181138.15625
+"498",Oromia,Borena,Bule Hora,"04","0412","041206",ET04,Bule Hora,ET041206,ET0412,Bule Hora,431348.4375
+"499",Oromia,Borena,Yabelo,"04","0412","041207",ET04,Yabelo,ET041207,ET0412,,166509.25
+"500",Oromia,South West Shewa,Sodo Daci,"04","0413","041314",ET04,Sodo Daci,ET041314,ET0413,,70375.0546875
+"501",Oromia,South West Shewa,Kondaltiti,"04","0413","041313",ET04,Kondaltiti,ET041313,ET0413,,65174.6875
+"502",Oromia,Borena,Dugda Dawa,"04","0412","041215",ET04,Dugda Dawa,ET041215,ET0412,Dugda Dawa,108463.4453125
+"503",Oromia,Borena,Melka Soda,"04","0412","041218",ET04,Melka Soda,ET041218,ET0412,,135769.4375
+"504",Oromia,Borena,Dillo,"04","0412","041219",ET04,Dillo,ET041219,ET0412,,21139.123046875
+"505",Oromia,Borena,Dire,"04","0412","041211",ET04,Dire,ET041211,ET0412,,70272.1484375
+"506",Oromia,Borena,Miyo,"04","0412","041216",ET04,Miyo,ET041216,ET0412,Miyo,82045.890625
+"507",Oromia,Borena,Dehas,"04","0412","041220",ET04,Dehas,ET041220,ET0412,,35420.23046875
+"508",Oromia,Borena,Arero,"04","0412","041208",ET04,Arero,ET041208,ET0412,Arero,71439.2734375
+"509",Oromia,Kelem Wellega,Gidami,"04","0418","041809",ET04,Gidami,ET041809,ET0418,,140318.8125
+"510",Oromia,Kelem Wellega,Anfilo,"04","0418","041807",ET04,Anfilo,ET041807,ET0418,Anfilo,126723.0546875
+"511",Oromia,Ilubabor,Bure,"04","0403","040312",ET04,Bure,ET040312,ET0403,,82843.0546875
+"512",Oromia,Kelem Wellega,Sayo,"04","0418","041805",ET04,Sayo,ET041805,ET0418,,237688.8125
+"513",Oromia,Ilubabor,Sale Nono,"04","0403","040313",ET04,Sale Nono,ET040313,ET0403,,37120.65625
+"514",Oromia,West Wellega,Gudetu Kondole,"04","0401","040109",ET04,Gudetu Kondole,ET040109,ET0401,,155746.796875
+"515",Oromia,West Wellega,Mana Sibu,"04","0401","040101",ET04,Mana Sibu,ET040101,ET0401,,204558.875
+"516",Oromia,West Wellega,Kiltu Kara,"04","0401","040105",ET04,Kiltu Kara,ET040105,ET0401,,83854.3125
+"517",Oromia,West Wellega,Nejo,"04","0401","040102",ET04,Nejo,ET040102,ET0401,,212452.65625
+"518",Oromia,West Wellega,Boji Dirmeji,"04","0401","040106",ET04,Boji Dirmeji,ET040106,ET0401,,69216.5625
+"519",Oromia,West Wellega,Lalo Asabi,"04","0401","040104",ET04,Lalo Asabi,ET040104,ET0401,,122391.5
+"520",Oromia,West Wellega,Gimbi,"04","0401","040103",ET04,Gimbi,ET040103,ET0401,,170740.5
+"521",Oromia,Ilubabor,Chwaka,"04","0403","040323",ET04,Chwaka,ET040323,ET0403,,91263.6953125
+"522",Oromia,Ilubabor,Dabo Hana,"04","0403","040305",ET04,Dabo Hana,ET040305,ET0403,,67823.484375
+"523",Oromia,East Wellega,Diga,"04","0402","040210",ET04,Diga,ET040210,ET0402,Diga,108407.3046875
+"524",Oromia,East Wellega,Haro Limu,"04","0402","040204",ET04,Haro Limu,ET040204,ET0402,,85291.5078125
+"525",Oromia,North Shewa(R4),Abichuna Gne'a,"04","0406","040609",ET04,Abichuna Gne'a,ET040609,ET0406,,121148.2734375
+"526",Oromia,North Shewa(R4),Kembibit,"04","0406","040610",ET04,Kembibit,ET040610,ET0406,,120298.71875
+"527",Oromia,East Shewa,Gimbichu,"04","0407","040705",ET04,Gimbichu,ET040705,ET0407,,140231.921875
+"528",Oromia,West Shewa,Walmara,"04","0405","040512",ET04,Walmara,ET040512,ET0405,,284970.34375
+"529",Oromia,East Shewa,Akaki,"04","0407","040712",ET04,Akaki,ET040712,ET0407,,126480.6015625
+"530",Oromia,North Shewa(R4),Bereh,"04","0406","040611",ET04,Bereh,ET040611,ET0406,,150830.484375
+"531",Oromia,North Shewa(R4),Sululta,"04","0406","040612",ET04,Sululta,ET040612,ET0406,,209401.65625
+"532",Oromia,South West Shewa,Alem Gena,"04","0413","041306",ET04,Alem Gena,ET041306,ET0413,,301729.84375
+"533",Amhara,North Shewa(R3),Basona Worena,"03","0305","030519",ET03,Basona Worena,ET030519,ET0305,,267316.0625
+"534",Amhara,North Shewa(R3),Ensaro,"03","0305","030503",ET03,Ensaro,ET030503,ET0305,,83252.78125
+"535",Addis Ababa,Region 14,Akaki - Kalit,"14","1401","140101",ET14,Akaki - Kalit,ET140101,ET1401,,262408.21875
+"536",Addis Ababa,Region 14,Kolfe - Keran,"14","1401","140103",ET14,Kolfe - Keran,ET140103,ET1401,,641526.125
+"537",Oromia,West Harerge,"Hawi Gudina
+","04","0409","040915",ET04,"Hawi Gudina
+",ET040915,ET0409,,111351.859375
+"538",Oromia,West Harerge,Daro Lebu,"04","0409","040909",ET04,Daro Lebu,ET040909,ET0409,,210840.203125
+"539",Somali,Afder,Hargele,"05","0508","0508061",ET05,Hargele,ET0508061,ET0508,,66623.21875
+"540",Afar,Zone 2,Bidu,"02","0202","0202071",ET02,Bidu,ET0202071,ET0202,Bidu,16791.51953125
+"541",Afar,Zone 1,Kurri,"02","0201","0201011",ET02,Kurri,ET0201011,ET0201,Korri,45313.9296875
+"542",Afar,Zone 1,Adaa'r,"02","0201","0201051",ET02,Adaa'r,ET0201051,ET0201,Addar,47761.984375
+"543",SNNPR,Sheka,Yeki,"07","0708","070803",ET07,Yeki,ET070803,ET0708,,215923.703125
+"544",SNNPR,Keffa,Menjiwo,"07","0709","070905",ET07,Menjiwo,ET070905,ET0709,,172001.25
+"545",SNNPR,KT,Kacha Bira,"07","0703","070304",ET07,Kacha Bira,ET070304,ET0703,,183644.328125
+"546",SNNPR,KT,Tembaro,"07","0703","070301",ET07,Tembaro,ET070301,ET0703,,172328.984375
+"547",SNNPR,Keffa,Decha,"07","0709","070908",ET07,Decha,ET070908,ET0709,,207286.859375
+"548",SNNPR,Bench Maji,Menit Shasha,"07","0711","071106",ET07,Menit Shasha,ET071106,ET0711,,69428.9609375
+"549",SNNPR,Konta,Ela (Konta) SP Woreda,"07","0719","071901",ET07,Ela (Konta) SP Woreda,ET071901,ET0719,,146756.90625
+"550",SNNPR,Keffa,Cheta,"07","0709","070907",ET07,Cheta,ET070907,ET0709,,53350.734375
+"551",SNNPR,Dawro,Loma Bosa,"07","0717","071703",ET07,Loma Bosa,ET071703,ET0717,,176965.171875
+"552",SNNPR,Gamo Gofa,Boreda,"07","0710","071004",ET07,Boreda,ET071004,ET0710,,108635.8359375
+"553",SNNPR,Gurage,Sodo,"07","0701","070105",ET07,Sodo,ET070105,ET0701,Sodo,214915.203125
+"554",SNNPR,Gurage,Abeshege,"07","0701","070102",ET07,Abeshege,ET070102,ET0701,,98810.484375
+"555",SNNPR,Gurage,Kokir Gedbano,"07","0701","070104",ET07,Kokir Gedbano,ET070104,ET0701,,150690.078125
+"556",SNNPR,Gurage,Meskan,"07","0701","070106",ET07,Meskan,ET070106,ET0701,Meskan,305571.5625
+"557",SNNPR,Gurage,Cheha,"07","0701","070110",ET07,Cheha,ET070110,ET0701,,186240.671875
+"558",SNNPR,South Omo,South Ari (Bako Gazer),"07","0707","070702",ET07,South Ari (Bako Gazer),ET070702,ET0707,,339027
+"559",SNNPR,Gurage,Enemorina Eaner,"07","0701","070111",ET07,Enemorina Eaner,ET070111,ET0701,,269221.5625
+"560",SNNPR,Selti,Alicho Woriro,"07","0720","072001",ET07,Alicho Woriro,ET072001,ET0720,,148010.15625
+"561",SNNPR,Selti,Selti,"07","0720","072002",ET07,Selti,ET072002,ET0720,,284558.3125
+"562",SNNPR,Yem,Yem SP Woreda,"07","0712","071201",ET07,Yem SP Woreda,ET071201,ET0712,,129286.1796875
+"563",SNNPR,Hadiya,Gibe,"07","0702","070202",ET07,Gibe,ET070202,ET0702,,175735.8125
+"564",SNNPR,Selti,Lanfero,"07","0720","072003",ET07,Lanfero,ET072003,ET0720,,187130.953125
+"565",SNNPR,Keffa,Gesha (Deka),"07","0709","070902",ET07,Gesha (Deka),ET070902,ET0709,,136675.03125
+"566",SNNPR,Selti,Wilbareg,"07","0720","072008",ET07,Wilbareg,ET072008,ET0720,,128516.8125
+"567",SNNPR,Hadiya,Soro,"07","0702","070206",ET07,Soro,ET070206,ET0702,,301898.25
+"568",SNNPR,Sheka,Masha,"07","0708","070801",ET07,Masha,ET070801,ET0708,,65770
+"569",SNNPR,Keffa,Gimbo,"07","0709","070904",ET07,Gimbo,ET070904,ET0709,,177938.921875
+"570",SNNPR,Alaba,Alaba SP Woreda,"07","0721","072101",ET07,Alaba SP Woreda,ET072101,ET0721,,372640.71875
+"571",SNNPR,KT,Anigacha,"07","0703","070302",ET07,Anigacha,ET070302,ET0703,,140553.9375
+"572",SNNPR,Keffa,Chena,"07","0709","070909",ET07,Chena,ET070909,ET0709,,253316.609375
+"573",SNNPR,Wolayita,Boloso sore,"07","0706","070601",ET07,Boloso sore,ET070601,ET0706,Boloso Sori,314914.84375
+"574",SNNPR,Dawro,Mareka,"07","0717","071702",ET07,Mareka,ET071702,ET0717,,201584.609375
+"575",SNNPR,Sidama,Wondo-Genet,"07","0704","070420",ET07,Wondo-Genet,ET070420,ET0704,,248757.609375
+"576",SNNPR,Wolayita,Damot Gale,"07","0706","070602",ET07,Damot Gale,ET070602,ET0706,,242810.625
+"577",SNNPR,Dawro,Esira,"07","0717","071705",ET07,Esira,ET071705,ET0717,,105358.4921875
+"578",SNNPR,Wolayita,Sodo Zuria,"07","0706","070605",ET07,Sodo Zuria,ET070605,ET0706,,384234.5625
+"579",SNNPR,Sidama,Loka Abaya,"07","0704","070414",ET07,Loka Abaya,ET070414,ET0704,Loka Abaya,161828.640625
+"580",SNNPR,Sidama,Arbe Gonna,"07","0704","070403",ET07,Arbe Gonna,ET070403,ET0704,,216680.71875
+"581",SNNPR,Wolayita,Ofa,"07","0706","070607",ET07,Ofa,ET070607,ET0706,Offa,168308.4375
+"582",SNNPR,Sidama,Hulla,"07","0704","070407",ET07,Hulla,ET070407,ET0704,,208440.671875
+"583",SNNPR,Sidama,Chuko,"07","0704","070417",ET07,Chuko,ET070417,ET0704,,271980.90625
+"584",SNNPR,Gamo Gofa,Melekoza,"07","0710","071001",ET07,Melekoza,ET071001,ET0710,,191855.8125
+"585",SNNPR,Gamo Gofa,Kucha,"07","0710","071003",ET07,Kucha,ET071003,ET0710,Kucha,239194.25
+"586",SNNPR,Sidama,Chire,"07","0704","070415",ET07,Chire,ET070415,ET0704,,192476.8125
+"587",SNNPR,Gamo Gofa,Denibu Gofa,"07","0710","071002",ET07,Denibu Gofa,ET071002,ET0710,,165982.484375
+"588",SNNPR,Sidama,Aroresa,"07","0704","070409",ET07,Aroresa,ET070409,ET0704,Aroresa,274226.75
+"589",SNNPR,Sidama,Dara,"07","0704","070406",ET07,Dara,ET070406,ET0704,Dara,268560.53125
+"590",SNNPR,Bench Maji,Surma,"07","0711","071109",ET07,Surma,ET071109,ET0711,,39297.296875
+"591",SNNPR,South Omo,Selamgo,"07","0707","070701",ET07,Selamgo,ET070701,ET0707,,44801.21484375
+"592",SNNPR,Bench Maji,Maji,"07","0711","071107",ET07,Maji,ET071107,ET0711,,50087.890625
+"593",SNNPR,Gamo Gofa,Chencha,"07","0710","071007",ET07,Chencha,ET071007,ET0710,Chencha,179240.296875
+"594",SNNPR,Gamo Gofa,Dita,"07","0710","071008",ET07,Dita,ET071008,ET0710,Dita,134412.34375
+"595",SNNPR,Basketo,Basketo SP Woreda,"07","0718","071801",ET07,Basketo SP Woreda,ET071801,ET0718,,91747.1171875
+"596",SNNPR,Gamo Gofa,Daramalo,"07","0710","071009",ET07,Daramalo,ET071009,ET0710,,129341
+"597",SNNPR,Gedio,Bule,"07","0705","070504",ET07,Bule,ET070504,ET0705,,167875.234375
+"598",SNNPR,Gedio,Yirgachefe,"07","0705","070502",ET07,Yirgachefe,ET070502,ET0705,,315451.84375
+"599",SNNPR,Gamo Gofa,Arba Minch Zuria,"07","0710","071016",ET07,Arba Minch Zuria,ET071016,ET0710,Arba minch,381997.8125
+"600",SNNPR,Bench Maji,Shay Bench,"07","0711","071104",ET07,Shay Bench,ET071104,ET0711,,189759
+"601",SNNPR,Segen Peoples',Amaro,"07","0713","071302",ET07,Amaro,ET071302,ET0713,Amaro,238863.296875
+"602",SNNPR,Segen Peoples',Burji,"07","0713","071303",ET07,Burji,ET071303,ET0713,,90069.15625
+"603",SNNPR,Segen Peoples',Konso,"07","0713","071305",ET07,Konso,ET071305,ET0713,Konso,377673.75
+"604",SNNPR,South Omo,Gnangatom,"07","0707","070708",ET07,Gnangatom,ET070708,ET0707,Gangatom,28311.623046875
+"605",SNNPR,Gamo Gofa,Zala,"07","0710","071010",ET07,Zala,ET071010,ET0710,Zala,118420.625
+"606",SNNPR,Gurage,Ezha,"07","0701","070103",ET07,Ezha,ET070103,ET0701,,136854.703125
+"607",SNNPR,Wolayita,Damot Sore,"07","0706","070609",ET07,Damot Sore,ET070609,ET0706,,161801.015625
+"608",SNNPR,Wolayita,Boloso Bombe,"07","0706","070608",ET07,Boloso Bombe,ET070608,ET0706,Boloso Bombe,142335.671875
+"609",SNNPR,Wolayita,Kindo Koysha,"07","0706","070606",ET07,Kindo Koysha,ET070606,ET0706,Kindo Koysha,168670.828125
+"610",SNNPR,Wolayita,Kindo Dida,"07","0706","070610",ET07,Kindo Dida,ET070610,ET0706,Kindo Didaye,157215.953125
+"611",SNNPR,Wolayita,Damot Pulasa,"07","0706","070611",ET07,Damot Pulasa,ET070611,ET0706,,167934.515625
+"612",SNNPR,Sidama,Hawassa Zuria,"07","0704","070402",ET07,Hawassa Zuria,ET070402,ET0704,,198346.078125
+"613",SNNPR,Sidama,Hawasa Town,"07","0704","070419",ET07,Hawasa Town,ET070419,ET0704,,414833.28125
+"614",SNNPR,Sidama,Malga,"07","0704","070412",ET07,Malga,ET070412,ET0704,,174848.171875
+"615",SNNPR,Sidama,Shebe Dino,"07","0704","070401",ET07,Shebe Dino,ET070401,ET0704,Shebedino,371999.0625
+"616",SNNPR,Sidama,Gorche,"07","0704","070411",ET07,Gorche,ET070411,ET0704,,169161.546875
+"617",SNNPR,Sidama,Dale,"07","0704","070404",ET07,Dale,ET070404,ET0704,Dale,388050.375
+"618",SNNPR,Sidama,Wonosho,"07","0704","070413",ET07,Wonosho,ET070413,ET0704,,145275.890625
+"619",SNNPR,Wolayita,Humbo,"07","0706","070604",ET07,Humbo,ET070604,ET0706,Humbo,202510.984375
+"620",SNNPR,Sidama,Aleta Wendo,"07","0704","070405",ET07,Aleta Wendo,ET070405,ET0704,Aleta Wondo,301321.71875
+"621",SNNPR,Sidama,Bona Zuria,"07","0704","070418",ET07,Bona Zuria,ET070418,ET0704,,193123.265625
+"622",SNNPR,Sidama,Bursa,"07","0704","070416",ET07,Bursa,ET070416,ET0704,,166148.828125
+"623",SNNPR,Sidama,Bensa,"07","0704","070408",ET07,Bensa,ET070408,ET0704,Bensa,402296.59375
+"624",SNNPR,Gurage,Mareko,"07","0701","070107",ET07,Mareko,ET070107,ET0701,Mareko,100073.921875
+"625",SNNPR,Hadiya,Misha,"07","0702","070201",ET07,Misha,ET070201,ET0702,,204030.15625
+"626",SNNPR,Hadiya,Shashogo,"07","0702","070204",ET07,Shashogo,ET070204,ET0702,Shashego,166108.09375
+"627",SNNPR,Gamo Gofa,Mirab Abaya,"07","0710","071005",ET07,Mirab Abaya,ET071005,ET0710,M/Abaya,119517.578125
+"628",SNNPR,Gamo Gofa,Ubadebretsehay,"07","0710","071011",ET07,Ubadebretsehay,ET071011,ET0710,U/Tsehai,110959.8203125
+"629",SNNPR,South Omo,Bena Tsemay,"07","0707","070705",ET07,Bena Tsemay,ET070705,ET0707,,85412.0234375
+"630",SNNPR,Gedio,Kochere,"07","0705","070503",ET07,Kochere,ET070503,ET0705,,207001.359375
+"631",SNNPR,Gedio,Kochere Gedeb,"07","0705","070506",ET07,Kochere Gedeb,ET070506,ET0705,,227161.9375
+"632",SNNPR,Gedio,Wenago,"07","0705","070501",ET07,Wenago,ET070501,ET0705,,187266.625
+"633",SNNPR,Gedio,Dila Zuria,"07","0705","070505",ET07,Dila Zuria,ET070505,ET0705,,217670.734375
+"634",SNNPR,Sidama,Boricha,"07","0704","070410",ET07,Boricha,ET070410,ET0704,Boricha,404156.625
+"635",SNNPR,Wolayita,Diguna Fango,"07","0706","070612",ET07,Diguna Fango,ET070612,ET0706,,153649.875
+"636",SNNPR,Wolayita,Damot Weydie,"07","0706","070603",ET07,Damot Weydie,ET070603,ET0706,,147587.359375
+"637",SNNPR,Hadiya,Misrak Badawacho,"07","0702","070205",ET07,Misrak Badawacho,ET070205,ET0702,,227264.40625
+"638",SNNPR,Hadiya,Mierab Badawacho,"07","0702","070209",ET07,Mierab Badawacho,ET070209,ET0702,,133751.15625
+"639",SNNPR,Gurage,Kebena,"07","0701","070101",ET07,Kebena,ET070101,ET0701,,130860.515625
+"640",SNNPR,Gurage,Muhur Na Aklil,"07","0701","070112",ET07,Muhur Na Aklil,ET070112,ET0701,,139454.0625
+"641",SNNPR,South Omo,Hamer,"07","0707","070704",ET07,Hamer,ET070704,ET0707,Hamar,95862.9609375
+"642",SNNPR,South Omo,Dasenech (Kuraz),"07","0707","070706",ET07,Dasenech (Kuraz),ET070706,ET0707,Desenech,84569.390625
+"643",SNNPR,Bench Maji,Bero,"07","0711","071108",ET07,Bero,ET071108,ET0711,,19803.837890625
+"644",SNNPR,Bench Maji,Gurafereda,"07","0711","071102",ET07,Gurafereda,ET071102,ET0711,,56415.625
+"645",SNNPR,Bench Maji,Sheka,"07","0711","071101",ET07,Sheka,ET071101,ET0711,,80316.2265625
+"646",SNNPR,Bench Maji,Debub Bench,"07","0711","071103",ET07,Debub Bench,ET071103,ET0711,,218147.625
+"647",SNNPR,Bench Maji,Semen Bench,"07","0711","071110",ET07,Semen Bench,ET071110,ET0711,,181691.203125
+"648",SNNPR,Bench Maji,Menit Goldiye,"07","0711","071105",ET07,Menit Goldiye,ET071105,ET0711,,142475.234375
+"649",SNNPR,South Omo,Gelila,"07","0707","070703",ET07,Gelila,ET070703,ET0707,,108461.9609375
+"650",SNNPR,South Omo,Male,"07","0707","070707",ET07,Male,ET070707,ET0707,,135962.25
+"651",SNNPR,Gamo Gofa,Ayida,"07","0710","071015",ET07,Ayida,ET071015,ET0710,,53736.59765625
+"652",SNNPR,Gamo Gofa,Geze Gofa,"07","0710","071017",ET07,Geze Gofa,ET071017,ET0710,Geza Gofa,108869.4296875
+"653",SNNPR,Dawro,Tocha,"07","0717","071701",ET07,Tocha,ET071701,ET0717,,164452.296875
+"654",SNNPR,Dawro,Gena Bosa,"07","0717","071704",ET07,Gena Bosa,ET071704,ET0717,,136782.21875
+"655",SNNPR,Keffa,Tulo,"07","0709","070906",ET07,Tulo,ET070906,ET0709,Tulo,100902.296875
+"656",SNNPR,Keffa,Sayilem,"07","0709","070901",ET07,Sayilem,ET070901,ET0709,,65236.4296875
+"657",SNNPR,Keffa,Bita (Big),"07","0709","070910",ET07,Bita (Big),ET070910,ET0709,,119088.1796875
+"658",SNNPR,Keffa,Getawa,"07","0709","070903",ET07,Getawa,ET070903,ET0709,,116653.6953125
+"659",SNNPR,Sheka,Anderacha,"07","0708","070802",ET07,Anderacha,ET070802,ET0708,,38249.27734375
+"660",SNNPR,KT,Hadero Tubito,"07","0703","070305",ET07,Hadero Tubito,ET070305,ET0703,,155805.421875
+"661",SNNPR,Hadiya,Dune,"07","0702","070207",ET07,Dune,ET070207,ET0702,,196000.15625
+"662",SNNPR,Hadiya,Gembora,"07","0702","070210",ET07,Gembora,ET070210,ET0702,,150070.515625
+"663",SNNPR,Selti,Misrak Azenet Berbere,"07","0720","072007",ET07,Misrak Azenet Berbere,ET072007,ET0720,,81182.125
+"664",SNNPR,Gurage,Endiguagn,"07","0701","070108",ET07,Endiguagn,ET070108,ET0701,,78264.5625
+"665",SNNPR,Hadiya,Limu,"07","0702","070203",ET07,Limu,ET070203,ET0702,,302890.40625
+"666",SNNPR,Gurage,Geta,"07","0701","070113",ET07,Geta,ET070113,ET0701,,111435.6953125
+"667",SNNPR,Hadiya,Analemmo,"07","0702","070208",ET07,Analemmo,ET070208,ET0702,,114881.28125
+"668",SNNPR,Selti,Mierab Azenet Berbere,"07","0720","072004",ET07,Mierab Azenet Berbere,ET072004,ET0720,,95297.6796875
+"669",SNNPR,Selti,Sankura,"07","0720","072006",ET07,Sankura,ET072006,ET0720,,134849.09375
+"670",SNNPR,KT,Doya Gena,"07","0703","070306",ET07,Doya Gena,ET070306,ET0703,,125912.78125
+"671",SNNPR,KT,Daniboya,"07","0703","070307",ET07,Daniboya,ET070307,ET0703,,132091.015625
+"672",SNNPR,KT,Kediada Gambela,"07","0703","070303",ET07,Kediada Gambela,ET070303,ET0703,,183959.46875
+"673",SNNPR,Selti,Dalocha,"07","0720","072005",ET07,Dalocha,ET072005,ET0720,,144358.0625
+"674",SNNPR,Gurage,Gumer,"07","0701","070109",ET07,Gumer,ET070109,ET0701,,127622.1875
+"675",SNNPR,Segen Peoples',Alle,"07","0713","071301",ET07,Alle,ET071301,ET0713,Alle SW,92951.953125
+"676",SNNPR,Segen Peoples',Derashe,"07","0713","071304",ET07,Derashe,ET071304,ET0713,,136200.90625
+"677",SNNPR,Gamo Gofa,Kemba,"07","0710","071012",ET07,Kemba,ET071012,ET0710,Kemba,251500.296875
+"678",SNNPR,Gamo Gofa,Bonke,"07","0710","071013",ET07,Bonke,ET071013,ET0710,Bonke,256428.265625
+"679",Oromia,Guji,Liben,"04","0414","041407",ET04,Liben,ET041407,ET0414,,170116.125
+"680",Oromia,Guji,Goro Dola,"04","0414","041413",ET04,Goro Dola,ET041413,ET0414,Goro Dola,113584.578125
+"681",Oromia,Guji,Saba Boru,"04","0414","041412",ET04,Saba Boru,ET041412,ET0414,Saba Boru,121643.2734375
+"682",Oromia,Guji,Odo Shakiso,"04","0414","041405",ET04,Odo Shakiso,ET041405,ET0414,,214480.65625
+"683",Oromia,Guji,Hambela Wamena,"04","0414","041409",ET04,Hambela Wamena,ET041409,ET0414,,171106.609375
+"684",Oromia,Guji,Ana Sora,"04","0414","041411",ET04,Ana Sora,ET041411,ET0414,,151665.875
+"685",Oromia,Guji,Bore,"04","0414","041402",ET04,Bore,ET041402,ET0414,,191127.640625
+"686",Oromia,West Wellega,Homa,"04","0401","040117",ET04,Homa,ET040117,ET0401,,39975.515625
+"687",Oromia,East Wellega,Gida Ayana,"04","0402","040203",ET04,Gida Ayana,ET040203,ET0402,,163051.671875
+"688",Oromia,East Wellega,Kiremu,"04","0402","040217",ET04,Kiremu,ET040217,ET0402,,94331.671875
+"689",Oromia,West Wellega,Ayira,"04","0401","040107",ET04,Ayira,ET040107,ET0401,,78377.515625
+"690",Oromia,West Wellega,Guliso,"04","0401","040119",ET04,Guliso,ET040119,ET0401,,112690.8203125
