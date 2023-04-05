@@ -29,6 +29,7 @@ library("RColorBrewer")
 
 path <- "G:\\Shared drives\\DATA_WDL\\Mpro_2.0\\01_Data\\R_2022_12_29\\2023_01_23_2017ppp\\01_inputs\\population\\World pop\\Ethiopia"
 
+path_uga <- "G:\\Shared drives\\DATA_WDL\\Mpro_2.0\\01_Data\\R_2022_12_29\\2023_01_23_2017ppp\\01_inputs\\population\\World pop\\Uganda"
 
 
 #Load tz population data and shape file
@@ -44,6 +45,8 @@ shape_eth <- read_sf(here::here("eth_shape/Eth_Woreda_2013.shp"))
 
 #Load Kampala population data and shape file
 
+uga_pop <-  raster(paste0(path_uga, "\\uga_ppp_2020_UNadj_constrained.tif"))
+shape_uga <- read_sf(here::here("uga_shape/uga_admbnda_adm3_ubos_20200824.shp")) 
 
 
 ```
@@ -192,6 +195,7 @@ shape_eth <- shape_eth %>%
 ```
 
 
+
 ```{r}
 
 shape_eth %>% 
@@ -200,7 +204,107 @@ shape_eth %>%
 ```
 
 
+## Greater Kampala consumer spending
 ```{r}
+##Extract values from raster file using shape file
+
+
+library(exactextractr)
+
+shape_uga$pop_2020 <- exact_extract(uga_pop, shape_uga, 'sum')
+
+shape_uga <- shape_uga %>% 
+    st_write("uga_pop_2020.csv")
+
+```
+
+
+```{r}
+#Total Kampala population 2020
+
+shape_uga %>% 
+    filter(ADM2_EN == "Kampala") %>% 
+    summarise(tot = sum(pop_2020))
+
+```
+
+
+```{r}
+#scale population to 2022 and 2030
+
+shape_uga <- shape_uga %>% 
+    mutate(pop_2022 = pop_2020* 1.975556724,
+           pop_2030 = pop_2020*  2.97582534)
+```
+
+
+
+```{r}
+#Get consumer class breakdown
+
+shape_uga <- shape_uga %>% 
+    mutate(cons_class12 = pop_2022*0.204582718,
+           cons_class40 = pop_2022*0.014516643,
+           cons_class80 = pop_2022*0.00339965,
+           cons_class12_2030 = pop_2030*0.367557857,
+           cons_class40_2030 = pop_2030*0.026202479,
+           cons_class80_2030 = pop_2030*0.00601898)
+    
+
+```
+
+
+```{r}
+#Get consumer class breakdown for 15 + year old
+
+shape_uga <- shape_uga %>% 
+     mutate(Females_2022_12USD = cons_class12*0.35248987,
+           Males_2022_12USD = cons_class12*0.417886807,
+           Females_2022_40USD = cons_class40*0.352532214,
+           Males_2022_40USD = cons_class40*0.417811449,
+           Females_2022_80USD = cons_class80*0.352626564,
+           Males_2022_80USD = cons_class80*0.417651899,
+           Females_2030_12USD = cons_class12_2030*0.348145372,
+           Males_2030_12USD = cons_class12_2030*0.39538472,
+           Females_2030_40USD = cons_class40_2030*0.348130275,
+           Males_2030_40USD = cons_class40_2030*0.395394744,
+           Females_2030_80USD = cons_class80_2030*0.348089774,
+           Males_2030_80USD = cons_class80_2030*0.39540101)
+
+```
+
+
+```{r}
+
+shape_uga %>% 
+    st_write("fin_con_uga.csv")
+
+```
+## Plot maps for the three cities
+```{r}
+shape_uga %>% 
+    filter(ADM2_EN %in% c("Kampala", "Mpigi", "Wakiso", "Mukono", "Buikwe", "Luwero")) %>% 
+  ggplot() + 
+  geom_sf(mapping = aes(fill = cons_class12), show.legend = TRUE) +
+  geom_sf_text(aes(label = ADM2_EN), size = 2.5) + 
+  coord_sf() +
+  theme(axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks = element_blank(),
+        rect = element_blank()) +
+  labs(fill = "Total $40+ population in 2022") +
+  scale_fill_viridis(option = "plasma", direction = -1) +
+  theme(plot.title = element_text(size = 15, face = "bold")) + # adjust plot subtitle size
+  ggtitle("$40+ population in 2022") 
+
+ggsave("kampala_consumer class.png", width = 14, height = 12, dpi = 300, bg = "white" )
+
+
+
+```
+
+```{r}
+
 
 
 
