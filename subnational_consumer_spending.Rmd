@@ -42,6 +42,10 @@ shape_tz <- read_sf(here::here("tz_shape/tza_admbnda_adm3_20181019.shp"))
 eth_pop <-  raster(paste0(path, "\\eth_ppp_2020_UNadj_constrained.tif"))
 shape_eth <- read_sf(here::here("eth_shape/Eth_Woreda_2013.shp")) 
 
+#Load Kampala population data and shape file
+
+
+
 ```
 
 
@@ -127,7 +131,7 @@ library(exactextractr)
 
 shape_eth$pop_2020 <- exact_extract(eth_pop, shape_eth, 'sum')
 
-shape_eth %>% 
+shape_eth <- shape_eth %>% 
     st_write("eth_pop_2020.csv")
 
 ```
@@ -167,27 +171,38 @@ shape_eth <- shape_eth %>%
 
 ```
 
+
 ```{r}
 #Get consumer class breakdown for 15 + year old
 
 shape_eth <- shape_eth %>% 
-     mutate(Females_2022_12USD = cons_class12*0.360033924,
-           Males_2022_12USD = cons_class12*0.384913863,
-           Females_2022_40USD = cons_class40*0.360026466,
-           Males_2022_40USD = cons_class40*0.384916272,
-           Females_2022_80USD = cons_class80*0.360052913,
-           Males_2022_80USD = cons_class80*0.384881517,
-           Females_2030_12USD = cons_class12_2030*0.368186253,
+     mutate(Females_2022_12USD = cons_class12*0.332678169,
+           Males_2022_12USD = cons_class12*0.376695282,
+           Females_2022_40USD = cons_class40*0.332683254,
+           Males_2022_40USD = cons_class40*0.376700745,
+           Females_2022_80USD = cons_class80*0.3326833,
+           Males_2022_80USD = cons_class80*0.376700745,
+           Females_2030_12USD = cons_class12_2030*0.368448132,
            Males_2030_12USD = cons_class12_2030*0.387125694,
-           Females_2030_40USD = cons_class40_2030*0.368173541,
-           Males_2030_40USD = cons_class40_2030*0.387140555,
-           Females_2030_80USD = cons_class80_2030*0.368200755,
-           Males_2030_80USD = cons_class80_2030*0.387146673)
+           Females_2030_40USD = cons_class40_2030*0.347826907,
+           Males_2030_40USD = cons_class40_2030*0.368457839,
+           Females_2030_80USD = cons_class80_2030*0.347826907,
+           Males_2030_80USD = cons_class80_2030*0.368457839)
 
 ```
 
+
 ```{r}
-shape_tz %>% 
-    st_write("fin_con_tz.csv")
-````
+
+shape_eth %>% 
+    st_write("fin_con_eth.csv")
+
+```
+
+
+```{r}
+
+
+
+```
 
