@@ -1,0 +1,78 @@
+---
+title: "country_urbanization"
+output: html_document
+date: "2023-04-12"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#Load libraries
+
+library(tidyverse)
+library(here)
+library(viridis)
+library(sf)
+library(ggpp)
+library(raster)
+library(rasterVis)
+library(readxl)
+library(xml2)
+library("RColorBrewer")
+```
+
+
+```{r}
+## Read kenya population density data
+
+path <- "G:\\Shared drives\\DATA_WDL\\Mpro_2.0\\01_Data\\R_2022_12_29\\2023_01_23_2017ppp\\01_inputs\\population\\World pop\\Kenya"
+
+ken <-  raster(paste0(path, "\\ken_pd_2020_1km_UNadj.tif"))
+
+##Read Kenya shape file
+
+shape_kenya <- read_sf(here::here("ken_shape/gadm41_KEN_1.shp"))
+
+```
+
+
+
+```{r}
+# Extract population values
+
+library(exactextractr)
+
+shape_kenya$pop_2020 <- exact_extract(ken, shape_kenya, "sum")
+
+```
+
+
+
+```{r}
+# Convert county area to square kilometers
+shape_kenya$area_km2 <- st_area(shape_kenya) / 1e+06
+```
+
+
+```{r}
+# Calculate population density for each county in square kilometers
+shape_kenya$pop_density_km2 <- shape_kenya$pop_2020 / shape_kenya$area_km2
+```
+
+```{r}
+# Remove [1/m^2] from pop_density_km2
+shape_kenya$pop_density_km2 <- gsub("\\s*\\[1/m\\^2\\]", "", shape_kenya$pop_density_km2)
+shape_kenya$pop_density_km2 <- as.numeric(shape_kenya$pop_density_km2)
+```
+
+
+
+```{r}
+# Create new column for city/town/rural classification
+shape_kenya$urbanization <- ifelse(shape_kenya$pop_2020 > 50000 & shape_kenya$pop_density_km2 > 1500, "City", 
+                                      ifelse(shape_kenya$pop_2020 > 5000 & shape_kenya$pop_density_km2 > 250, "Town", "Rural"))
+
+```
+
