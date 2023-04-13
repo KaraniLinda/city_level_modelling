@@ -21,6 +21,8 @@ library(rasterVis)
 library(readxl)
 library(xml2)
 library("RColorBrewer")
+library(foreign)
+library(haven)
 ```
 
 
@@ -31,9 +33,10 @@ path <- "G:\\Shared drives\\DATA_WDL\\Mpro_2.0\\01_Data\\R_2022_12_29\\2023_01_2
 
 ken <-  raster(paste0(path, "\\ken_pd_2020_1km_UNadj.tif"))
 
-##Read Kenya shape file
+##Read Kenya consumption survey data
 
-shape_kenya <- read_sf(here::here("ken_shape/gadm41_KEN_1.shp"))
+ken_cons <- read_dta("ken_consumption\\Consumption_aggregate.dta")
+
 
 ```
 
