@@ -23,6 +23,7 @@ library(xml2)
 library("RColorBrewer")
 library(foreign)
 library(haven)
+library(Hmisc)
 ```
 
 
@@ -40,8 +41,55 @@ ken_cons <- read_dta("ken_consumption\\Consumption_aggregate.dta")
 
 ```
 
+## Aggregate consumption kenya
+
+```{r}
+unique(ken_cons$county)
+```
 
 
+```{r}
+
+#Convert column county and resid to factor columns
+ken_cons$county <- as_factor(ken_cons$county)
+ken_cons$resid <- as_factor(ken_cons$resid)
+ken_cons$eatype <- as_factor(ken_cons$eatype)
+```
+
+
+
+```{r}
+#Get the total consumption
+
+ken_cons <- ken_cons %>%
+    mutate(tot_cons = rowSums(dplyr::select(., padqnfitems:padqfdcons)))
+
+
+```
+
+```{r}
+# Add quantiles from national distribution
+
+# Select relevant variables from survey data
+
+ken_var <- ken_cons %>% 
+    dplyr::select(county, resid,weight_pop,tot_cons)
+
+# Compute quantiles
+
+ken_qnt <- wtd.quantile(ken_var$tot_cons, weights = ken_var$weight_pop, probs = seq(0, 1, 0.1))
+
+# create data frame with quantiles and corresponding cons values
+ken_qnt <- data.frame(cbind(names(ken_qnt), ken_qnt))
+names(ken_qnt) <- c("quantile", "value")
+ken_qnt$value <- as.numeric(ken_qnt$value)
+
+
+```
+
+
+
+## World bank urbanization classification
 ```{r}
 # Extract population values
 
