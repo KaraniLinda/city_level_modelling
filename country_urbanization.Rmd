@@ -85,8 +85,22 @@ names(ken_qnt) <- c("quantile", "value")
 ken_qnt$value <- as.numeric(ken_qnt$value)
 
 
+
+# match data with quantiles
+ken_var$quantile <- ken_qnt$quantile[findInterval(ken_var$tot_cons, ken_qnt$value, rightmost.closed = TRUE)+1]
+
 ```
 
+```{r}
+# compute shares of groups per quantile
+ken_var2 <- ken_var %>%
+  group_by(quantile, county) %>%
+  mutate(wgt_qtl = sum(weight_pop)) %>% 
+  group_by(quantile, resid,county) %>%
+  summarise(share = sum(weight_pop)/wgt_qtl) %>%
+  distinct()
+  
+```
 
 
 ## World bank urbanization classification
