@@ -303,10 +303,5 @@ ggsave("kampala_consumer class.png", width = 14, height = 12, dpi = 300, bg = "w
 
 ```
 
-```{r}
 
-
-
-
-```
 
