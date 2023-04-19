@@ -191,3 +191,21 @@ shape_kenya$urbanization2 <- ifelse(shape_kenya$pop_density_km2 > 1500 & shape_k
 
 ```
 
+```{r}
+#Approach 3-no criteria
+
+
+# Calculate the urbanization rate for each county
+shape_kenya$urbanization3 <- ((0.5 * (shape_kenya$pop_density_km2 / max_density)) + (0.5 * (shape_kenya$pop_2020 / max_pop))) / max(0.0001, max(shape_kenya$urbanization3))
+shape_kenya$urbanization3 <- shape_kenya$urbanization3 * 100
+
+```
+
+```{r}
+
+
+# Calculate the urbanization rate using a simple weighted average of population density and population
+shape_kenya$urbanization4 <- ((shape_kenya$pop_density_km2 / max_density) + (shape_kenya$pop_2020 / max_pop)) * 50
+
+```
+
