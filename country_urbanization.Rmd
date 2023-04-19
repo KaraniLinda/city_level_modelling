@@ -38,6 +38,11 @@ ken <-  raster(paste0(path, "\\ken_pd_2020_1km_UNadj.tif"))
 
 ken_cons <- read_dta("ken_consumption\\Consumption_aggregate.dta")
 
+## Read shape file
+
+
+shape_kenya <- read_sf(here::here("ken_shape/gadm41_KEN_1.shp"))
+
 
 ```
 
