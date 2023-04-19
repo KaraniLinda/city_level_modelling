@@ -143,10 +143,54 @@ shape_kenya$pop_density_km2 <- as.numeric(shape_kenya$pop_density_km2)
 
 
 
+
 ```{r}
 # Create new column for city/town/rural classification
 shape_kenya$urbanization <- ifelse(shape_kenya$pop_2020 > 50000 & shape_kenya$pop_density_km2 > 1500, "City", 
                                       ifelse(shape_kenya$pop_2020 > 5000 & shape_kenya$pop_density_km2 > 250, "Town", "Rural"))
+
+```
+
+```{r}
+# Find the maximum population and maximum population density in the data frame
+max_pop <- max(shape_kenya$pop_2020)
+max_density <- max(shape_kenya$pop_density_km2)
+
+# Create a new column for urban proportion
+shape_kenya$urban_proportion <- 0
+
+# Calculate urban proportion for counties with population density greater than 1500 and population greater than 50000
+pop_density_condition <- shape_kenya$pop_density_km2 > 1500 & shape_kenya$pop_2020 >= 50000
+
+shape_kenya$urban_proportion[pop_density_condition] <- ((shape_kenya$pop_density_km2[pop_density_condition] / max_density) * 0.5 + (shape_kenya$pop_2020[pop_density_condition] / max_pop) * 0.5) * 100
+
+# Calculate urban proportion for counties with population density greater than 250 and population less than or equal to 5000
+pop_condition <- shape_kenya$pop_2020 <= 50000 & shape_kenya$pop_2020 >= 5000 & shape_kenya$pop_density_km2 > 250
+shape_kenya$urban_proportion[pop_condition] <- ((shape_kenya$pop_density_km2[pop_condition] / max_density) * 0.3 + (shape_kenya$pop_2020[pop_condition] / max_pop) * 0.7) * 100
+
+# Calculate urban proportion for counties with population density less than or equal to 250
+density_condition <- shape_kenya$pop_density_km2 <= 250
+shape_kenya$urban_proportion[density_condition] <- shape_kenya$pop_2020[density_condition] / max_pop * 100
+
+# Set urban proportion to 0 for counties not meeting any of the conditions
+shape_kenya$urban_proportion[!(pop_density_condition | pop_condition | density_condition)] <- 0
+
+```
+
+```{r}
+# Set the maximum population and population density in the data frame
+max_pop <- max(shape_kenya$pop_2020)
+max_density <- max(shape_kenya$pop_density_km2)
+
+#calculate the urbanization rate for each county
+
+shape_kenya$urbanization <- ifelse(shape_kenya$pop_density_km2 > 1500 & shape_kenya$pop_2020 >= 50000,(0.6 * (shape_kenya$pop_density_km2 / max_density) + 0.4 * (shape_kenya$pop_2020 / max_pop)) * 100,
+                            ifelse(shape_kenya$pop_density_km2 > 250 & shape_kenya$pop_2020 >= 5000,
+                                            (0.2 * (shape_kenya$pop_density_km2 / max_density) + 0.8 * (shape_kenya$pop_2020 / max_pop)) * 100,
+                            ifelse(shape_kenya$pop_density_km2 > 0 & shape_kenya$pop_density_km2 <= 250 & shape_kenya$pop_2020 > 0 & shape_kenya$pop_2020 < 5000, (0.1 * (shape_kenya$pop_density_km2 / max_density) + 0.9 * (shape_kenya$pop_2020 / max_pop)) * 100, (shape_kenya$pop_density_km2 / max_density) * 7 + (shape_kenya$pop_2020 / max_pop) * 3
+                                        )
+                                    )
+                                )
 
 ```
 
