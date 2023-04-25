@@ -92,7 +92,7 @@ ken_qnt$value <- as.numeric(ken_qnt$value)
 
 
 # match data with quantiles
-ken_var$quantile <- ken_qnt$quantile[findInterval(ken_var$tot_cons, ken_qnt$value, rightmost.closed = TRUE)+1]
+ken_var$quantile <- ken_qnt$quantile[findInterval(ken_var$tot_cons, ken_qnt$value, all.inside = TRUE)+1]
 
 ken_var %>% 
     View()
@@ -154,9 +154,6 @@ shape_kenya$pop_density_km2 <- as.numeric(shape_kenya$pop_density_km2)
 
 
 ```{r}
-# Set the maximum population and population density in the data frame
-max_pop <- max(shape_kenya$pop_2020)
-max_density <- max(shape_kenya$pop_density_km2)
 
 #calculate the urbanization rate for each county
 
@@ -174,8 +171,13 @@ shape_kenya$urbanization <- ifelse(shape_kenya$pop_density_km2 > 1500 & shape_ke
 ```{r}
 ##Same weights appeoach
 
+# Set the maximum population and population density in the data frame
+max_pop <- max(shape_kenya$pop_2020)
+max_density <- max(shape_kenya$pop_density_km2)
+
+
 # Use ifelse statements to calculate the urbanization rate for each county
-shape_kenya$urbanization2 <- ifelse(shape_kenya$pop_density_km2 > 1500 & shape_kenya$pop_2020 >= 50000,
+shape_kenya$urbanization <- ifelse(shape_kenya$pop_density_km2 > 1500 & shape_kenya$pop_2020 >= 50000,
                                     (0.5 * (shape_kenya$pop_density_km2 / max_density + shape_kenya$pop_2020 / max_pop)) * 100,
                                       
                                     ifelse(shape_kenya$pop_density_km2 > 250 & shape_kenya$pop_2020 >= 5000,
@@ -191,21 +193,85 @@ shape_kenya$urbanization2 <- ifelse(shape_kenya$pop_density_km2 > 1500 & shape_k
 
 ```
 
+
 ```{r}
-#Approach 3-no criteria
-
-
 # Calculate the urbanization rate for each county
-shape_kenya$urbanization3 <- ((0.5 * (shape_kenya$pop_density_km2 / max_density)) + (0.5 * (shape_kenya$pop_2020 / max_pop))) / max(0.0001, max(shape_kenya$urbanization3))
-shape_kenya$urbanization3 <- shape_kenya$urbanization3 * 100
+#shape_kenya$urbanization3 <- ((0.5 * (log10(shape_kenya$pop_density_km2) / log10(max_density))) + (0.5 * (log10(shape_kenya$pop_2020) / log10(max_pop))))
+
+
+#shape_kenya$urbanization3 <- shape_kenya$urbanization3 * 100
+```
+
+
+```{r}
+# Calculate the urbanization rate for each county
+shape_kenya$urbanization2 <- ((0.5 * (log10(shape_kenya$pop_density_km2) / log10(max_density))) + (0.5 * (log10(shape_kenya$pop_2020) / log10(max_pop))))
+
+# Rescale the urbanization values from 0 to 100%
+min_urbanization <- min(shape_kenya$urbanization2, na.rm = TRUE)
+max_urbanization <- max(shape_kenya$urbanization2, na.rm = TRUE)
+shape_kenya$urbanization2 <- ((shape_kenya$urbanization2 - min_urbanization) / (max_urbanization - min_urbanization)) * 100
+
+# Set the urbanization rate of the most rural county to 0%
+shape_kenya$urbanization2[which.min(shape_kenya$urbanization2)] <- 0
+
 
 ```
 
 ```{r}
+#Calculate percentage rural(1-%urban)
+
+shape_kenya$rural <- 100 - shape_kenya$urbanization2
+
+```
+
+```{r}
+# convert quantile dataframe to long format and multiply by %urban/rural to get national distribution
 
 
-# Calculate the urbanization rate using a simple weighted average of population density and population
-shape_kenya$urbanization4 <- ((shape_kenya$pop_density_km2 / max_density) + (shape_kenya$pop_2020 / max_pop)) * 50
+```
+
+
+
+
+
+```{r}
+
+# Set the colors for the scatter plot
+color_palette <- c("#1f78b4", "#b2df8a")
+
+# Create the scatter plot
+ggplot(shape_kenya, aes(x = pop_density_km2, y = pop_2020, color = urbanization2 > 50)) +
+  scale_color_manual(values = color_palette, guide = FALSE) +
+  geom_point(size = 4, alpha = 0.8) +
+  scale_x_log10(limits = c(1, max(shape_kenya$pop_density_km2))) +
+  scale_y_log10(limits = c(1000, max(shape_kenya$pop_2020))) +
+  coord_fixed(ratio=1) +
+  scale_x_continuous(trans = 'log10', expand = c(0, 0), oob = rescale_none, breaks = c(1, 10, 100, 1000, 10000, 100000),
+                     labels = c("1", "10", "100", "1k", "10k", "100k")) +
+  scale_y_continuous(trans = 'log10', expand = c(0, 0), oob = rescale_none, breaks = c(1e3, 1e4, 1e5, 1e6, 1e7),
+                     labels = c("1k", "10k", "100k", "1M", "100M")) +
+  geom_abline(intercept = log10(250), slope = 1, linetype = "dashed", color = "grey40") +
+  theme_minimal() +
+  theme(legend.position = "none") +
+  labs(x = "Population density", y = "Population",
+       title = "Urbanization in Kenyan Counties",
+       caption = "Source: Kenya National Bureau of Statistics") +
+  geom_text(aes(label = NAME_1), hjust = 0, vjust = 0, size = 3) +
+  theme(axis.text = element_text(size = 6), 
+        axis.title = element_text(size = 8),
+        plot.title = element_text(size = 10, face = "bold"),
+        plot.subtitle = element_text(size = 8),
+        plot.caption = element_text(size = 6))
+
+
+ 
+
+```
+
+
+```{r}
+
 
 ```
 
