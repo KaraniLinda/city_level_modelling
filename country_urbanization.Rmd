@@ -98,6 +98,7 @@ ken_var %>%
     View()
 ```
 
+
 ```{r}
 # compute shares of groups per quantile
 ken_var2 <- ken_var %>%
@@ -107,7 +108,10 @@ ken_var2 <- ken_var %>%
   summarise(share = sum(weight_pop)/wgt_qtl) %>%
   distinct()
 
-#
+
+ken_var2 %>% 
+    pivot_wider(names_from = resid, values_from = share) %>% 
+    write_csv("quantiles1.csv")
 
 ```
 
@@ -223,6 +227,9 @@ shape_kenya$urbanization2[which.min(shape_kenya$urbanization2)] <- 0
 
 shape_kenya$rural <- 100 - shape_kenya$urbanization2
 
+shape_kenya %>% 
+    st_write("urbanization.csv")
+
 ```
 
 ```{r}
@@ -236,41 +243,29 @@ shape_kenya$rural <- 100 - shape_kenya$urbanization2
 
 
 ```{r}
-
-# Set the colors for the scatter plot
-color_palette <- c("#1f78b4", "#b2df8a")
-
-# Create the scatter plot
-ggplot(shape_kenya, aes(x = pop_density_km2, y = pop_2020, color = urbanization2 > 50)) +
-  scale_color_manual(values = color_palette, guide = FALSE) +
-  geom_point(size = 4, alpha = 0.8) +
-  scale_x_log10(limits = c(1, max(shape_kenya$pop_density_km2))) +
-  scale_y_log10(limits = c(1000, max(shape_kenya$pop_2020))) +
-  coord_fixed(ratio=1) +
-  scale_x_continuous(trans = 'log10', expand = c(0, 0), oob = rescale_none, breaks = c(1, 10, 100, 1000, 10000, 100000),
-                     labels = c("1", "10", "100", "1k", "10k", "100k")) +
-  scale_y_continuous(trans = 'log10', expand = c(0, 0), oob = rescale_none, breaks = c(1e3, 1e4, 1e5, 1e6, 1e7),
-                     labels = c("1k", "10k", "100k", "1M", "100M")) +
-  geom_abline(intercept = log10(250), slope = 1, linetype = "dashed", color = "grey40") +
-  theme_minimal() +
-  theme(legend.position = "none") +
-  labs(x = "Population density", y = "Population",
-       title = "Urbanization in Kenyan Counties",
-       caption = "Source: Kenya National Bureau of Statistics") +
-  geom_text(aes(label = NAME_1), hjust = 0, vjust = 0, size = 3) +
-  theme(axis.text = element_text(size = 6), 
-        axis.title = element_text(size = 8),
-        plot.title = element_text(size = 10, face = "bold"),
-        plot.subtitle = element_text(size = 8),
-        plot.caption = element_text(size = 6))
+# Set plot size and margins
+par(mar = c(4, 4, 2, 2), mgp = c(2, 0.7, 0))
 
 
- 
 
-```
+# Plot the data
+plot(log10(shape_kenya$pop_2020), log10(shape_kenya$pop_density_km2), 
+     xlab = "Population (log scale)", ylab = "Population density (log scale)",
+     pch = 20, cex = 0.8, col = ifelse(shape_kenya$urbanization2 >= 50, "red", "blue"),
+     main = "Urbanization Rates by County in Kenya")
+
+# Add county names as text labels
+text(log10(shape_kenya$pop_2020), log10(shape_kenya$pop_density_km2), 
+     labels = shape_kenya$NAME_1, cex = 0.6, pos = 4)
+
+# Add a diagonal dashed line to separate blue and red points
+abline(a = 0, b = 1, lty = 2)
+
+# Add a legend
+legend("topleft", legend = c("Urbanization rate >= 50%", "Urbanization rate < 50%"),
+       col = c("red", "blue"), pch = 20, cex = 0.8, bty = "n")
 
 
-```{r}
 
 
 ```
