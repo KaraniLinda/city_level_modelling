@@ -24,6 +24,7 @@ library("RColorBrewer")
 library(foreign)
 library(haven)
 library(Hmisc)
+library(fuzzyjoin)
 ```
 
 
@@ -112,6 +113,46 @@ ken_var2 <- ken_var %>%
 ken_var2 %>% 
     pivot_wider(names_from = resid, values_from = share) %>% 
     write_csv("quantiles1.csv")
+
+```
+```{r}
+
+# calculate the weighted mean spending for each county
+county_wtd_mean <- ken_var %>%
+  group_by(county) %>%
+  summarise(avg_spend_per_person = wtd.mean(tot_cons, weights = weight_pop))
+
+
+# calculate the average spend per person for all rural and all urban
+
+resid_wtd_mean <- ken_var %>%
+  group_by(resid) %>%
+  summarise(avg_spend = wtd.mean(tot_cons, weights = weight_pop))
+
+```
+```{r}
+# Multiply county urbanization rates by average spend per person in each rural and urban area
+
+county_avg_spending <- shape_kenya %>%
+   mutate(avg_spend = (urbanization2/100 * 18450.799) + (rural/100 * 9094.087)) %>% 
+   rename(county = NAME_1)
+
+```
+
+
+
+
+```{r}
+
+# clean up the county names by removing non-alphanumeric characters
+county_avg_spending$county <- gsub("[^[:alnum:]]", "", county_avg_spending$county)
+county_wtd_mean$county <- gsub("[^[:alnum:]]", "", county_wtd_mean$county)
+
+#Merge the two data frames for plotting
+
+# Join by county names
+
+shape_kenya2 <- regex_left_join(county_avg_spending , county_wtd_mean, by = "county", ignore_case = TRUE)
 
 ```
 
@@ -268,5 +309,17 @@ legend("topleft", legend = c("Urbanization rate >= 50%", "Urbanization rate < 50
 
 
 
+```
+
+```{r}
+# Average spend - county vs urbanization method
+
+ggplot(shape_kenya2, aes(x = avg_spend, y = avg_spend_per_person)) +
+  geom_point(size = 3) +
+  scale_x_log10(name = "Average Spending (Urbanization)") +
+  scale_y_log10(name = "Average Spending (County)") +
+  theme_classic() +
+  geom_text(aes(label = county.y), hjust = 1.2, vjust = 0.5, size = 3)+
+  labs(title = "Comparison of Average Spending from County and Urbanization Approaches") 
 ```
 
