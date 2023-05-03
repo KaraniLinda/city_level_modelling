@@ -15,6 +15,7 @@ library(tidyverse)
 library(here)
 library(viridis)
 library(sf)
+library(tmap)
 library(ggpp)
 library(raster)
 library(rasterVis)
@@ -74,7 +75,7 @@ ken_cons <- ken_cons %>%
 ```
 
 ```{r}
-# Add quantiles from national distribution
+
 
 # Select relevant variables from survey data
 
@@ -274,7 +275,9 @@ shape_kenya %>%
 ```
 
 ```{r}
-# convert quantile dataframe to long format and multiply by %urban/rural to get national distribution
+
+shape_kenya2$avg_error <- sqrt(((shape_kenya2$avg_spend - shape_kenya2$avg_spend_per_person)^2)/2)
+
 
 
 ```
@@ -322,4 +325,127 @@ ggplot(shape_kenya2, aes(x = avg_spend, y = avg_spend_per_person)) +
   geom_text(aes(label = county.y), hjust = 1.2, vjust = 0.5, size = 3)+
   labs(title = "Comparison of Average Spending from County and Urbanization Approaches") 
 ```
+
+
+```{r}
+ggplot(shape_kenya2, aes(x = avg_spend, y = avg_spend_per_person)) +
+  geom_point(size = 3) +
+  scale_x_log10(name = "Average Spending (Urbanization)") +
+  scale_y_log10(name = "Average Spending (County)") +
+  theme_classic() +
+  geom_text(aes(label = county.y), hjust = 1.2, vjust = 0.5, size = 3) +
+  labs(title = "Comparison of Average Spending from County and Urbanization Approaches") +
+  geom_errorbar(aes(x = avg_spend, y = avg_spend_per_person,
+                    ymin = avg_spend_per_person - shape_kenya2$avg_error,
+                    ymax = avg_spend_per_person + shape_kenya2$avg_error), width = 0)
+
+
+```
+
+## Greater Nairobi plotting
+
+```{r}
+## Read shape file
+
+
+shape3 <- read_sf(here::here("ken_shape/gadm41_KEN_3.shp"))
+shape1 <- read_sf(here::here("ken_shape/gadm41_KEN_1.shp"))
+
+
+```
+
+
+
+```{r}
+# Filter the ADM2 boundary data to only show Nairobi and its surroundings
+nairobi_adm2 <- shape1[shape1$NAME_1 == "Nairobi" |
+                            shape1$NAME_1 == "Kiambu" |
+                            shape1$NAME_1 == "Kajiado" |
+                            shape1$NAME_1 == "Machakos",]
+
+
+# Filter the ADM3 boundary data to only show Nairobi and its surroundings
+nairobi_adm3 <- shape3[shape3$NAME_3 == "Kitengela" |
+                            shape3$NAME_3 == "Ngong" |
+                            shape3$NAME_3 == "Ongata Rongai" |
+                            shape3$NAME_3 == "Githunguri" |
+                            shape3$NAME_3 == "Juja" |
+                            shape3$NAME_3 == "Murera" |
+                            shape3$NAME_3 == "Theta" |
+                            shape3$NAME_3 == "Witeithie" |
+                            shape3$NAME_3 == "Kalimoni" |
+                            shape3$NAME_3 == "Ndumberi" |
+                            shape3$NAME_3 == "Riabai" |
+                            shape3$NAME_3 == "Ting'Ang'A"|
+                            shape3$NAME_3 == "Karai"|
+                            shape3$NAME_3 == "Kikuyu"|
+                            shape3$NAME_3 == "Kinoo"|
+                            shape3$NAME_3 == "Nachu"|
+                            shape3$NAME_3 == "Sigona"|
+                            shape3$NAME_3 == "Bibirioni" |
+                            shape3$NAME_3 == "Limuru Central" |
+                            shape3$NAME_3 == "Limuru East" |
+                            shape3$NAME_3 == "Ndeiya"|
+                            shape3$NAME_3 == "Ngecha Tigoni"|
+                            shape3$NAME_3 == "Biashara"|
+                            shape3$NAME_3 == "Gitothua"|
+                            shape3$NAME_3 == "Kiuu"|
+                            shape3$NAME_3 == "Gatuanyaga"|
+                            shape3$NAME_3 == "Hospital"|
+                            shape3$NAME_3 == "Kamenu"|
+                            shape3$NAME_3 == "Ngoliba"|
+                            shape3$NAME_3 == "Kalama"|
+                            shape3$NAME_3 == "Kola"|
+                            shape3$NAME_3 == "Machakos Central"|
+                            shape3$NAME_3 == "Mua"|
+                            shape3$NAME_3 == "Mumbuni North"|
+                            shape3$NAME_3 == "Mutituni"|
+                            shape3$NAME_3 == "Muvuti/Kiima-Kimwe"|
+                            shape3$NAME_3 == "Township",]
+```
+
+
+```{r}
+# Plot the ADM2 boundary for Nairobi and its surroundings
+
+tm_shape(nairobi_adm2) +
+  tm_polygons() +
+  tm_text("NAME_1", size = 0.5, col = "black") +
+  tm_shape(nairobi_adm3) +
+  tm_polygons(col = "red", alpha = 0.4) +
+  tm_layout(legend.position = c("left", "bottom"), legend.bg.color = "white") +
+  tm_basemap(server = "OpenStreetMap") 
+```
+
+
+
+```{r}
+library(leaflet)
+
+
+# Set the center and zoom level for the map view
+center <- c(-1.28, 36.82)
+zoom <- 10
+
+# Create a custom marker icon
+icon <- makeIcon(
+  iconUrl = "https://leafletjs.com/examples/custom-icons/leaf-green.png",
+  iconWidth = 38, iconHeight = 95,
+  iconAnchorX = 22, iconAnchorY = 94,
+  popupAnchorX = -3, popupAnchorY = -76
+)
+
+# Create a leaflet map with the Kenya ADM1 boundary and the Nairobi ADM2 and ADM3 boundaries
+leaflet() %>%
+  addProviderTiles("OpenStreetMap.Mapnik") %>%
+  addPolygons(data = shape1, fillOpacity = 0, color = "black", weight = 2) %>%
+  addPolygons(data = nairobi_adm2, fillOpacity = 0.5, color = "blue") %>%
+  addPolygons(data = nairobi_adm3, fillOpacity = 0.2, color = "red") %>%
+  addMarkers(lng = center[2], lat = center[1], icon = icon) %>%
+  setView(lng = center[2], lat = center[1], zoom = zoom)
+
+
+
+```
+
 
