@@ -449,3 +449,32 @@ leaflet() %>%
 ```
 
 
+## All city spending
+
+```{r}
+
+cities <- "G:\\Shared drives\\DATA_WDL\\wdp_city_spending\\wdpro_combination"
+
+all_city <- read_rds(paste0(cities,"\\city_distribution.rds"))
+```
+
+```{r}
+city <- all_city %>%
+    filter(ccode %in% c("NGA","ZAF")) %>% 
+    select("pop","spending_data_datt", "name")
+
+
+    
+```
+
+
+```{r}
+unique(all_city$ccode)
+
+```
+
+
+```{r}
+city$spending_data_datt
+```
+
