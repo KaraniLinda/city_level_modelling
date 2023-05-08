@@ -458,23 +458,63 @@ cities <- "G:\\Shared drives\\DATA_WDL\\wdp_city_spending\\wdpro_combination"
 all_city <- read_rds(paste0(cities,"\\city_distribution.rds"))
 ```
 
+
+
 ```{r}
 city <- all_city %>%
-    filter(ccode %in% c("NGA","ZAF")) %>% 
-    select("pop","spending_data_datt", "name")
+    filter(ccode %in% c("NGA","ZAF", "KEN")) %>% 
+    select("year","ccode","pop","spending_data_datt", "name")
 
 
+#unnest the list column
+
+city_df <- unnest(city, cols = spending_data_datt)
+
+
+
+city_df %>% 
+    write_csv("city_spending_rev_2.csv")
+
+
+```
+
+
+```{r}
+
+result <- city_df %>%
+  filter(year %in% c(2022, 2030)) %>%
+  group_by(ccode, name, year) %>%
+  mutate(spending_threshold_group = ifelse(spending_threshold >= 80, "over 80",
+                                           ifelse(spending_threshold >= 40, "over 40",
+                                                  ifelse(spending_threshold >= 12, "over 12", "below 12")))) %>% 
+    group_by(ccode, name, year, spending_threshold_group) %>% 
+    summarise(headcount_sum = sum(headcount))
+ 
+
+
+
+    
+    
     
 ```
 
 
 ```{r}
-unique(all_city$ccode)
 
-```
+resultrev <- result %>%
+  filter(year %in% c(2022, 2030)) %>%
+  group_by(ccode, name, year) %>%
+  mutate(headcount_sum2 = case_when(
+    spending_threshold_group == "over 12" ~ sum(headcount_sum[spending_threshold_group %in% c("over 12", "over 40", "over 80")]),
+    spending_threshold_group == "over 40" ~ sum(headcount_sum[spending_threshold_group %in% c("over 40", "over 80")]),
+    TRUE ~ headcount_sum
+  )) %>%
+  ungroup() %>%
+  select(ccode, name, year, spending_threshold_group, headcount_sum2)
 
 
-```{r}
-city$spending_data_datt
+
+resultrev %>% 
+    write_csv("final_city_spending.csv")
 ```
 

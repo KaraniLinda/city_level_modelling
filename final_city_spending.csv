@@ -1,0 +1,569 @@
+ccode,name,year,spending_threshold_group,headcount_sum2
+KEN,Eldoret,2022,below 12,390517
+KEN,Eldoret,2022,over 12,39473
+KEN,Eldoret,2022,over 40,3248
+KEN,Eldoret,2022,over 80,815
+KEN,Eldoret,2030,below 12,525558
+KEN,Eldoret,2030,over 12,65300
+KEN,Eldoret,2030,over 40,5516
+KEN,Eldoret,2030,over 80,1373
+KEN,Kisumu,2022,below 12,338024
+KEN,Kisumu,2022,over 12,43889
+KEN,Kisumu,2022,over 40,3729
+KEN,Kisumu,2022,over 80,942
+KEN,Kisumu,2030,below 12,439614
+KEN,Kisumu,2030,over 12,72897
+KEN,Kisumu,2030,over 40,6467
+KEN,Kisumu,2030,over 80,1609
+KEN,Mombasa,2022,below 12,925548
+KEN,Mombasa,2022,over 12,473423
+KEN,Mombasa,2022,over 40,69111
+KEN,Mombasa,2022,over 80,16795
+KEN,Mombasa,2030,below 12,1173320
+KEN,Mombasa,2030,over 12,715368
+KEN,Mombasa,2030,over 40,118433
+KEN,Mombasa,2030,over 80,29027
+KEN,Nairobi,2022,below 12,3709161
+KEN,Nairobi,2022,over 12,1438563
+KEN,Nairobi,2022,over 40,176792
+KEN,Nairobi,2022,over 80,42735
+KEN,Nairobi,2030,below 12,4815622
+KEN,Nairobi,2030,over 12,2215269
+KEN,Nairobi,2030,over 40,301537
+KEN,Nairobi,2030,over 80,73243
+KEN,Nakuru,2022,below 12,286902
+KEN,Nakuru,2022,over 12,124507
+KEN,Nakuru,2022,over 40,16344
+KEN,Nakuru,2022,over 80,3959
+KEN,Nakuru,2030,below 12,359650
+KEN,Nakuru,2030,over 12,190183
+KEN,Nakuru,2030,over 40,28413
+KEN,Nakuru,2030,over 80,6890
+KEN,Ruiru,2022,below 12,290831
+KEN,Ruiru,2022,over 12,136463
+KEN,Ruiru,2022,over 40,18810
+KEN,Ruiru,2022,over 80,4565
+KEN,Ruiru,2030,below 12,385385
+KEN,Ruiru,2030,over 12,207876
+KEN,Ruiru,2030,over 40,31496
+KEN,Ruiru,2030,over 80,7655
+NGA,Aba,2022,below 12,1106914
+NGA,Aba,2022,over 12,51880
+NGA,Aba,2022,over 40,3470
+NGA,Aba,2022,over 80,816
+NGA,Aba,2030,below 12,1463914
+NGA,Aba,2030,over 12,63340
+NGA,Aba,2030,over 40,4260
+NGA,Aba,2030,over 80,991
+NGA,Abakaliki,2022,below 12,616717
+NGA,Abakaliki,2022,over 12,15726
+NGA,Abakaliki,2022,over 40,1092
+NGA,Abakaliki,2022,over 80,254
+NGA,Abakaliki,2030,below 12,858762
+NGA,Abakaliki,2030,over 12,18060
+NGA,Abakaliki,2030,over 40,1240
+NGA,Abakaliki,2030,over 80,290
+NGA,Abeokuta,2022,below 12,529595
+NGA,Abeokuta,2022,over 12,33151
+NGA,Abeokuta,2022,over 40,2195
+NGA,Abeokuta,2022,over 80,511
+NGA,Abeokuta,2030,below 12,682110
+NGA,Abeokuta,2030,over 12,41619
+NGA,Abeokuta,2030,over 40,2766
+NGA,Abeokuta,2030,over 80,632
+NGA,Abuja,2022,below 12,2198691
+NGA,Abuja,2022,over 12,1451931
+NGA,Abuja,2022,over 40,215985
+NGA,Abuja,2022,over 80,47416
+NGA,Abuja,2030,below 12,3259560
+NGA,Abuja,2030,over 12,1859780
+NGA,Abuja,2030,over 40,246754
+NGA,Abuja,2030,over 80,53837
+NGA,Ado-Ekiti,2022,below 12,504107
+NGA,Ado-Ekiti,2022,over 12,14877
+NGA,Ado-Ekiti,2022,over 40,1023
+NGA,Ado-Ekiti,2022,over 80,227
+NGA,Ado-Ekiti,2030,below 12,677262
+NGA,Ado-Ekiti,2030,over 12,17786
+NGA,Ado-Ekiti,2030,over 40,1235
+NGA,Ado-Ekiti,2030,over 80,279
+NGA,Akure,2022,below 12,690242
+NGA,Akure,2022,over 12,30297
+NGA,Akure,2022,over 40,2028
+NGA,Akure,2022,over 80,471
+NGA,Akure,2030,below 12,929769
+NGA,Akure,2030,over 12,36249
+NGA,Akure,2030,over 40,2421
+NGA,Akure,2030,over 80,576
+NGA,Bauchi,2022,below 12,582835
+NGA,Bauchi,2022,over 12,65295
+NGA,Bauchi,2022,over 40,4501
+NGA,Bauchi,2022,over 80,1023
+NGA,Bauchi,2030,below 12,792346
+NGA,Bauchi,2030,over 12,78879
+NGA,Bauchi,2030,over 40,5355
+NGA,Bauchi,2030,over 80,1232
+NGA,Benin City,2022,below 12,1644476
+NGA,Benin City,2022,over 12,209687
+NGA,Benin City,2022,over 40,14687
+NGA,Benin City,2022,over 80,3407
+NGA,Benin City,2030,below 12,2193552
+NGA,Benin City,2030,over 12,257862
+NGA,Benin City,2030,over 40,17825
+NGA,Benin City,2030,over 80,4155
+NGA,Birnin Kebbi,2022,below 12,367542
+NGA,Birnin Kebbi,2022,over 12,30479
+NGA,Birnin Kebbi,2022,over 40,2050
+NGA,Birnin Kebbi,2022,over 80,481
+NGA,Birnin Kebbi,2030,below 12,500407
+NGA,Birnin Kebbi,2030,over 12,36480
+NGA,Birnin Kebbi,2030,over 40,2442
+NGA,Birnin Kebbi,2030,over 80,588
+NGA,Calabar,2022,below 12,565142
+NGA,Calabar,2022,over 12,67583
+NGA,Calabar,2022,over 40,4684
+NGA,Calabar,2022,over 80,1093
+NGA,Calabar,2030,below 12,779567
+NGA,Calabar,2030,over 12,80935
+NGA,Calabar,2030,over 40,5528
+NGA,Calabar,2030,over 80,1272
+NGA,Effon Alaiye,2022,below 12,410866
+NGA,Effon Alaiye,2022,over 12,1973
+NGA,Effon Alaiye,2022,over 40,147
+NGA,Effon Alaiye,2022,over 80,36
+NGA,Effon Alaiye,2030,below 12,545785
+NGA,Effon Alaiye,2030,over 12,2388
+NGA,Effon Alaiye,2030,over 40,182
+NGA,Effon Alaiye,2030,over 80,47
+NGA,Enugu,2022,below 12,587004
+NGA,Enugu,2022,over 12,239382
+NGA,Enugu,2022,over 40,25274
+NGA,Enugu,2022,over 80,5511
+NGA,Enugu,2030,below 12,782845
+NGA,Enugu,2030,over 12,302471
+NGA,Enugu,2030,over 40,30938
+NGA,Enugu,2030,over 80,6733
+NGA,Gboko,2022,below 12,460304
+NGA,Gboko,2022,over 12,14520
+NGA,Gboko,2022,over 40,994
+NGA,Gboko,2022,over 80,238
+NGA,Gboko,2030,below 12,611481
+NGA,Gboko,2030,over 12,17594
+NGA,Gboko,2030,over 40,1180
+NGA,Gboko,2030,over 80,275
+NGA,Gombe,2022,below 12,391583
+NGA,Gombe,2022,over 12,161560
+NGA,Gombe,2022,over 40,17178
+NGA,Gombe,2022,over 80,3745
+NGA,Gombe,2030,below 12,544144
+NGA,Gombe,2030,over 12,202985
+NGA,Gombe,2030,over 40,20352
+NGA,Gombe,2030,over 80,4469
+NGA,Gwagwalada,2022,below 12,457791
+NGA,Gwagwalada,2022,over 12,14597
+NGA,Gwagwalada,2022,over 40,994
+NGA,Gwagwalada,2022,over 80,245
+NGA,Gwagwalada,2030,below 12,681476
+NGA,Gwagwalada,2030,over 12,15614
+NGA,Gwagwalada,2030,over 40,1068
+NGA,Gwagwalada,2030,over 80,250
+NGA,Ibadan,2022,below 12,3677305
+NGA,Ibadan,2022,over 12,111522
+NGA,Ibadan,2022,over 40,7509
+NGA,Ibadan,2022,over 80,1889
+NGA,Ibadan,2030,below 12,4818890
+NGA,Ibadan,2030,over 12,137143
+NGA,Ibadan,2030,over 40,9409
+NGA,Ibadan,2030,over 80,2168
+NGA,Ife,2022,below 12,390323
+NGA,Ife,2022,over 12,9469
+NGA,Ife,2022,over 40,641
+NGA,Ife,2022,over 80,155
+NGA,Ife,2030,below 12,512584
+NGA,Ife,2030,over 12,11608
+NGA,Ife,2030,over 40,797
+NGA,Ife,2030,over 80,184
+NGA,Igbidu,2022,below 12,480477
+NGA,Igbidu,2022,over 12,2381
+NGA,Igbidu,2022,over 40,186
+NGA,Igbidu,2022,over 80,43
+NGA,Igbidu,2030,below 12,628899
+NGA,Igbidu,2030,over 12,2917
+NGA,Igbidu,2030,over 40,209
+NGA,Igbidu,2030,over 80,55
+NGA,Ijebu-Ode,2022,below 12,347082
+NGA,Ijebu-Ode,2022,over 12,23216
+NGA,Ijebu-Ode,2022,over 40,1555
+NGA,Ijebu-Ode,2022,over 80,367
+NGA,Ijebu-Ode,2030,below 12,461921
+NGA,Ijebu-Ode,2030,over 12,28267
+NGA,Ijebu-Ode,2030,over 40,1879
+NGA,Ijebu-Ode,2030,over 80,431
+NGA,Ikorodu,2022,below 12,718670
+NGA,Ikorodu,2022,over 12,322627
+NGA,Ikorodu,2022,over 40,36183
+NGA,Ikorodu,2022,over 80,7857
+NGA,Ikorodu,2030,below 12,1049621
+NGA,Ikorodu,2030,over 12,404160
+NGA,Ikorodu,2030,over 40,41257
+NGA,Ikorodu,2030,over 80,8978
+NGA,Ikot Ekpene,2022,below 12,407795
+NGA,Ikot Ekpene,2022,over 12,8748
+NGA,Ikot Ekpene,2022,over 40,603
+NGA,Ikot Ekpene,2022,over 80,138
+NGA,Ikot Ekpene,2030,below 12,553440
+NGA,Ikot Ekpene,2030,over 12,10322
+NGA,Ikot Ekpene,2030,over 40,712
+NGA,Ikot Ekpene,2030,over 80,169
+NGA,Ilesha,2022,below 12,371011
+NGA,Ilesha,2022,over 12,16017
+NGA,Ilesha,2022,over 40,1078
+NGA,Ilesha,2022,over 80,251
+NGA,Ilesha,2030,below 12,500766
+NGA,Ilesha,2030,over 12,19125
+NGA,Ilesha,2030,over 40,1283
+NGA,Ilesha,2030,over 80,315
+NGA,Ilorin,2022,below 12,943435
+NGA,Ilorin,2022,over 12,66468
+NGA,Ilorin,2022,over 40,4449
+NGA,Ilorin,2022,over 80,1010
+NGA,Ilorin,2030,below 12,1231273
+NGA,Ilorin,2030,over 12,82481
+NGA,Ilorin,2030,over 40,5525
+NGA,Ilorin,2030,over 80,1302
+NGA,Jos,2022,below 12,740707
+NGA,Jos,2022,over 12,210501
+NGA,Jos,2022,over 40,18422
+NGA,Jos,2022,over 80,4081
+NGA,Jos,2030,below 12,970703
+NGA,Jos,2030,over 12,265227
+NGA,Jos,2030,over 40,22841
+NGA,Jos,2030,over 80,5013
+NGA,Kaduna,2022,below 12,847175
+NGA,Kaduna,2022,over 12,324727
+NGA,Kaduna,2022,over 40,33062
+NGA,Kaduna,2022,over 80,7193
+NGA,Kaduna,2030,below 12,1086595
+NGA,Kaduna,2030,over 12,412274
+NGA,Kaduna,2030,over 40,41733
+NGA,Kaduna,2030,over 80,9076
+NGA,Kano,2022,below 12,3746335
+NGA,Kano,2022,over 12,511221
+NGA,Kano,2022,over 40,36326
+NGA,Kano,2022,over 80,8324
+NGA,Kano,2030,below 12,4914542
+NGA,Kano,2030,over 12,636644
+NGA,Kano,2030,over 40,44650
+NGA,Kano,2030,over 80,10340
+NGA,Katsina,2022,below 12,434242
+NGA,Katsina,2022,over 12,73411
+NGA,Katsina,2022,over 40,5428
+NGA,Katsina,2022,over 80,1227
+NGA,Katsina,2030,below 12,589085
+NGA,Katsina,2030,over 12,89944
+NGA,Katsina,2030,over 40,6502
+NGA,Katsina,2030,over 80,1483
+NGA,Lafia,2022,below 12,355722
+NGA,Lafia,2022,over 12,7124
+NGA,Lafia,2022,over 40,503
+NGA,Lafia,2022,over 80,115
+NGA,Lafia,2030,below 12,475496
+NGA,Lafia,2030,over 12,8533
+NGA,Lafia,2030,over 40,609
+NGA,Lafia,2030,over 80,134
+NGA,Lagos,2022,below 12,14144690
+NGA,Lagos,2022,over 12,1338866
+NGA,Lagos,2022,over 40,91210
+NGA,Lagos,2022,over 80,21184
+NGA,Lagos,2030,below 12,18971404
+NGA,Lagos,2030,over 12,1628752
+NGA,Lagos,2030,over 40,109852
+NGA,Lagos,2030,over 80,25759
+NGA,Lokoja,2022,below 12,777978
+NGA,Lokoja,2022,over 12,9689
+NGA,Lokoja,2022,over 40,699
+NGA,Lokoja,2022,over 80,175
+NGA,Lokoja,2030,below 12,1130747
+NGA,Lokoja,2030,over 12,10618
+NGA,Lokoja,2030,over 40,747
+NGA,Lokoja,2030,over 80,178
+NGA,Maiduguri,2022,below 12,815043
+NGA,Maiduguri,2022,over 12,16262
+NGA,Maiduguri,2022,over 40,1151
+NGA,Maiduguri,2022,over 80,263
+NGA,Maiduguri,2030,below 12,1050289
+NGA,Maiduguri,2030,over 12,20380
+NGA,Maiduguri,2030,over 40,1413
+NGA,Maiduguri,2030,over 80,339
+NGA,Makurdi,2022,below 12,384095
+NGA,Makurdi,2022,over 12,56195
+NGA,Makurdi,2022,over 40,4035
+NGA,Makurdi,2022,over 80,924
+NGA,Makurdi,2030,below 12,520288
+NGA,Makurdi,2030,over 12,68619
+NGA,Makurdi,2030,over 40,4821
+NGA,Makurdi,2030,over 80,1113
+NGA,Minna,2022,below 12,403613
+NGA,Minna,2022,over 12,78161
+NGA,Minna,2022,over 40,5973
+NGA,Minna,2022,over 80,1347
+NGA,Minna,2030,below 12,542199
+NGA,Minna,2030,over 12,96690
+NGA,Minna,2030,over 40,7243
+NGA,Minna,2030,over 80,1616
+NGA,Nnewi,2022,below 12,1165887
+NGA,Nnewi,2022,over 12,9366
+NGA,Nnewi,2022,over 40,708
+NGA,Nnewi,2022,over 80,139
+NGA,Nnewi,2030,below 12,1648004
+NGA,Nnewi,2030,over 12,10580
+NGA,Nnewi,2030,over 40,827
+NGA,Nnewi,2030,over 80,157
+NGA,Ogbomosho,2022,below 12,601076
+NGA,Ogbomosho,2022,over 12,2924
+NGA,Ogbomosho,2022,over 40,227
+NGA,Ogbomosho,2022,over 80,54
+NGA,Ogbomosho,2030,below 12,821550
+NGA,Ogbomosho,2030,over 12,3462
+NGA,Ogbomosho,2030,over 40,257
+NGA,Ogbomosho,2030,over 80,70
+NGA,Okene,2022,below 12,423262
+NGA,Okene,2022,over 12,74075
+NGA,Okene,2022,over 40,5519
+NGA,Okene,2022,over 80,1240
+NGA,Okene,2030,below 12,562528
+NGA,Okene,2030,over 12,91948
+NGA,Okene,2030,over 40,6753
+NGA,Okene,2030,over 80,1522
+NGA,Okpogho,2022,below 12,451082
+NGA,Okpogho,2022,over 12,33307
+NGA,Okpogho,2022,over 40,2230
+NGA,Okpogho,2022,over 80,521
+NGA,Okpogho,2030,below 12,628484
+NGA,Okpogho,2030,over 12,38911
+NGA,Okpogho,2030,over 40,2576
+NGA,Okpogho,2030,over 80,603
+NGA,Ondo,2022,below 12,459205
+NGA,Ondo,2022,over 12,4017
+NGA,Ondo,2022,over 40,292
+NGA,Ondo,2022,over 80,72
+NGA,Ondo,2030,below 12,605842
+NGA,Ondo,2030,over 12,4880
+NGA,Ondo,2030,over 40,370
+NGA,Ondo,2030,over 80,73
+NGA,Onitsha,2022,below 12,1464656
+NGA,Onitsha,2022,over 12,91061
+NGA,Onitsha,2022,over 40,6028
+NGA,Onitsha,2022,over 80,1408
+NGA,Onitsha,2030,below 12,2032101
+NGA,Onitsha,2030,over 12,106340
+NGA,Onitsha,2030,over 40,7139
+NGA,Onitsha,2030,over 80,1704
+NGA,Oshogbo,2022,below 12,698029
+NGA,Oshogbo,2022,over 12,59176
+NGA,Oshogbo,2022,over 40,3988
+NGA,Oshogbo,2022,over 80,929
+NGA,Oshogbo,2030,below 12,907746
+NGA,Oshogbo,2030,over 12,73801
+NGA,Oshogbo,2030,over 40,4997
+NGA,Oshogbo,2030,over 80,1158
+NGA,Owerri,2022,below 12,865300
+NGA,Owerri,2022,over 12,83734
+NGA,Owerri,2022,over 40,5662
+NGA,Owerri,2022,over 80,1290
+NGA,Owerri,2030,below 12,1181379
+NGA,Owerri,2030,over 12,100394
+NGA,Owerri,2030,over 40,6766
+NGA,Owerri,2030,over 80,1579
+NGA,Oyo,2022,below 12,453541
+NGA,Oyo,2022,over 12,5286
+NGA,Oyo,2022,over 40,386
+NGA,Oyo,2022,over 80,100
+NGA,Oyo,2030,below 12,599775
+NGA,Oyo,2030,over 12,6425
+NGA,Oyo,2030,over 40,472
+NGA,Oyo,2030,over 80,132
+NGA,Port Harcourt,2022,below 12,1967768
+NGA,Port Harcourt,2022,over 12,1361881
+NGA,Port Harcourt,2022,over 40,210529
+NGA,Port Harcourt,2022,over 80,46370
+NGA,Port Harcourt,2030,below 12,2848299
+NGA,Port Harcourt,2030,over 12,1747197
+NGA,Port Harcourt,2030,over 40,245144
+NGA,Port Harcourt,2030,over 80,53636
+NGA,Potiskum,2022,below 12,478428
+NGA,Potiskum,2022,over 12,3522
+NGA,Potiskum,2022,over 40,274
+NGA,Potiskum,2022,over 80,57
+NGA,Potiskum,2030,below 12,687590
+NGA,Potiskum,2030,over 12,3931
+NGA,Potiskum,2030,over 40,279
+NGA,Potiskum,2030,over 80,64
+NGA,Saki,2022,below 12,414373
+NGA,Saki,2022,over 12,39
+NGA,Saki,2022,over 40,3
+NGA,Saki,2022,over 80,1
+NGA,Saki,2030,below 12,571066
+NGA,Saki,2030,over 12,52
+NGA,Saki,2030,over 40,4
+NGA,Saki,2030,over 80,1
+NGA,Sokoto,2022,below 12,642705
+NGA,Sokoto,2022,over 12,46577
+NGA,Sokoto,2022,over 40,3118
+NGA,Sokoto,2022,over 80,747
+NGA,Sokoto,2030,below 12,856540
+NGA,Sokoto,2030,over 12,56710
+NGA,Sokoto,2030,over 40,3800
+NGA,Sokoto,2030,over 80,903
+NGA,Umuahia,2022,below 12,830669
+NGA,Umuahia,2022,over 12,29800
+NGA,Umuahia,2022,over 40,2001
+NGA,Umuahia,2022,over 80,464
+NGA,Umuahia,2030,below 12,1169756
+NGA,Umuahia,2030,over 12,33901
+NGA,Umuahia,2030,over 40,2289
+NGA,Umuahia,2030,over 80,527
+NGA,Uyo,2022,below 12,1146282
+NGA,Uyo,2022,over 12,117992
+NGA,Uyo,2022,over 40,8048
+NGA,Uyo,2022,over 80,1854
+NGA,Uyo,2030,below 12,1634675
+NGA,Uyo,2030,over 12,136707
+NGA,Uyo,2030,over 40,9198
+NGA,Uyo,2030,over 80,2162
+NGA,Warri,2022,below 12,598663
+NGA,Warri,2022,over 12,345352
+NGA,Warri,2022,over 40,46201
+NGA,Warri,2022,over 80,10080
+NGA,Warri,2030,below 12,864573
+NGA,Warri,2030,over 12,439166
+NGA,Warri,2030,over 40,53524
+NGA,Warri,2030,over 80,11663
+NGA,Zaria,2022,below 12,732429
+NGA,Zaria,2022,over 12,27135
+NGA,Zaria,2022,over 40,1827
+NGA,Zaria,2022,over 80,442
+NGA,Zaria,2030,below 12,925994
+NGA,Zaria,2030,over 12,34696
+NGA,Zaria,2030,over 40,2335
+NGA,Zaria,2030,over 80,561
+ZAF,Bloemfontein,2022,below 12,321902
+ZAF,Bloemfontein,2022,over 12,265842
+ZAF,Bloemfontein,2022,over 40,93381
+ZAF,Bloemfontein,2022,over 80,32546
+ZAF,Bloemfontein,2030,below 12,368917
+ZAF,Bloemfontein,2030,over 12,298730
+ZAF,Bloemfontein,2030,over 40,103088
+ZAF,Bloemfontein,2030,over 80,35571
+ZAF,Cape Town,2022,below 12,2993906
+ZAF,Cape Town,2022,over 12,1802063
+ZAF,Cape Town,2022,over 40,478633
+ZAF,Cape Town,2022,over 80,148294
+ZAF,Cape Town,2030,below 12,3447043
+ZAF,Cape Town,2030,over 12,2020652
+ZAF,Cape Town,2030,over 40,524829
+ZAF,Cape Town,2030,over 80,161429
+ZAF,Durban (Ethekwini),2022,below 12,2106727
+ZAF,Durban (Ethekwini),2022,over 12,1108698
+ZAF,Durban (Ethekwini),2022,over 40,263267
+ZAF,Durban (Ethekwini),2022,over 80,79061
+ZAF,Durban (Ethekwini),2030,below 12,2307379
+ZAF,Durban (Ethekwini),2030,over 12,1227631
+ZAF,Durban (Ethekwini),2030,over 40,294103
+ZAF,Durban (Ethekwini),2030,over 80,88493
+ZAF,East London (Buffalo City),2022,below 12,504920
+ZAF,East London (Buffalo City),2022,over 12,222818
+ZAF,East London (Buffalo City),2022,over 40,46166
+ZAF,East London (Buffalo City),2022,over 80,13462
+ZAF,East London (Buffalo City),2030,below 12,565331
+ZAF,East London (Buffalo City),2030,over 12,247774
+ZAF,East London (Buffalo City),2030,over 40,51077
+ZAF,East London (Buffalo City),2030,over 80,14882
+ZAF,Ekurhuleni,2022,below 12,2963642
+ZAF,Ekurhuleni,2022,over 12,1077766
+ZAF,Ekurhuleni,2022,over 40,195224
+ZAF,Ekurhuleni,2022,over 80,55817
+ZAF,Ekurhuleni,2030,below 12,3401129
+ZAF,Ekurhuleni,2030,over 12,1199596
+ZAF,Ekurhuleni,2030,over 40,213127
+ZAF,Ekurhuleni,2030,over 80,60681
+ZAF,Johannesburg,2022,below 12,3776061
+ZAF,Johannesburg,2022,over 12,2271417
+ZAF,Johannesburg,2022,over 40,602969
+ZAF,Johannesburg,2022,over 80,186784
+ZAF,Johannesburg,2030,below 12,4420649
+ZAF,Johannesburg,2030,over 12,2557768
+ZAF,Johannesburg,2030,over 40,656906
+ZAF,Johannesburg,2030,over 80,201434
+ZAF,Pietermaritzburg (The Msunduzi),2022,below 12,352179
+ZAF,Pietermaritzburg (The Msunduzi),2022,over 12,188320
+ZAF,Pietermaritzburg (The Msunduzi),2022,over 40,45301
+ZAF,Pietermaritzburg (The Msunduzi),2022,over 80,13623
+ZAF,Pietermaritzburg (The Msunduzi),2030,below 12,393129
+ZAF,Pietermaritzburg (The Msunduzi),2030,over 12,209398
+ZAF,Pietermaritzburg (The Msunduzi),2030,over 40,50211
+ZAF,Pietermaritzburg (The Msunduzi),2030,over 80,15111
+ZAF,Polokwane,2022,below 12,271717
+ZAF,Polokwane,2022,over 12,186447
+ZAF,Polokwane,2022,over 40,55485
+ZAF,Polokwane,2022,over 80,17894
+ZAF,Polokwane,2030,below 12,340653
+ZAF,Polokwane,2030,over 12,214710
+ZAF,Polokwane,2030,over 40,59314
+ZAF,Polokwane,2030,over 80,18618
+ZAF,Port Elizabeth (Nelson Mandela Bay),2022,below 12,816441
+ZAF,Port Elizabeth (Nelson Mandela Bay),2022,over 12,468006
+ZAF,Port Elizabeth (Nelson Mandela Bay),2022,over 40,119252
+ZAF,Port Elizabeth (Nelson Mandela Bay),2022,over 80,36486
+ZAF,Port Elizabeth (Nelson Mandela Bay),2030,below 12,908499
+ZAF,Port Elizabeth (Nelson Mandela Bay),2030,over 12,520047
+ZAF,Port Elizabeth (Nelson Mandela Bay),2030,over 40,132355
+ZAF,Port Elizabeth (Nelson Mandela Bay),2030,over 80,40482
+ZAF,Pretoria,2022,below 12,1652185
+ZAF,Pretoria,2022,over 12,1069377
+ZAF,Pretoria,2022,over 40,302340
+ZAF,Pretoria,2022,over 80,95665
+ZAF,Pretoria,2030,below 12,2001407
+ZAF,Pretoria,2030,over 12,1217219
+ZAF,Pretoria,2030,over 40,326030
+ZAF,Pretoria,2030,over 80,101304
+ZAF,Rustenburg,2022,below 12,340733
+ZAF,Rustenburg,2022,over 12,208070
+ZAF,Rustenburg,2022,over 40,55934
+ZAF,Rustenburg,2022,over 80,17397
+ZAF,Rustenburg,2030,below 12,427753
+ZAF,Rustenburg,2030,over 12,238436
+ZAF,Rustenburg,2030,over 40,59346
+ZAF,Rustenburg,2030,over 80,18028
+ZAF,Soshanguve,2022,below 12,584307
+ZAF,Soshanguve,2022,over 12,295600
+ZAF,Soshanguve,2022,over 40,67983
+ZAF,Soshanguve,2022,over 80,20264
+ZAF,Soshanguve,2030,below 12,660689
+ZAF,Soshanguve,2030,over 12,329492
+ZAF,Soshanguve,2030,over 40,74955
+ZAF,Soshanguve,2030,over 80,22279
+ZAF,Vereeniging,2022,below 12,492523
+ZAF,Vereeniging,2022,over 12,297061
+ZAF,Vereeniging,2022,over 40,79009
+ZAF,Vereeniging,2022,over 80,24491
+ZAF,Vereeniging,2030,below 12,542108
+ZAF,Vereeniging,2030,over 12,329132
+ZAF,Vereeniging,2030,over 40,88012
+ZAF,Vereeniging,2030,over 80,27339
+ZAF,West Rand,2022,below 12,554643
+ZAF,West Rand,2022,over 12,368572
+ZAF,West Rand,2022,over 40,106622
+ZAF,West Rand,2022,over 80,34041
+ZAF,West Rand,2030,below 12,623365
+ZAF,West Rand,2030,over 12,410816
+ZAF,West Rand,2030,over 40,117987
+ZAF,West Rand,2030,over 80,37567
+ZAF,Witbank,2022,below 12,337842
+ZAF,Witbank,2022,over 12,144183
+ZAF,Witbank,2022,over 40,29148
+ZAF,Witbank,2022,over 80,8466
+ZAF,Witbank,2030,below 12,408501
+ZAF,Witbank,2030,over 12,161801
+ZAF,Witbank,2030,over 40,31037
+ZAF,Witbank,2030,over 80,8935
