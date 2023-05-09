@@ -518,3 +518,90 @@ resultrev %>%
     write_csv("final_city_spending.csv")
 ```
 
+
+
+## Plot bar plots to compare old vs new method($12+ consumer class)
+
+
+```{r}
+
+library(readxl)
+ken_nig_sa <- read_xlsx("ken_nig_sa.xlsx")
+
+```
+
+
+```{r}
+
+
+# Calculate mean square percentage error for each city in Nigeria
+df_nig <- ken_nig_sa %>% 
+    filter(Country == "Nigeria") %>% 
+    mutate(mspe = ((new_method - old_method) / old_method) ^ 2 * 100)
+
+# Create bar plot
+plot_nig <- ggplot(df_nig, aes(x = reorder(City, -old_method), y = old_method, fill = "Old Method")) + 
+  geom_bar(stat = "identity", position = "dodge") +
+  geom_bar(aes(y = new_method, fill = "New Method"), stat = "identity", position = "dodge") +
+  labs(x = "City", y = "$12+ Consumer class", title = "Comparison of Old vs New Method for $12+ consumer class in Nigeria",
+       fill = "") +
+  theme_minimal() +
+  coord_flip() +
+  theme(axis.title.x = element_text(size = 10), 
+        axis.title.y = element_text(size = 10),
+        plot.title = element_text(size = 12))
+
+# Add mean square percentage error
+plot_nig + geom_text(aes(label = paste0(round(mspe, 2), "%")), 
+                 position = position_dodge(width = 0.9), vjust = -0.5, size = 2)
+
+
+    
+```
+
+```{r}
+# Calculate mean square percentage error for each city in Kenya
+df_ken <- ken_nig_sa %>% 
+    filter(Country == "Kenya") %>% 
+    mutate(mspe = ((new_method - old_method) / old_method) ^ 2 * 100)
+
+# Create bar plot
+plot_ken <- ggplot(df_ken, aes(x = reorder(City, -old_method), y = old_method, fill = "Old Method")) + 
+  geom_bar(stat = "identity", position = "dodge") +
+  geom_bar(aes(y = new_method, fill = "New Method"), stat = "identity", position = "dodge") +
+  labs(x = "City", y = "$12+ Consumer class", title = "Comparison of Old vs New Method for $12+ consumer class in Kenya",
+       fill = "") +
+  theme_minimal() +
+  coord_flip() +
+  theme(axis.title.x = element_text(size = 10), 
+        axis.title.y = element_text(size = 10),
+        plot.title = element_text(size = 12))
+
+# Add mean square percentage error
+plot_ken + geom_text(aes(label = paste0(round(mspe, 2), "%")), 
+                 position = position_dodge(width = 0.9), vjust = -0.5, size = 2)
+```
+
+```{r}
+# Calculate mean square percentage error for each city
+df_sa <- ken_nig_sa %>% 
+    filter(Country == "South Africa") %>% 
+    mutate(mspe = ((new_method - old_method) / old_method) ^ 2 * 100)
+
+# Create bar plot
+plot_sa <- ggplot(df_sa, aes(x = reorder(City, -old_method), y = old_method, fill = "Old Method")) + 
+  geom_bar(stat = "identity", position = "dodge") +
+  geom_bar(aes(y = new_method, fill = "New Method"), stat = "identity", position = "dodge") +
+  labs(x = "City", y = "$12+ Consumer class", title = "Comparison of Old vs New Method for $12+ consumer class in S.Africa",
+       fill = "") +
+  theme_minimal() +
+  coord_flip() +
+  theme(axis.title.x = element_text(size = 10), 
+        axis.title.y = element_text(size = 10),
+        plot.title = element_text(size = 11))
+
+# Add mean square percentage error
+plot_sa + geom_text(aes(label = paste0(round(mspe, 2), "%")), 
+                 position = position_dodge(width = 0.9), vjust = -0.5, size = 2)
+```
+
