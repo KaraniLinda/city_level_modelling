@@ -32,13 +32,17 @@ library(fuzzyjoin)
 ```{r}
 ## Read kenya population density data
 
-path <- "G:\\Shared drives\\DATA_WDL\\Mpro_2.0\\01_Data\\R_2022_12_29\\2023_01_23_2017ppp\\01_inputs\\population\\World pop\\Kenya"
+path <- "G://Shared drives//DATA_WDL//Mpro_2.0//01_Data//R_2022_12_29//2023_01_23_2017ppp//01_inputs//population//World pop//Kenya"
 
 ken <-  raster(paste0(path, "\\ken_pd_2020_1km_UNadj.tif"))
 
 ##Read Kenya consumption survey data
 
-ken_cons <- read_dta("ken_consumption\\Consumption_aggregate.dta")
+ken_cons <- read_dta("ken_consumption//Consumption_aggregate.dta")
+
+#Read conversion factors
+
+ppp_2017 <- read_rds("01_010_conversion_factors.rds")
 
 ## Read shape file
 
@@ -73,6 +77,19 @@ ken_cons <- ken_cons %>%
 
 
 ```
+
+```{r}
+#Covert local currency into 2017 ppp and create spending groups
+
+ppp_2017_ken <- ppp_2017 %>% 
+    filter(ccode == "KEN")
+
+
+ken_cons <- ken_cons %>% 
+    mutate(tot_cons_ppp = (tot_cons*0.37776351))
+
+```
+
 
 ```{r}
 
