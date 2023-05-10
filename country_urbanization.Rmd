@@ -605,3 +605,62 @@ plot_sa + geom_text(aes(label = paste0(round(mspe, 2), "%")),
                  position = position_dodge(width = 0.9), vjust = -0.5, size = 2)
 ```
 
+```{r}
+
+# Create scatter plot with line of equality
+plot <- ggplot(df_nig, aes(x = old_method, y = new_method, label = City)) + 
+  geom_point() +
+  scale_x_continuous(labels = scales::unit_format(unit = "k", scale = 1e-3))+
+  scale_y_continuous(labels = scales::unit_format(unit = "k", scale = 1e-3))+
+  labs(x = "Old Method (in thousands)", y = "New Method (in thousands)", 
+       title = "Old vs New Method for $12 + in Nigeria") +
+  theme_minimal()
+
+# Add line of equality
+plot + geom_abline(intercept = 0, slope = 1, color = "red") +
+  geom_text(aes(label = City), size = 2, hjust = -0.1, vjust = 0.5) +
+  theme(axis.title.x = element_text(size = 10), 
+             axis.title.y = element_text(size = 10),
+             plot.title = element_text(size = 11))
+
+
+
+
+```
+
+```{r}
+# Create scatter plot with line of best fit
+plot1 <- ggplot(df_ken, aes(x = old_method, y = new_method, label = City)) + 
+  geom_point() +
+  scale_x_continuous(labels = scales::unit_format(unit = "k", scale = 1e-3))+
+  scale_y_continuous(labels = scales::unit_format(unit = "k", scale = 1e-3))+
+  labs(x = "Old Method (in thousands)", y = "New Method (in thousands)", 
+       title = "Old vs New Method for $12 + in Kenya") +
+  theme_minimal()
+
+# Modify axis labels
+plot1 + geom_abline(intercept = 0, slope = 1, color = "red")+
+    geom_text(aes(label = City), size = 2, hjust = -0.1, vjust = 0.5) +
+    theme(axis.title.x = element_text(size = 10), 
+             axis.title.y = element_text(size = 10),
+             plot.title = element_text(size = 11))
+```
+
+```{r}
+# Create scatter plot with line of best fit
+plot2 <- ggplot(df_sa, aes(x = old_method, y = new_method, label = City)) + 
+  geom_point() +
+  scale_x_continuous(labels = scales::unit_format(unit = "k", scale = 1e-3))+
+  scale_y_continuous(labels = scales::unit_format(unit = "k", scale = 1e-3))+
+  labs(x = "Old Method (in thousands)", y = "New Method (in thousands)", 
+       title = "Old vs New Method for $12 + in S.Africa") +
+  theme_minimal()
+
+# Modify axis labels
+plot2 + geom_abline(intercept = 0, slope = 1, color = "red") +
+    geom_text(aes(label = City), size = 2, hjust = -0.1, vjust = 0.5) +
+    theme(axis.title.x = element_text(size = 10), 
+             axis.title.y = element_text(size = 10),
+             plot.title = element_text(size = 11))
+```
+
