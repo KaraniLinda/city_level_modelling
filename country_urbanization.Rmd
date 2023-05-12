@@ -2,6 +2,8 @@
 title: "country_urbanization"
 output: html_document
 date: "2023-04-12"
+editor_options: 
+  chunk_output_type: inline
 ---
 
 ```{r setup, include=FALSE}
@@ -86,7 +88,7 @@ ppp_2017_ken <- ppp_2017 %>%
 
 
 ken_cons <- ken_cons %>% 
-    mutate(tot_cons_ppp = (tot_cons*0.37776351))
+    mutate(tot_cons_ppp = (tot_cons/38.344658))
 
 ```
 
@@ -470,9 +472,11 @@ leaflet() %>%
 
 ```{r}
 
-cities <- "G:\\Shared drives\\DATA_WDL\\wdp_city_spending\\wdpro_combination"
+cities <- "/Users/lindakarani/Library/CloudStorage/GoogleDrive-linda.karani@worlddata.io/Shared drives/DATA_WDL/wdp_city_spending/wdpro_combination"
 
-all_city <- read_rds(paste0(cities,"\\city_distribution.rds"))
+all_city <- read_rds(paste0(cities,"/city_distribution.rds"))
+
+resid_cit <- read_rds(paste0(cities,"/residual_city_distribution.rds"))
 ```
 
 
@@ -645,6 +649,34 @@ plot + geom_abline(intercept = 0, slope = 1, color = "red") +
 
 ```
 
+
+
+```{r}
+#Plot old vs new method excluding abuja, port harcout and Lagos
+
+df_nig_new <- df_nig %>% 
+  filter(!City %in% c("Abuja", "Lagos", "Port Harcourt", "Kano"))
+
+
+# Create scatter plot with line of equality
+plot3 <- ggplot(df_nig_new, aes(x = old_method, y = new_method, label = City)) + 
+  geom_point() +
+  scale_x_continuous(labels = scales::unit_format(unit = "k", scale = 1e-3))+
+  scale_y_continuous(labels = scales::unit_format(unit = "k", scale = 1e-3))+
+  labs(x = "Old Method (in thousands)", y = "New Method (in thousands)", 
+       title = "Old vs New Method for $12 + in Nigeria excluding large cities") +
+  theme_minimal()
+
+# Add line of equality
+plot3 + geom_abline(intercept = 0, slope = 1, color = "red") +
+  geom_text(aes(label = City), size = 2, hjust = -0.1, vjust = 0.5) +
+  theme(axis.title.x = element_text(size = 10), 
+             axis.title.y = element_text(size = 10),
+             plot.title = element_text(size = 11))
+```
+
+
+
 ```{r}
 # Create scatter plot with line of best fit
 plot1 <- ggplot(df_ken, aes(x = old_method, y = new_method, label = City)) + 
@@ -664,6 +696,31 @@ plot1 + geom_abline(intercept = 0, slope = 1, color = "red")+
 ```
 
 ```{r}
+#Scatter plot for Kenya excluding large cities
+
+df_ken_new <- df_ken %>% 
+  filter(!City %in% c("Nairobi"))
+
+# Create scatter plot with line of best fit
+plot4 <- ggplot(df_ken_new, aes(x = old_method, y = new_method, label = City)) + 
+  geom_point() +
+  scale_x_continuous(labels = scales::unit_format(unit = "k", scale = 1e-3))+
+  scale_y_continuous(labels = scales::unit_format(unit = "k", scale = 1e-3))+
+  labs(x = "Old Method (in thousands)", y = "New Method (in thousands)", 
+       title = "Old vs New Method for $12 + in Kenya excluding large cities") +
+  theme_minimal()
+
+# Modify axis labels
+plot4 + geom_abline(intercept = 0, slope = 1, color = "red")+
+    geom_text(aes(label = City), size = 2, hjust = -0.1, vjust = 0.5) +
+    theme(axis.title.x = element_text(size = 10), 
+             axis.title.y = element_text(size = 10),
+             plot.title = element_text(size = 11))
+
+```
+
+
+```{r}
 # Create scatter plot with line of best fit
 plot2 <- ggplot(df_sa, aes(x = old_method, y = new_method, label = City)) + 
   geom_point() +
@@ -680,4 +737,63 @@ plot2 + geom_abline(intercept = 0, slope = 1, color = "red") +
              axis.title.y = element_text(size = 10),
              plot.title = element_text(size = 11))
 ```
+
+```{r}
+
+## Scatter plot for South Africa excluding larger cities
+
+df_sa_new <- df_sa %>% 
+  filter(!City %in% c("Johannesburg", "Cape Town", "Ekurhuleni", "Durban (Ethekwini)", "Pretoria"))
+
+# Create scatter plot with line of best fit
+plot5 <- ggplot(df_sa_new, aes(x = old_method, y = new_method, label = City)) + 
+  geom_point() +
+  scale_x_continuous(labels = scales::unit_format(unit = "k", scale = 1e-3))+
+  scale_y_continuous(labels = scales::unit_format(unit = "k", scale = 1e-3))+
+  labs(x = "Old Method (in thousands)", y = "New Method (in thousands)", 
+       title = "Old vs New Method for $12 + in S.Africa excluding large cities") +
+  theme_minimal()
+
+# Modify axis labels
+plot5 + geom_abline(intercept = 0, slope = 1, color = "red") +
+    geom_text(aes(label = City), size = 2, hjust = -0.1, vjust = 0.5) +
+    theme(axis.title.x = element_text(size = 10), 
+             axis.title.y = element_text(size = 10),
+             plot.title = element_text(size = 11))
+```
+```
+
+
+
+## Get distribution for residual cities
+```{r}
+residual <- resid_cit %>%
+    filter(ccode %in% c("NGA","ZAF", "KEN")) %>% 
+    dplyr::select("year","ccode","pop","spending_data_datt", "name")
+
+
+#unnest the list column
+
+resid_df <- unnest(residual, cols = spending_data_datt)
+
+```
+
+
+
+```{r}
+
+country_dist <- resid_df %>%
+  filter(year %in% c(2023, 2030)) %>%
+  group_by(ccode, year) %>%
+  mutate(spending_threshold_group = ifelse(spending_threshold >= 120, "over 120",
+                                            ifelse(spending_threshold >=80, "over 80",
+                                               ifelse(spending_threshold >= 40, "over 40",
+                                                  ifelse(spending_threshold >= 12, "over 12", "below 12"))))) %>% 
+    group_by(ccode,year, spending_threshold_group) %>% 
+    summarise(headcount_sum = sum(headcount),
+              spending_sum =  sum(spending))
+```
+
+
+
 
