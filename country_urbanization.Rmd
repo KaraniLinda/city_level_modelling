@@ -46,6 +46,8 @@ ken_cons <- read_dta("ken_consumption//Consumption_aggregate.dta")
 
 ppp_2017 <- read_rds("01_010_conversion_factors.rds")
 
+ppp_2017_ken
+
 ## Read shape file
 
 
@@ -80,6 +82,7 @@ ken_cons <- ken_cons %>%
 
 ```
 
+
 ```{r}
 #Covert local currency into 2017 ppp and create spending groups
 
@@ -88,7 +91,7 @@ ppp_2017_ken <- ppp_2017 %>%
 
 
 ken_cons <- ken_cons %>% 
-    mutate(tot_cons_ppp = (tot_cons/38.344658))
+    mutate(tot_cons_ppp = (padqexp/38.344658))
 
 ```
 
@@ -474,9 +477,13 @@ leaflet() %>%
 
 cities <- "/Users/lindakarani/Library/CloudStorage/GoogleDrive-linda.karani@worlddata.io/Shared drives/DATA_WDL/wdp_city_spending/wdpro_combination"
 
+WDPro <- "/Users/lindakarani/Library/CloudStorage/GoogleDrive-linda.karani@worlddata.io/Shared drives/DATA_WDL/Mpro_2.0/01_Data/R_2022_12_29/2023_03_13_2017ppp/03_outputs"
+
 all_city <- read_rds(paste0(cities,"/city_distribution.rds"))
 
 resid_cit <- read_rds(paste0(cities,"/residual_city_distribution.rds"))
+
+worlddatapro <- read_rds(paste0(WDPro, "/05_003_merge_mpro2_ages_R_2022_12_29_2017ppp_1_USD.rds"))
 ```
 
 
@@ -484,14 +491,16 @@ resid_cit <- read_rds(paste0(cities,"/residual_city_distribution.rds"))
 ```{r}
 city <- all_city %>%
     filter(ccode %in% c("NGA","ZAF", "KEN")) %>% 
-    select("year","ccode","pop","spending_data_datt", "name")
+    dplyr::select("year","ccode","pop","spending_data_kernel", "name")
 
 
 #unnest the list column
 
-city_df <- unnest(city, cols = spending_data_datt)
+city_df <- city %>%
+  unnest(cols =  spending_data_kernel)
 
-
+city_df %>% 
+    View()
 
 city_df %>% 
     write_csv("city_spending_rev_2.csv")
@@ -521,6 +530,14 @@ result <- city_df %>%
 
 
 ```{r}
+resultsum <- result %>% 
+  group_by(ccode, name, year) %>%
+  summarise(over12 = sum(headcount_sum[spending_threshold_group %in% c("over 12", "over 40", "over 80", "over 120")]),
+            over40 = sum(headcount_sum[spending_threshold_group %in% c("over 40", "over 80", "over 120")]))
+```
+
+
+```{r}
 
 resultrev <- result %>%
   filter(year %in% c(2022, 2030)) %>%
@@ -541,13 +558,16 @@ resultrev %>%
 
 
 
+
+
+
 ## Plot bar plots to compare old vs new method($12+ consumer class)
 
 
 ```{r}
 
 library(readxl)
-ken_nig_sa <- read_xlsx("ken_nig_sa.xlsx")
+ken_nig_sa <- read_xlsx("cities12USD.xlsx")
 
 ```
 
@@ -557,8 +577,7 @@ ken_nig_sa <- read_xlsx("ken_nig_sa.xlsx")
 
 # Calculate mean square percentage error for each city in Nigeria
 df_nig <- ken_nig_sa %>% 
-    filter(Country == "Nigeria") %>% 
-    mutate(mspe = ((new_method - old_method) / old_method) ^ 2 * 100)
+    filter(Country == "Nigeria")
 
 # Create bar plot
 plot_nig <- ggplot(df_nig, aes(x = reorder(City, -old_method), y = old_method, fill = "Old Method")) + 
@@ -581,10 +600,31 @@ plot_nig + geom_text(aes(label = paste0(round(mspe, 2), "%")),
 ```
 
 ```{r}
+
+
+# Reshape the data frame to have one value column
+df_reshaped_nig <- df_nig %>% 
+  pivot_longer(cols = c(loreal,nightlights,`nightlights rescaled`), names_to = "Method", values_to = "Value")
+
+# Create bar plot
+plot <- ggplot(df_reshaped_nig, aes(x = reorder(City, -Value), y = Value, fill = Method)) + 
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(x = "City", y = "$12+ Consumer class", title = "Comparison of loreal vs nightlights approach for $12+ consumer class in Nigeria") +
+  theme_minimal() +
+  coord_flip() +
+  theme(axis.title.x = element_text(size = 10), 
+        axis.title.y = element_text(size = 10),
+        plot.title = element_text(size = 10))
+
+
+```
+
+
+
+```{r}
 # Calculate mean square percentage error for each city in Kenya
 df_ken <- ken_nig_sa %>% 
-    filter(Country == "Kenya") %>% 
-    mutate(mspe = ((new_method - old_method) / old_method) ^ 2 * 100)
+    filter(Country == "Kenya")
 
 # Create bar plot
 plot_ken <- ggplot(df_ken, aes(x = reorder(City, -old_method), y = old_method, fill = "Old Method")) + 
@@ -603,11 +643,35 @@ plot_ken + geom_text(aes(label = paste0(round(mspe, 2), "%")),
                  position = position_dodge(width = 0.9), vjust = -0.5, size = 2)
 ```
 
+
+
+```{r}
+# Reshape the data frame to have one value column
+df_reshaped_ken <- df_ken %>% 
+  pivot_longer(cols = c(loreal,nightlights,`nightlights rescaled`), names_to = "Method", values_to = "Value")
+
+# Create bar plot
+plot2 <- ggplot(df_reshaped_ken, aes(x = reorder(City, -Value), y = Value, fill = Method)) + 
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(x = "City", y = "$12+ Consumer class", title = "Comparison of loreal vs nightlights approach for $12+ consumer class in Kenya") +
+  theme_minimal() +
+  coord_flip() +
+  theme(axis.title.x = element_text(size = 10), 
+        axis.title.y = element_text(size = 10),
+        plot.title = element_text(size = 12))
+
+# Add MSPE value on top of one bar
+plot2 + 
+  geom_text(aes(label = paste0(round(Value/1e6, 2), "M")), 
+                 position = position_dodge(width = 0.9), vjust = -0.5, size = 2) 
+```
+
+
+
 ```{r}
 # Calculate mean square percentage error for each city
 df_sa <- ken_nig_sa %>% 
-    filter(Country == "South Africa") %>% 
-    mutate(mspe = ((new_method - old_method) / old_method) ^ 2 * 100)
+    filter(Country == "South Africa")
 
 # Create bar plot
 plot_sa <- ggplot(df_sa, aes(x = reorder(City, -old_method), y = old_method, fill = "Old Method")) + 
@@ -625,6 +689,58 @@ plot_sa <- ggplot(df_sa, aes(x = reorder(City, -old_method), y = old_method, fil
 plot_sa + geom_text(aes(label = paste0(round(mspe, 2), "%")), 
                  position = position_dodge(width = 0.9), vjust = -0.5, size = 2)
 ```
+
+
+```{r}
+# Reshape the data frame to have one value column
+df_reshaped_sa <- df_sa %>% 
+  pivot_longer(cols = c(loreal,nightlights,`nightlights rescaled`), names_to = "Method", values_to = "Value")
+
+# Create bar plot
+plot3 <- ggplot(df_reshaped_sa, aes(x = reorder(City, -Value), y = Value, fill = Method)) + 
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(x = "City", y = "$12+ Consumer class", title = "Comparison of loreal vs nightlights approach for $12+ consumer class in S.Africa") +
+  theme_minimal() +
+  coord_flip() +
+  theme(axis.title.x = element_text(size =  10), 
+        axis.title.y = element_text(size = 10),
+        plot.title = element_text(size = 10))
+
+#Add value on top of  bars
+
+plot3 + 
+  geom_text(aes(label = paste0(round(Value/1e6, 2), "M")), 
+                 position = position_dodge(width = 0.9), vjust = -0.5, size = 1.5)
+```
+
+
+```{r}
+
+# Reshape the data frame to have one value column
+df_reshaped_all <- ken_nig_sa %>% 
+  pivot_longer(cols = c(loreal,nightlights,`nightlights rescaled`), names_to = "Method", values_to = "Value") %>% 
+  group_by(Country, Method) %>% 
+  summarise(Value = sum(Value))
+
+
+# Create bar plot
+plot4 <- ggplot(df_reshaped_all, aes(x = reorder(Country, -Value), y = Value, fill = Method)) + 
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(x = "Country", y = "$12+ Consumer class", title = "Comparison of loreal vs nighlights approach for $12+ consumer class") +
+  theme_minimal() +
+  coord_flip() +
+  theme(axis.title.x = element_text(size =  10), 
+        axis.title.y = element_text(size = 10),
+        plot.title = element_text(size = 10))
+
+#Add value on top of  bars
+
+plot4 + 
+  geom_text(aes(label = paste0(round(Value/1e6, 2), "M")), 
+                 position = position_dodge(width = 0.9), vjust = -0.5, size = 2)
+
+```
+
 
 ```{r}
 
@@ -761,23 +877,78 @@ plot5 + geom_abline(intercept = 0, slope = 1, color = "red") +
              axis.title.y = element_text(size = 10),
              plot.title = element_text(size = 11))
 ```
+
+
+
+```{r}
+
+library(Metrics)
+
+# Calculate metrics by country
+country_metrics <- ken_nig_sa %>%
+  group_by(Country) %>%
+  summarise(
+    r2 = 1 - sum((nightlights - loreal)^2) / sum((loreal - mean(loreal))^2),
+    mae = mean(abs(nightlights - loreal)),
+    mse = mean((nightlights - loreal)^2)
+  )
+
+# Print the country metrics table
+print(country_metrics)
+
+
+```
+
+```{r}
+# Calculate metrics by country
+country_metrics2 <- ken_nig_sa %>%
+  group_by(Country) %>%
+  summarise(
+    r2 = 1 - sum((nightlights - loreal)^2) / sum((loreal - mean(loreal))^2),
+    rmse = sqrt(mean((nightlights - loreal)^2)),
+    mape = mean(abs((nightlights - loreal) / loreal)) * 100
+  )
+
+# Print the country metrics table
+print(country_metrics2)
+
+```
+
+
+```{r}
+# Calculate metrics by country
+country_metrics3 <- ken_nig_sa %>%
+  group_by(Country) %>%
+  summarise(
+    r2 = 1 - sum((`nightlights rescaled` - loreal)^2) / sum((loreal - mean(loreal))^2),
+    rmse = sqrt(mean((`nightlights rescaled` - loreal)^2)),
+    mape = mean(abs((`nightlights rescaled` - loreal) / loreal)) * 100
+  )
+
+# Print the country metrics table
+print(country_metrics3)
 ```
 
 
 
 ## Get distribution for residual cities
+
 ```{r}
 residual <- resid_cit %>%
     filter(ccode %in% c("NGA","ZAF", "KEN")) %>% 
     dplyr::select("year","ccode","pop","spending_data_datt", "name")
 
 
-#unnest the list column
+
+# unnest the list column
 
 resid_df <- unnest(residual, cols = spending_data_datt)
 
-```
 
+
+resid_df %>% 
+    View()
+```
 
 
 ```{r}
@@ -789,11 +960,109 @@ country_dist <- resid_df %>%
                                             ifelse(spending_threshold >=80, "over 80",
                                                ifelse(spending_threshold >= 40, "over 40",
                                                   ifelse(spending_threshold >= 12, "over 12", "below 12"))))) %>% 
-    group_by(ccode,year, spending_threshold_group) %>% 
-    summarise(headcount_sum = sum(headcount),
-              spending_sum =  sum(spending))
+  group_by(ccode,year, spending_threshold_group) %>% 
+  summarise(headcount_sum = sum(headcount),
+            spending_sum =  sum(spending))
+```
+
+```{r}
+country_spend <- resid_df %>%
+  filter(year %in% c(2023, 2030)) %>%
+  group_by(ccode, year) %>%
+  mutate(spending_threshold_group = ifelse(spending_threshold >= 120, "over 120",
+                                            ifelse(spending_threshold >=80, "over 80",
+                                               ifelse(spending_threshold >= 40, "over 40",
+                                                  ifelse(spending_threshold >= 12, "over 12", "below 12"))))) %>% 
+  group_by(ccode,year) %>% 
+  summarise(spending_sum =  sum(spending))
 ```
 
 
+## Rescale numbers to match WDPro
 
+```{r}
+
+olddf <- resid_cit %>%
+    dplyr::select("year","ccode","pop","spending_data_datt", "name")
+
+
+
+# unnest the list column
+
+olddf <- unnest(olddf, cols = spending_data_datt)
+
+
+
+olddf %>% 
+    View()
+
+```
+
+
+```{r}
+worlddataprodf <- worlddatapro %>% 
+  group_by(ccode, year, inc_lwr, inc_upr) %>%
+  summarise(sum_hc = sum(hc)) %>% 
+  rename(spending_threshold = inc_upr)
+    
+
+worlddatapro %>% 
+    View()
+
+worlddataprodf %>% 
+    View()
+
+
+## Merge wdpro with Matts results
+
+newdf <- merge(olddf, worlddataprodf, all = FALSE, by = c("ccode", "year", "spending_threshold"))
+
+
+## Rescale numbers to match wdpro
+
+newdf2 <- newdf %>% 
+    group_by(year,ccode,spending_threshold) %>% 
+    mutate(hc_new = headcount * (sum_hc/sum(headcount))) %>% 
+    rename(hc_wdpro = sum_hc,
+           hc_old = headcount)
+
+
+newdf2 %>% 
+    View()
+
+##Check that totals match wdpro
+check <- newdf2 %>% 
+    group_by(year, ccode, spending_threshold) %>% 
+    summarise(sum2 = sum(hc_new))
+
+```
+
+
+```{r}
+
+options(scipen = 999)
+# get totals for different consumer classes to compare to old method
+
+newdf2cons <- newdf2 %>%
+  filter(ccode %in% c("NGA","ZAF", "KEN") & year %in% c(2022, 2030)) %>%
+  group_by(ccode, name, year) %>%
+  mutate(spending_threshold_group = ifelse(spending_threshold >= 120, "over 120",
+                                            ifelse(spending_threshold >=80, "over 80",
+                                               ifelse(spending_threshold >= 40, "over 40",
+                                                  ifelse(spending_threshold >= 12, "over 12", "below 12"))))) %>% 
+  group_by(ccode,name, year, spending_threshold_group) %>% 
+  summarise(headcount_sum = sum(hc_new))
+
+```
+
+```{r}
+
+newdf2cons3 <- newdf2cons %>% 
+  group_by(ccode, name, year) %>%
+  summarise(over12 = sum(headcount_sum[spending_threshold_group %in% c("over 12", "over 40", "over 80", "over 120")]),
+            over40 = sum(headcount_sum[spending_threshold_group %in% c("over 40", "over 80", "over 120")]),
+            over80 = sum(headcount_sum[spending_threshold_group %in% c("over 80", "over 120")]))
+
+
+```
 
