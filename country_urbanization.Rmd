@@ -451,7 +451,7 @@ leaflet() %>%
 ```
 
 
-## All city spending
+# All city spending
 
 ```{r}
 
@@ -459,16 +459,21 @@ cities <- "/Users/lindakarani/Library/CloudStorage/GoogleDrive-linda.karani@worl
 
 WDPro <- "/Users/lindakarani/Library/CloudStorage/GoogleDrive-linda.karani@worlddata.io/Shared drives/DATA_WDL/Mpro_2.0/01_Data/R_2022_12_29/2023_03_13_2017ppp/03_outputs"
 
+## Read in Matts output city spending file
 all_city <- read_rds(paste0(cities,"/city_distribution.rds"))
 
+## City spending file including residual for all countries
 resid_cit <- read_rds(paste0(cities,"/residual_city_distribution.rds"))
 
+##World data pro
 worlddatapro <- read_rds(paste0(WDPro, "/05_003_merge_mpro2_ages_R_2022_12_29_2017ppp_1_USD.rds"))
 ```
 
 
 
 ```{r}
+
+## Get the spending distribution for Kenya, south Africa and Nigeria 
 city <- all_city %>%
     filter(ccode %in% c("NGA","ZAF", "KEN")) %>% 
     dplyr::select("year","ccode","pop","spending_data_kernel", "name")
@@ -491,6 +496,7 @@ city_df %>%
 
 ```{r}
 
+## Get consumer class breakdown for Kenya, South Africa and Nigeria(top cities)- slides 10 -15
 result <- city_df %>%
   filter(year %in% c(2022, 2030)) %>%
   group_by(ccode, name, year) %>%
@@ -502,6 +508,7 @@ result <- city_df %>%
     summarise(headcount_sum = sum(headcount))
  
 
+##Check totals for each country for all consumer classes
 
 tots <- result %>% 
     group_by(ccode,year) %>% 
@@ -513,6 +520,7 @@ tots <- result %>%
 
 
 ```{r}
+## Get the totals for the three countries without including upper bounds i.e over 12, over 40 and over 80 (slides 8 and 9)- Nightlights data
 resultsum <- result %>% 
   group_by(ccode, year) %>%
   summarise(below12 = sum(headcount_sum[spending_threshold_group %in% c("below 12")]),
@@ -522,69 +530,24 @@ resultsum <- result %>%
 ```
 
 
-```{r}
-
-resultrev <- result %>%
-  filter(year %in% c(2022, 2030)) %>%
-  group_by(ccode, name, year) %>%
-  mutate(headcount_sum2 = case_when(
-    spending_threshold_group == "over 12" ~ sum(headcount_sum[spending_threshold_group %in% c("over 12", "over 40", "over 80")]),
-    spending_threshold_group == "over 40" ~ sum(headcount_sum[spending_threshold_group %in% c("over 40", "over 80")]),
-    TRUE ~ headcount_sum
-  )) %>%
-  ungroup() %>%
-  select(ccode, name, year, spending_threshold_group, headcount_sum2)
-
-
-
-resultrev %>% 
-    write_csv("final_city_spending.csv")
-```
-
-
-
-
-
-
-## Plot bar plots to compare old vs new method($12+ consumer class)
+## Plot bar plots to compare old vs new method($12+ consumer class) i.e loreal, nightlights and rescaled numbers
 
 
 ```{r}
 
+## Output file with breakdown of cities for $12+ consumer class
 library(readxl)
 ken_nig_sa <- read_xlsx("cities12USD.xlsx")
 
 ```
 
 
+
 ```{r}
 
-
-# Calculate mean square percentage error for each city in Nigeria
+## filter for Nigeria only
 df_nig <- ken_nig_sa %>% 
     filter(Country == "Nigeria")
-
-# Create bar plot
-plot_nig <- ggplot(df_nig, aes(x = reorder(City, -old_method), y = old_method, fill = "Old Method")) + 
-  geom_bar(stat = "identity", position = "dodge") +
-  geom_bar(aes(y = new_method, fill = "New Method"), stat = "identity", position = "dodge") +
-  labs(x = "City", y = "$12+ Consumer class", title = "Comparison of Old vs New Method for $12+ consumer class in Nigeria",
-       fill = "") +
-  theme_minimal() +
-  coord_flip() +
-  theme(axis.title.x = element_text(size = 10), 
-        axis.title.y = element_text(size = 10),
-        plot.title = element_text(size = 12))
-
-# Add mean square percentage error
-plot_nig + geom_text(aes(label = paste0(round(mspe, 2), "%")), 
-                 position = position_dodge(width = 0.9), vjust = -0.5, size = 2)
-
-
-    
-```
-
-```{r}
 
 
 # Reshape the data frame to have one value column
@@ -604,9 +567,9 @@ plot <- ggplot(df_reshaped_nig, aes(x = reorder(City, -Value), y = Value, fill =
 
 ```
 ```{r}
-# Create bar plot
+# Create bar plot for only top cities in Nigeria
 plot_top <- df_reshaped_nig %>% 
-  filter(City %in% c("Lagos", "Abuja", "Port Harcout", "Kano", "Ibadan")) %>% 
+  filter(City %in% c("Lagos", "Abuja", "Port Harcourt", "Kano", "Ibadan")) %>% 
   ggplot(aes(x = reorder(City, -Value), y = Value, fill = Method)) + 
   geom_bar(stat = "identity", position = "dodge") +
   labs(x = "City", y = "$12+ Consumer class", title = "Comparison of loreal vs nightlights approach for $12+ consumer class in Nigeria") +
@@ -624,30 +587,11 @@ plot_top + geom_text(aes(label = paste0(round(Value/1e6, 2), "M")),
 
 
 ```{r}
-# Calculate mean square percentage error for each city in Kenya
+
+# Filter for Kenya only
 df_ken <- ken_nig_sa %>% 
     filter(Country == "Kenya")
 
-# Create bar plot
-plot_ken <- ggplot(df_ken, aes(x = reorder(City, -old_method), y = old_method, fill = "Old Method")) + 
-  geom_bar(stat = "identity", position = "dodge") +
-  geom_bar(aes(y = new_method, fill = "New Method"), stat = "identity", position = "dodge") +
-  labs(x = "City", y = "$12+ Consumer class", title = "Comparison of Old vs New Method for $12+ consumer class in Kenya",
-       fill = "") +
-  theme_minimal() +
-  coord_flip() +
-  theme(axis.title.x = element_text(size = 10), 
-        axis.title.y = element_text(size = 10),
-        plot.title = element_text(size = 12))
-
-# Add mean square percentage error
-plot_ken + geom_text(aes(label = paste0(round(mspe, 2), "%")), 
-                 position = position_dodge(width = 0.9), vjust = -0.5, size = 2)
-```
-
-
-
-```{r}
 # Reshape the data frame to have one value column
 df_reshaped_ken <- df_ken %>% 
   pivot_longer(cols = c(loreal,nightlights,`nightlights rescaled`), names_to = "Method", values_to = "Value")
@@ -662,7 +606,7 @@ plot2 <- ggplot(df_reshaped_ken, aes(x = reorder(City, -Value), y = Value, fill 
         axis.title.y = element_text(size = 10),
         plot.title = element_text(size = 12))
 
-# Add MSPE value on top of one bar
+# Add  values on top of one bar
 plot2 + 
   geom_text(aes(label = paste0(round(Value/1e6, 2), "M")), 
                  position = position_dodge(width = 0.9), vjust = -0.5, size = 2) 
@@ -718,7 +662,8 @@ plot3 +
 
 
 ```{r}
-# Create bar plot
+
+# Create bar plot for only top cities in South Africa
 plottop1 <- df_reshaped_sa %>% 
   filter(City %in% c("Johannesburg", "Cape Town", "Ekurhuleni", "Durban (Ethekwini)", "Pretoria")) %>% 
   ggplot(aes(x = reorder(City, -Value), y = Value, fill = Method)) + 
@@ -736,9 +681,11 @@ plottop1 +
   geom_text(aes(label = paste0(round(Value/1e6, 2), "M")), 
                  position = position_dodge(width = 0.9), vjust = -0.5, size = 1.5)
 ```
-```
+
 
 ```{r}
+
+## Create plot summed up by key cities for the three countries
 
 # Reshape the data frame to have one value column
 df_reshaped_all <- ken_nig_sa %>% 
@@ -765,6 +712,8 @@ plot4 +
 
 ```
 
+
+## Scatter plots for comparison(Kenya, South Africa and Nigeria)
 
 ```{r}
 
@@ -958,6 +907,8 @@ print(country_metrics3)
 ## Get distribution for residual cities
 
 ```{r}
+
+## City spending data + residual
 residual <- resid_cit %>%
     filter(ccode %in% c("NGA","ZAF", "KEN")) %>% 
     dplyr::select("year","ccode","pop","spending_data_datt", "name")
@@ -977,7 +928,32 @@ resid_df %>%
 
 ```{r}
 
+## Create spending groups to compare with WDPro - slide 6 and 7. Please note that the code somehow includes upper bounds even though this is not included in the expression. Over 12 in this case is $12-40
+
 country_dist <- resid_df %>%
+  filter(year %in% c(2023,2030)) %>%
+  group_by(ccode, year) %>%
+  mutate(spending_threshold_group = ifelse(spending_threshold >= 120, "over 120",
+                                            ifelse(spending_threshold >=80, "over 80",
+                                               ifelse(spending_threshold >= 40, "over 40",
+                                                  ifelse(spending_threshold >= 12, "over 12", "below 12"))))) %>% 
+  group_by(ccode,year, spending_threshold_group) %>% 
+  summarise(headcount_sum = sum(headcount),
+            spending_sum =  sum(spending))
+
+##Check totals for each year and country
+country_sum <-  country_dist %>% 
+    group_by(ccode, year) %>% 
+    summarise(pop = sum(headcount_sum))
+```
+
+
+
+```{r}
+
+## Get spending distribution for Kenya in 2016 to compare with survey and WDPro- slide 16
+
+ken_dist <- resid_df %>%
   filter(year == "2016" & ccode == "KEN") %>%
   group_by(ccode, year) %>%
   mutate(spending_threshold_group = ifelse(spending_threshold >= 120, "over 120",
@@ -988,8 +964,8 @@ country_dist <- resid_df %>%
   summarise(headcount_sum = sum(headcount),
             spending_sum =  sum(spending))
 
-
-country_sum <-  country_dist %>% 
+## Check for totals
+ken_sum <-  ken_dist %>% 
     group_by(ccode) %>% 
     summarise(pop = sum(headcount_sum))
 ```
@@ -997,6 +973,8 @@ country_sum <-  country_dist %>%
 
 
 ```{r}
+
+##To be continued
 countrydist3 <- country_dist %>% 
   group_by(ccode, name, year) %>%
   summarise(over12 = sum(headcount_sum[spending_threshold_group %in% c("over 12", "over 40", "over 80", "over 120")]),
@@ -1010,6 +988,7 @@ countrydist3 <- country_dist %>%
 
 ```{r}
 
+## Nightlights + residual
 olddf <- resid_cit %>%
     dplyr::select("year","ccode","pop","spending_data_datt", "name")
 
@@ -1028,9 +1007,11 @@ olddf %>%
 
 
 ```{r}
+
 worlddataprodf <- worlddatapro %>% 
   group_by(ccode, year, inc_lwr, inc_upr) %>%
-  summarise(sum_hc = sum(hc)) %>% 
+  summarise(sum_hc = sum(hc),
+            daily_spending = sum(exp)/365) %>% 
   rename(spending_threshold = inc_upr)
     
 
@@ -1050,7 +1031,8 @@ newdf <- merge(olddf, worlddataprodf, all = FALSE, by = c("ccode", "year", "spen
 
 newdf2 <- newdf %>% 
     group_by(year,ccode,spending_threshold) %>% 
-    mutate(hc_new = headcount * (sum_hc/sum(headcount))) %>% 
+    mutate(hc_new = headcount * (sum_hc/sum(headcount)),
+           spending_new = (spending/365) * (daily_spending/sum(spending/365))) %>% 
     rename(hc_wdpro = sum_hc,
            hc_old = headcount)
 
@@ -1058,10 +1040,11 @@ newdf2 <- newdf %>%
 newdf2 %>% 
     View()
 
-##Check that totals match wdpro
+##Check that totals and spending  match wdpro
 check <- newdf2 %>% 
     group_by(year, ccode, spending_threshold) %>% 
-    summarise(sum2 = sum(hc_new))
+    summarise(sum2 = sum(hc_new),
+              tots = sum(spending_new))
 
 
 
@@ -1079,7 +1062,7 @@ options(scipen = 999)
 # get totals for different consumer classes to compare to old method
 
 newdf2cons <- newdf2 %>%
-  filter(ccode %in% c("NGA","ZAF", "KEN") & year %in% c(2022, 2030) & !name %in%  c("Residual_KEN", "Residual_ZAF", "Residual_NGA")) %>%
+  filter(ccode %in% c("KEN") & year %in% c(2022, 2030) & name %in%  c("Nairobi", "Mombasa")) %>%
   group_by(ccode, name, year) %>%
   mutate(spending_threshold_group = ifelse(spending_threshold >= 120, "over 120",
                                             ifelse(spending_threshold >=80, "over 80",
@@ -1089,10 +1072,47 @@ newdf2cons <- newdf2 %>%
   summarise(headcount_sum = sum(hc_new))
 
 
-TOT1 <- newdf2cons %>% 
-    group_by(ccode, year) %>% 
+TOT11 <- newdf2cons %>% 
+    group_by(year, spending_threshold_group, name) %>% 
     summarise(tot = sum(headcount_sum))
+
+TOT12 <- TOT11 %>% 
+  group_by(year, name) %>%
+  summarise(below12 = sum(tot[spending_threshold_group %in% c("below 12")]),
+            over12 = sum(tot[spending_threshold_group %in% c("over 12", "over 40", "over 80", "over 120")]),
+            over40 = sum(tot[spending_threshold_group %in% c("over 40", "over 80", "over 120")]),
+            over80 = sum(tot[spending_threshold_group %in% c("over 80", "over 120")]))
 ```
+
+
+```{r}
+## Get residual to match kenya survey
+
+cons_ken <- newdf2 %>%
+  filter(ccode %in% c("KEN") & year %in% c(2022, 2030) & !name %in% c("Nairobi", "Mombasa")) %>%
+  group_by(ccode, name, year) %>%
+  mutate(spending_threshold_group = ifelse(spending_threshold >= 120, "over 120",
+                                            ifelse(spending_threshold >=80, "over 80",
+                                               ifelse(spending_threshold >= 40, "over 40",
+                                                  ifelse(spending_threshold >= 12, "over 12", "below 12"))))) %>% 
+  group_by(ccode,name, year, spending_threshold_group) %>% 
+  summarise(headcount_sum = sum(hc_new))
+
+
+TOT1 <- cons_ken %>% 
+    group_by(year, spending_threshold_group) %>% 
+    summarise(tot = sum(headcount_sum))
+
+
+TOT2 <- TOT1 %>% 
+  group_by(year) %>%
+  summarise(below12 = sum(tot[spending_threshold_group %in% c("below 12")]),
+            over12 = sum(tot[spending_threshold_group %in% c("over 12", "over 40", "over 80", "over 120")]),
+            over40 = sum(tot[spending_threshold_group %in% c("over 40", "over 80", "over 120")]),
+            over80 = sum(tot[spending_threshold_group %in% c("over 80", "over 120")]))
+```
+
+
 
 ```{r}
 
@@ -1127,6 +1147,8 @@ ken_cons2 <- ken_cons %>%
 ken_cons_ppp <- ken_cons2 %>% 
     mutate(tot_cons_ppp = (individual_spend/38.344658))
 
+
+
 ```
 
 
@@ -1156,7 +1178,7 @@ for (i in 1:(length(buckets) - 1)) {
   
   # Calculate total weighted population and total spending for the current bucket
   total_weighted_pop <- sum(df2$weight_pop)
-  total_spending <- sum(df2$tot_cons)
+  total_spending <- sum(df2$tot_cons_ppp)
   
   # Add the results to the result dataframe
   df <- rbind(df, data.frame(inc_lwr = lower_limit, inc_hgr = upper_limit, total_weighted_pop, total_spending))
@@ -1168,13 +1190,26 @@ for (i in 1:(length(buckets) - 1)) {
 
 
 ```{r}
-## Get consumer class distribution from survey
+## Get consumer class distribution from survey for 2016
 
 survey_df <- df %>%
   mutate(spending_threshold_group = ifelse(inc_hgr >= 120, "over 120",
                                             ifelse(inc_hgr >=80, "over 80",
                                                ifelse(inc_hgr >= 40, "over 40",
                                                   ifelse(inc_hgr >= 12, "over 12", "below 12"))))) %>% 
+  group_by(spending_threshold_group) %>% 
+  summarise(headcount_sum = sum(total_weighted_pop),
+            tot_spend = sum(total_spending))
+```
+
+
+
+```{r}
+survey_df2 <- df %>%
+  mutate(spending_threshold_group = ifelse(inc_hgr >= 120 , "over 120",
+                                            ifelse(inc_hgr >=80 & inc_hgr < 120, "over 80",
+                                               ifelse(inc_hgr >= 40 & inc_hgr < 80, "over 40",
+                                                  ifelse(inc_hgr >= 12 & inc_hgr < 40, "over 12", "below 12"))))) %>% 
   group_by(spending_threshold_group) %>% 
   summarise(headcount_sum = sum(total_weighted_pop),
             tot_spend = sum(total_spending))
@@ -1217,7 +1252,7 @@ for (county in unique(ken_cons_ppp$county)) {
       
       # Calculate total weighted population and total spending for the current bucket
       total_weighted_pop <- sum(filtered_data$weight_pop)
-      total_spending <- sum(filtered_data$tot_cons)
+      total_spending <- sum(filtered_data$tot_cons_ppp)
       
       # Add the results to the result dataframe
       df_county <- rbind(df_county, data.frame(county, inc_lwr = lower_limit, inc_upr = upper_limit, total_weighted_pop, total_spending))
@@ -1230,9 +1265,6 @@ for (county in unique(ken_cons_ppp$county)) {
 
 ```
 
-```{r}
-wdpro_ken
-```
 
 
 ## Rescale survey data to match WDPro
@@ -1276,14 +1308,21 @@ ken_merge <- merge(df_county, wdpro_ken, all = FALSE , by = c("inc_lwr", "inc_up
 
 ken_rescaled <- ken_merge %>% 
     group_by(inc_lwr,inc_upr) %>% 
-    mutate(pop = total_weighted_pop * (sum_hc/sum(total_weighted_pop)))
+    mutate(pop = total_weighted_pop * (sum_hc/sum(total_weighted_pop)),
+           tot_spend = total_spending *(daily_spending/sum(total_spending)))
+
+ken_rescaled %>% 
+    View()
 
 ##Check to see if it matches WDPro
 ken_check <- ken_rescaled %>% 
     group_by(ccode, inc_lwr,inc_upr) %>% 
-    summarise(sum = sum(pop))
+    summarise(sum = sum(pop),
+              tot = sum(tot_spend))
 
 ```
+
+
 
 
 
@@ -1303,6 +1342,18 @@ ken_rescaled_agg <- ken_rescaled %>%
 ```
 
 
+```{r}
+ken_res_agg <- ken_rescaled %>%
+  filter(!county %in% c("Nairobi" ,"Mombasa")) %>%
+  group_by(county,inc_lwr,inc_upr) %>%
+  mutate(spending_threshold_group = ifelse(inc_upr >= 120, "over 120",
+                                            ifelse(inc_upr >=80, "over 80",
+                                               ifelse(inc_upr >= 40, "over 40",
+                                                  ifelse(inc_upr >= 12, "over 12", "below 12"))))) %>% 
+  group_by(county,spending_threshold_group) %>% 
+  summarise(headcount_sum = sum(pop),
+            actual = sum(total_weighted_pop))
+```
 
 
 
@@ -1312,6 +1363,19 @@ kenagg2 <- ken_rescaled_agg %>%
   summarise(over12 = sum(headcount_sum[spending_threshold_group %in% c("over 12", "over 40", "over 80", "over 120")]),
             over40 = sum(headcount_sum[spending_threshold_group %in% c("over 40", "over 80", "over 120")]),
             over80 = sum(headcount_sum[spending_threshold_group %in% c("over 80", "over 120")]))
+```
+
+
+```{r}
+kencountagg <- ken_res_agg %>% 
+  summarise(over12 = sum(headcount_sum[spending_threshold_group %in% c("over 12", "over 40", "over 80", "over 120")]),
+            over40 = sum(headcount_sum[spending_threshold_group %in% c("over 40", "over 80", "over 120")]),
+            over80 = sum(headcount_sum[spending_threshold_group %in% c("over 80", "over 120")]))
+
+ken_sum <- kencountagg %>% 
+    summarise(over12 = sum(over12),
+              over40 = sum(over40),
+              over80 = sum(over80))
 ```
 
 
@@ -1329,7 +1393,7 @@ kenya_cities<- kenya_cities %>%
 
 # Create bar plot
 plot12 <- kenya_cities %>% 
-  filter(spending_group == "12USD") %>% 
+  filter(spending_group == "12USD" & City %in% c("Nairobi", "Mombasa")) %>% 
   ggplot(aes(x = reorder(City, -Value), y = Value, fill = Method)) + 
   geom_bar(stat = "identity", position = "dodge") +
   labs(x = "City", y = "$12+ Consumer class", title = "$12+ consumer class in Kenya") +
@@ -1349,10 +1413,10 @@ plot12 +
 ```{r}
 # Create bar plot
 plot40 <- kenya_cities %>% 
-  filter(spending_group == "40USD") %>% 
+  filter(spending_group == "40USD" & City %in% c("Nairobi", "Mombasa")) %>% 
   ggplot(aes(x = reorder(City, -Value), y = Value, fill = Method)) + 
   geom_bar(stat = "identity", position = "dodge") +
-  labs(x = "City", y = "$12+ Consumer class", title = "$40+ consumer class in Kenya") +
+  labs(x = "City", y = "$40+ Consumer class", title = "$40+ consumer class in Kenya") +
   theme_minimal() +
   coord_flip() +
   theme(axis.title.x = element_text(size =  10), 
@@ -1366,13 +1430,14 @@ plot40 +
                  position = position_dodge(width = 0.9), vjust = -0.5, size = 1.5)
 ```
 
+
 ```{r}
 # Create bar plot
 plot80 <- kenya_cities %>% 
-  filter(spending_group == "80USD") %>% 
+  filter(spending_group == "80USD"  & City %in% c("Nairobi", "Mombasa")) %>% 
   ggplot(aes(x = reorder(City, -Value), y = Value, fill = Method)) + 
   geom_bar(stat = "identity", position = "dodge") +
-  labs(x = "City", y = "$12+ Consumer class", title = "$80+ consumer class in Kenya") +
+  labs(x = "City", y = "$80+ Consumer class", title = "$80+ consumer class in Kenya") +
   theme_minimal() +
   coord_flip() +
   theme(axis.title.x = element_text(size =  10), 
@@ -1382,6 +1447,84 @@ plot80 <- kenya_cities %>%
 #Add value on top of  bars
 
 plot80 + 
+  geom_text(aes(label = paste0(round(Value/1e3, 2), "Thsd")), 
+                 position = position_dodge(width = 0.9), vjust = -0.5, size = 1.5)
+```
+
+
+
+
+
+
+
+## Plot with residual
+
+
+```{r}
+kenya_res <- read_xlsx("kenya_cities_res.xlsx")
+
+# Reshape the data frame to have one value column
+kenya_res<- kenya_res %>% 
+  pivot_longer(cols = c(`nightlights rescaled`, survey), names_to = "Method", values_to = "Value")
+
+# Create bar plot
+plotres1 <- kenya_res %>% 
+  filter(spending_group == "12USD") %>% 
+  ggplot(aes(x = reorder(City, -Value), y = Value, fill = Method)) + 
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(x = "City", y = "$12+ Consumer class", title = "$12+ consumer class in Kenya") +
+  theme_minimal() +
+  coord_flip() +
+  theme(axis.title.x = element_text(size =  10), 
+        axis.title.y = element_text(size = 10),
+        plot.title = element_text(size = 10))
+
+#Add value on top of  bars
+
+plotres1 + 
+  geom_text(aes(label = paste0(round(Value/1e3, 2), "Thsd")), 
+                 position = position_dodge(width = 0.9), vjust = -0.5, size = 1.5)
+```
+
+
+
+```{r}
+# Create bar plot
+plotres2 <- kenya_res %>% 
+  filter(spending_group == "40USD") %>% 
+  ggplot(aes(x = reorder(City, -Value), y = Value, fill = Method)) + 
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(x = "City", y = "$40+ Consumer class", title = "$40+ consumer class in Kenya") +
+  theme_minimal() +
+  coord_flip() +
+  theme(axis.title.x = element_text(size =  10), 
+        axis.title.y = element_text(size = 10),
+        plot.title = element_text(size = 10))
+
+#Add value on top of  bars
+
+plotres2 + 
+  geom_text(aes(label = paste0(round(Value/1e3, 2), "Thsd")), 
+                 position = position_dodge(width = 0.9), vjust = -0.5, size = 1.5)
+```
+
+
+```{r}
+# Create bar plot
+plotres3 <- kenya_res %>% 
+  filter(spending_group == "80USD") %>% 
+  ggplot(aes(x = reorder(City, -Value), y = Value, fill = Method)) + 
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(x = "City", y = "$80+ Consumer class", title = "$80+ consumer class in Kenya") +
+  theme_minimal() +
+  coord_flip() +
+  theme(axis.title.x = element_text(size =  10), 
+        axis.title.y = element_text(size = 10),
+        plot.title = element_text(size = 10))
+
+#Add value on top of  bars
+
+plotres3 + 
   geom_text(aes(label = paste0(round(Value/1e3, 2), "Thsd")), 
                  position = position_dodge(width = 0.9), vjust = -0.5, size = 1.5)
 ```
