@@ -34,7 +34,8 @@ library(fuzzyjoin)
 
 cities <- "/Users/lindakarani/Library/CloudStorage/GoogleDrive-linda.karani@worlddata.io/Shared drives/DATA_WDL/wdp_city_spending/wdpro_combination"
 
-WDPro <- "/Users/lindakarani/Library/CloudStorage/GoogleDrive-linda.karani@worlddata.io/Shared drives/DATA_WDL/Mpro_2.0/01_Data/R_2022_12_29/2023_03_13_2017ppp/03_outputs"
+WDPro <- "/Users/lindakarani/Library/CloudStorage/GoogleDrive-linda.karani@worlddata.io/Shared drives/DATA_WDL/Mpro_2.0/01_Data/R_2023_04_11/2023_04_26_ukr_rebase_2017ppp/03_outputs"
+
 
 ## Read in Matts output city spending file
 all_city <- read_rds(paste0(cities,"/city_distribution.rds"))
@@ -43,9 +44,118 @@ all_city <- read_rds(paste0(cities,"/city_distribution.rds"))
 resid_cit <- read_rds(paste0(cities,"/residual_city_distribution.rds"))
 
 ##World data pro
-worlddatapro <- read_rds(paste0(WDPro, "/05_003_merge_mpro2_ages_R_2022_12_29_2017ppp_1_USD.rds"))
+worlddatapro <- read_rds(paste0(WDPro, "/05_003_merge_mpro2_ages_R_2023_04_11_2017ppp_1_USD.rds"))
+
+## ccodes and regions
+
+region <- read_csv("ccodes.csv")
+
+region <- region %>% 
+    dplyr::select(`alpha-3`, region, `sub-region`) %>% 
+    rename(ccode = `alpha-3`)
+
+worlddatapro_2023 <- worlddatapro %>% 
+    filter(year %in% c("2021","2022","2023"))
+    
+
+##Merge worlddata pro with regions data set
+
+worlddatapro2123 <- merge(worlddatapro_2023, region, by = c("ccode"))
+    
 ```
 
+
+
+
+```{r}
+##Get rural/urban classification from wdpro
+
+cc_all <- worlddatapro2123 %>% 
+    filter(year %in% c("2021","2022","2023") & inc_lwr >= 12.00) %>%
+    group_by(year) %>% 
+    summarise(pop = sum(hc))
+
+
+##Get rural/urban classification from wdpro by region
+
+cc <- worlddatapro2123 %>% 
+    filter(year %in% c("2021","2022","2023") & inc_lwr >= 12.00) %>%
+    group_by(year, region) %>% 
+    summarise(pop = sum(hc)) %>% 
+    mutate(pop_urban = pop*0.85)
+
+cc_agg <- cc %>% 
+    group_by(year) %>% 
+    summarise(tot1 = sum(pop),
+              tot2= sum(pop_urban))
+
+cc_long <- cc %>% 
+    pivot_wider(names_from = "year", values_from = c("pop", "pop_urban")) %>% 
+    mutate(diff = `pop_urban_2023` - `pop_urban_2021`)
+
+cc_sum <- cc_long %>% 
+    summarise(total = sum(diff))
+
+poor <- worlddatapro2123 %>% 
+    filter(year %in% c("2021","2022","2023") & inc_lwr < 12.00) %>%
+    group_by(year, region) %>% 
+    summarise(pop = sum(hc))
+
+all <- worlddatapro2123 %>% 
+    filter(year %in% c("2021","2022","2023")) %>%
+    group_by(year) %>% 
+    summarise(pop = sum(hc))
+
+##Get rural/urban classification from wdpro by subregion
+
+cc_sub <- worlddatapro2123 %>% 
+    filter(year %in% c("2021","2022","2023") & inc_lwr >= 12.00) %>%
+    group_by(year, `sub-region`) %>% 
+    summarise(pop = sum(hc)) %>% 
+    mutate(pop_urban = pop*0.85)
+
+cc_agg_sub <- cc_sub %>% 
+    group_by(year) %>% 
+    summarise(tot1 = sum(pop),
+              tot2= sum(pop_urban))
+
+cc_long_sub <- cc_sub %>% 
+    pivot_wider(names_from = "year", values_from = c("pop", "pop_urban")) %>% 
+    mutate(diff = `pop_urban_2023` - `pop_urban_2021`)
+
+cc_sum_sub <- cc_long %>% 
+    summarise(total = sum(diff))
+
+poor_sub <- worlddatapro2123 %>% 
+    filter(year %in% c("2021","2022","2023") & inc_lwr < 12.00) %>%
+    group_by(year, `sub-region`) %>% 
+    summarise(pop = sum(hc))
+
+all_sub <- worlddatapro2123 %>% 
+    filter(year %in% c("2021","2022","2023")) %>%
+    group_by(year, `sub-region`) %>% 
+    summarise(pop = sum(hc))
+
+
+```
+
+
+
+```{r}
+## Ethiopia spending
+
+eth <- worlddatapro %>% 
+    filter(ccode == "ETH" & year %in% c("2015", "2016" ,"2023") & inc_lwr >= 15.00) %>%
+    group_by(year) %>% 
+    summarise(pop = sum(hc))
+
+eth_pop <- worlddatapro %>% 
+    filter(ccode == "ETH" & year %in% c("2015", "2016")) %>%
+    group_by(year) %>% 
+    summarise(pop = sum(hc))
+
+    
+```
 
 
 ```{r}
