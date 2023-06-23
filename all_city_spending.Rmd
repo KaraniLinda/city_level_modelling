@@ -28,6 +28,12 @@ library(fuzzyjoin)
 
 
 
+
+
+
+
+
+
 # All city spending
 
 ```{r}
@@ -165,6 +171,8 @@ city <- all_city %>%
     filter(ccode %in% c("NGA","ZAF", "KEN")) %>% 
     dplyr::select("year","ccode","pop","spending_data_kernel", "name")
 
+drc <- resid_cit %>% 
+    filter(ccode == "COD" & year == "2023")
 
 #unnest the list column
 
