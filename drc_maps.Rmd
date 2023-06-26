@@ -97,7 +97,7 @@ map <- map %>%
   addProviderTiles("Stamen.TonerLite", options = providerTileOptions(noWrap = TRUE))
 
 # Calculate the size of dots proportional to the city population
-dot_size <- sqrt(cities$Population / max(cities$Population)) * 30
+dot_size <- sqrt(cities$Population / max(cities$Population)) * 20
 
 # Add city dots with popups to the map
 for (i in 1:nrow(cities)) {
@@ -109,7 +109,7 @@ for (i in 1:nrow(cities)) {
       color = "red",
       fillOpacity = 0.8,
       label = paste0(city$City),
-      labelOptions = labelOptions(noHide = TRUE, textOnly = TRUE, direction = "center")
+      labelOptions = labelOptions(noHide = TRUE, textOnly = TRUE, direction = "bottom")
     )
 }
 
@@ -173,7 +173,7 @@ for (i in 1:nrow(cities)) {
 
 # Save the map as a PNG file
 
-webshot::webshot("/Users/lindakarani/Documents/gitrepo/city_level_modelling/drc_cities_map.html","drc4.png")
+webshot::webshot("/Users/lindakarani/Documents/gitrepo/city_level_modelling/drc_cities_map.html","drc5.png")
 
 # Display the map
 map
