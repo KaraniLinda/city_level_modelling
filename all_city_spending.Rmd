@@ -28,12 +28,6 @@ library(fuzzyjoin)
 
 
 
-
-
-
-
-
-
 # All city spending
 
 ```{r}
@@ -68,6 +62,11 @@ worlddatapro_2023 <- worlddatapro %>%
 
 worlddatapro2123 <- merge(worlddatapro_2023, region, by = c("ccode"))
     
+```
+
+```{r}
+SGP <- resid_cit %>% 
+    filter(ccode == "SGP")
 ```
 
 
@@ -171,8 +170,24 @@ city <- all_city %>%
     filter(ccode %in% c("NGA","ZAF", "KEN")) %>% 
     dplyr::select("year","ccode","pop","spending_data_kernel", "name")
 
-drc <- resid_cit %>% 
-    filter(ccode == "COD" & year == "2023")
+
+
+colgate <- resid_cit %>% 
+    unnest(cols = spending_data_datt) %>% 
+    filter(ccode %in% c("KEN", "COD", "ETH", "NGA", "AGO"))
+
+# add wdp spending levels
+colgate$spend_group <- cut(colgate$spending_threshold, breaks = c(0, 12, 40, 80, 120, Inf), right = FALSE)
+
+# sum up weights and spending by spending levels
+colgatefin <- colgate %>%
+    filter(year %in% c(2023, 2030)) %>% 
+    group_by(ccode, year, name, spend_group) %>%
+    summarise(hc = round(sum(headcount)),
+              exp = round(sum(spending))) %>%
+    ungroup() %>% 
+    write_csv("africa_cities_check.csv")
+
 
 #unnest the list column
 
